@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 from typing import Dict, List, Literal, Optional
 
 from datetime import datetime
@@ -34,8 +36,8 @@ class Totals(BaseModel):
     credit: str
     balance: str
     grand_total: str
-    fee: Optional[str]
-    earnings: Optional[str]
+    fee: str | None
+    earnings: str | None
     currency_code: str
 
 
@@ -44,8 +46,8 @@ class AdjustedTotals(BaseModel):
     tax: str
     total: str
     grand_total: str
-    fee: Optional[str]
-    earnings: Optional[str]
+    fee: str | None
+    earnings: str | None
     currency_code: str
 
 
@@ -69,7 +71,7 @@ class ChargebackFeeOriginal(BaseModel):
 
 class ChargebackFee(BaseModel):
     amount: str
-    original: Optional[ChargebackFeeOriginal]
+    original: ChargebackFeeOriginal | None
 
 
 class AdjustedPayoutTotals(BaseModel):
@@ -77,7 +79,7 @@ class AdjustedPayoutTotals(BaseModel):
     tax: str
     total: str
     fee: str
-    chargeback_fee: Optional[ChargebackFee]
+    chargeback_fee: ChargebackFee | None
     earnings: str
     currency_code: str
 
@@ -105,7 +107,7 @@ class LineItem(BaseModel):
     id: str
     price_id: str
     quantity: int
-    proration: Optional[LineItemProration]
+    proration: LineItemProration | None
     tax_rate: str
     unit_totals: LineItemUnitTotals
     totals: LineItemTotals
@@ -113,95 +115,95 @@ class LineItem(BaseModel):
 
 
 class TransactionDetails(BaseModel):
-    tax_rates_used: List[TaxRatesUsed]
+    tax_rates_used: list[TaxRatesUsed]
     totals: Totals
-    adjusted_totals: Optional[AdjustedTotals]
-    payout_totals: Optional[PayoutTotals]
-    adjusted_payout_totals: Optional[AdjustedPayoutTotals]
-    line_items: List[LineItem]
+    adjusted_totals: AdjustedTotals | None
+    payout_totals: PayoutTotals | None
+    adjusted_payout_totals: AdjustedPayoutTotals | None
+    line_items: list[LineItem]
 
 
 class BillingDetails(BaseModel):
-    enable_checkout: Optional[bool]
-    payment_terms: Optional[dict]
-    purchase_order_number: Optional[str]
-    additional_information: Optional[str]
+    enable_checkout: bool | None
+    payment_terms: dict | None
+    purchase_order_number: str | None
+    additional_information: str | None
 
 
 class TransactionBase(BaseModel):
-    items: List[dict]
-    status: Optional[
+    items: list[dict]
+    status: None | (
         Literal["draft", "ready", "billed", "paid", "completed", "canceled", "past_due"]
-    ]
-    customer_id: Optional[str]
-    address_id: Optional[str]
-    business_id: Optional[str]
-    discount_id: Optional[str]
-    custom_data: Optional[dict]
+    )
+    customer_id: str | None
+    address_id: str | None
+    business_id: str | None
+    discount_id: str | None
+    custom_data: dict | None
     collection_mode: Literal["automatic", "manual"]
-    billing_details: Optional[BillingDetails]
-    billing_period: Optional[BillingPeriod]
+    billing_details: BillingDetails | None
+    billing_period: BillingPeriod | None
     currency_code: str
 
 
 class Transaction(TransactionBase):
     id: str
-    customer: Optional[Customer]
-    address: Optional[Address]
-    business: Optional[Business]
-    discount: Optional[Discount]
-    adjustments_totals: Optional[dict]
+    customer: Customer | None
+    address: Address | None
+    business: Business | None
+    discount: Discount | None
+    adjustments_totals: dict | None
     origin: str
-    subscription_id: Optional[str]
-    invoice_id: Optional[str]
-    invoice_number: Optional[str]
+    subscription_id: str | None
+    invoice_id: str | None
+    invoice_number: str | None
     created_at: datetime
     updated_at: datetime
-    billed_at: Optional[str]
+    billed_at: str | None
     details: TransactionDetails
-    payments: List[dict]
-    checkout: Optional[dict]
+    payments: list[dict]
+    checkout: dict | None
 
 
 class TransactionQueryParams(BaseModel):
     # Return entities after the specified cursor. Used for working through paginated results.
-    after: Optional[str] = None
+    after: str | None = None
     # Return entities billed at a specific time.
     # Pass an RFC 3339 datetime string,
     # or use [LT] (less than), [LTE] (less than or equal to),
     # [GT] (greater than), or [GTE] (greater than or equal to) operators.
     # For example, billed_at=2023-04-18T17:03:26 or billed_at[LT]=2023-04-18T17:03:26.
-    billed_at: Optional[datetime | str] = None
-    collection_mode: Optional[Literal["automatic", "manual"]] = None
+    billed_at: datetime | str | None = None
+    collection_mode: Literal["automatic", "manual"] | None = None
     # Return entities created at a specific time.
     # Pass an RFC 3339 datetime string,
     # or use [LT] (less than), [LTE] (less than or equal to),
     # [GT] (greater than), or [GTE] (greater than or equal to) operators.
     # For example, billed_at=2023-04-18T17:03:26 or billed_at[LT]=2023-04-18T17:03:26.
-    created_at: Optional[datetime | str] = None
+    created_at: datetime | str | None = None
     # Return entities related to the specified customer. Use a comma separated list to specify multiple customer IDs.
-    customer_id: Optional[str]
+    customer_id: str | None
     # Return only the IDs specified. Use a comma separated list to get multiple entities.
-    id: Optional[str] = None
+    id: str | None = None
     # Include related entities in the response.
     # 'address', 'adjustment', 'adjustment_totals', 'business', 'customer', 'discount'
-    include: Optional[str] = None
-    invoice_number: Optional[str] = None
+    include: str | None = None
+    invoice_number: str | None = None
     # Order returned entities by the specified field and direction ([ASC] or [DESC]).
-    order_by: Optional[Literal["[ASC]", "[DESC]"]] = None
+    order_by: Literal["[ASC]", "[DESC]"] | None = None
     # Set how many entities are returned per page. Default: 50
-    per_page: Optional[int] = None
+    per_page: int | None = None
     # Return entities that match the specified status. Use a comma separated list to specify multiple status values.
-    status: Optional[str] = None
+    status: str | None = None
     # Return entities related to the specified subscription.
     # Use a comma separated list to specify multiple subscription IDs.
-    subscription_id: Optional[str]
+    subscription_id: str | None
     # Return entities updated at a specific time.
     # Pass an RFC 3339 datetime string,
     # or use [LT] (less than), [LTE] (less than or equal to),
     # [GT] (greater than), or [GTE] (greater than or equal to) operators.
     # For example, billed_at=2023-04-18T17:03:26 or billed_at[LT]=2023-04-18T17:03:26.
-    updated_at: Optional[datetime | str] = None
+    updated_at: datetime | str | None = None
 
     @validator("status", allow_reuse=True)
     def check_status(cls, v: str) -> str:  # pragma: no cover
@@ -226,7 +228,7 @@ class TransactionResponse(PaddleResponse):
 
 
 class TransactionsResponse(PaddleResponse):
-    data: List[Transaction]
+    data: list[Transaction]
 
 
 class TransactionRequest(TransactionBase):
