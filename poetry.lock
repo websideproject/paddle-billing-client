@@ -1175,17 +1175,17 @@ tests = ["pytest-httpbin", "pytest-mock", "requests", "werkzeug (==2.3.6)"]
 
 [[package]]
 name = "pyupgrade"
-version = "2.38.4"
+version = "3.8.0"
 description = "A tool to automatically upgrade syntax for newer versions."
 optional = false
-python-versions = ">=3.7"
+python-versions = ">=3.8"
 files = [
-    {file = "pyupgrade-2.38.4-py2.py3-none-any.whl", hash = "sha256:944ff993c396ddc2b9012eb3de4cda138eb4c149b22c6c560d4c8bfd0e180982"},
-    {file = "pyupgrade-2.38.4.tar.gz", hash = "sha256:1eb43a49f416752929741ba4d706bf3f33593d3cac9bdc217fc1ef55c047c1f4"},
+    {file = "pyupgrade-3.8.0-py2.py3-none-any.whl", hash = "sha256:08d0e6129f5e9da7e7a581bdbea689e0d49c3c93eeaf156a07ae2fd794f52660"},
+    {file = "pyupgrade-3.8.0.tar.gz", hash = "sha256:1facb0b8407cca468dfcc1d13717e3a85aa37b9e6e7338664ad5bfe5ef50c867"},
 ]
 
 [package.dependencies]
-tokenize-rt = "<5"
+tokenize-rt = ">=3.2.0"
 
 [[package]]
 name = "pyyaml"
@@ -1703,4 +1703,4 @@ multidict = ">=4.0"
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.8"
-content-hash = "b91086b73463e7e02452280415c7a4d8b1fa816f380ae75086cc63429970414e"
+content-hash = "7bb366f837f5b892be249d0823f39c38f2a2680201eaa6431134cf6dd3c891b6"
