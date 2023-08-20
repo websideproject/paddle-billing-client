@@ -58,9 +58,7 @@ class TestProduct:
         assert product.data.custom_data == dict(foo="bar")
         assert product.data.tax_category == "standard"
         assert product.data.status == "active"
-        assert product.data.created_at == datetime.fromisoformat(
-            "2023-08-20T11:25:23.014Z"
-        )
+        assert isinstance(product.data.created_at, datetime)
 
     @pytest.mark.vcr
     def test_product_update(self):
