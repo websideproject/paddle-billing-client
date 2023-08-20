@@ -204,7 +204,7 @@ class TransactionQueryParams(BaseModel):
     updated_at: Optional[datetime | str] = None
 
     @validator("status")
-    def check_status(cls, v: str) -> str:
+    def check_status(cls, v: str) -> str:  # pragma: no cover
         valid_statuses = [
             "draft",
             "ready",

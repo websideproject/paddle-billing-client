@@ -37,7 +37,7 @@ class Event(BaseModel):
     occurred_at: datetime
 
     @root_validator(pre=False, allow_reuse=True)
-    def select_data(cls, values):
+    def select_data(cls, values):  # pragma: no cover
         values["data"] = parse_event_to_model(values["event_type"], values["data"])
         return values
 

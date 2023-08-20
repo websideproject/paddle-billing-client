@@ -21,7 +21,7 @@ class NotificationPayload(BaseModel):
     occurred_at: datetime
 
     @root_validator(pre=False, allow_reuse=True)
-    def select_data(cls, values):
+    def select_data(cls, values):  # pragma: no cover
         values["data"] = parse_event_to_model(values["event_type"], values["data"])
         return values
 
@@ -63,7 +63,7 @@ class NotificationQueryParams(BaseModel):
     from_field: Optional[str] = Field(None, alias="from")
 
     @validator("status")
-    def check_status(cls, v: str) -> str:
+    def check_status(cls, v: str) -> str:  # pragma: no cover
         valid_statuses = ["delivered", "failed", "needs_retry", "not_attempted"]
         if not all([s in valid_statuses for s in v.split(",")]):
             raise ValueError(

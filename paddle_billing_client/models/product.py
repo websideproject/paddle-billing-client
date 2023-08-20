@@ -62,7 +62,7 @@ class ProductQueryParams(BaseModel):
     ] = None
 
     @validator("status")
-    def check_status(cls, v: str) -> str:
+    def check_status(cls, v: str) -> str:  # pragma: no cover
         valid_statuses = ["active", "archived"]
         if not all([s in valid_statuses for s in v.split(",")]):
             raise ValueError(

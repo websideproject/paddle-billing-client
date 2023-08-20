@@ -1,4 +1,3 @@
-# @endpoint(base_url='https://sandbox-api.paddle.com')
 class Endpoints:
     # Products
     create_product: str = "products"
