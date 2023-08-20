@@ -69,7 +69,7 @@ class SubscriptionQueryParams(BaseModel):
     # Return entities that match the specified status. Use a comma separated list to specify multiple status values.
     status: Optional[str] = None
 
-    @validator("status")
+    @validator("status", allow_reuse=True)
     def check_status(cls, v: str) -> str:  # pragma: no cover
         valid_statuses = ["active", "canceled", "past_due", "paused", "trialing"]
         if not all([s in valid_statuses for s in v.split(",")]):

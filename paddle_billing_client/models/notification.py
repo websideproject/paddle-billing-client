@@ -62,7 +62,7 @@ class NotificationQueryParams(BaseModel):
     # Return entities from a specific time.
     from_field: Optional[str] = Field(None, alias="from")
 
-    @validator("status")
+    @validator("status", allow_reuse=True)
     def check_status(cls, v: str) -> str:  # pragma: no cover
         valid_statuses = ["delivered", "failed", "needs_retry", "not_attempted"]
         if not all([s in valid_statuses for s in v.split(",")]):

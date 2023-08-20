@@ -203,7 +203,7 @@ class TransactionQueryParams(BaseModel):
     # For example, billed_at=2023-04-18T17:03:26 or billed_at[LT]=2023-04-18T17:03:26.
     updated_at: Optional[datetime | str] = None
 
-    @validator("status")
+    @validator("status", allow_reuse=True)
     def check_status(cls, v: str) -> str:  # pragma: no cover
         valid_statuses = [
             "draft",

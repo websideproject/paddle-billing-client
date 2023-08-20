@@ -41,7 +41,7 @@ class BusinessQueryParams(BaseModel):
     # Return entities that match the specified status. Use a comma separated list to specify multiple status values.
     status: Optional[str] = None
 
-    @validator("status")
+    @validator("status", allow_reuse=True)
     def check_status(cls, v: str) -> str:
         valid_statuses = ["active", "archived"]
         if not all([s in valid_statuses for s in v.split(",")]):
