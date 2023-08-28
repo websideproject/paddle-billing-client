@@ -61,7 +61,10 @@ poetry add paddle-billing-client
 ## Usage
 
 ```python
-client = PaddleApiClient(authentication_method=HeaderAuthentication(token="your-paddle-token")
+client = PaddleApiClient(
+    base_url="https://sandbox-api.paddle.com/", 
+    authentication_method=HeaderAuthentication(token="your-paddle-token")
+)
 
 # Create a product
 product = client.create_product(
@@ -80,6 +83,8 @@ products = client.products.get_products()
 # Get all plans
 plans = client.plans.get_plans()
 ```
+- Sandbox API url: `https://sandbox-api.paddle.com/`
+- Live API url: `https://api.paddle.com/`
 
 More usage examples can be found in **tests**.
 
