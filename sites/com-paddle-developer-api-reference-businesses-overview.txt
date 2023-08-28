@@ -1,0 +1,143 @@
+API reference
+
+Businesses
+
+Business object
+
+Business entities hold information about customer businesses. They're sub-entities of customers.
+
+Businesses store information that you need when working with a business rather than an individual. They're always created against a
+
+entity.
+
+You can create as many addresses as you like against a customer — useful for billing companies with different legal entities.
+
+Businesses hold information like:
+
+What the company is called
+
+Company number and tax number
+
+Who should be contacted at the company
+
+Customers,
+
+, and businesses work with
+
+,
+
+, and
+
+to bill for
+
+and
+
+.
+
+You don't need to create a business to bill a customer. You only need one when working with a business.
+
+Learn how to create a complete customer with a related address and business. See:
+
+There's no delete operation for businesses. Use the
+
+to archive businesses when you no longer need them. See:
+
+id
+
+string
+
+Unique Paddle ID for this business entity, prefixed with
+
+biz_
+
+.
+
+name
+
+string
+
+Name of this business.
+
+company_number
+
+string or null
+
+Company number for this business.
+
+tax_identifier
+
+string or null
+
+Tax or VAT Number for this business.
+
+status
+
+string
+
+Whether this entity can be used in Paddle.
+
+Show
+
+allowed values
+
+contacts
+
+array[object]
+
+List of contacts related to this business, typically used for sending invoices.
+
+name
+
+string
+
+Full name of this contact.
+
+email
+
+string
+
+Email address for this contact.
+
+created_at
+
+string
+
+RFC 3339 datetime string of when this entity was created. Set automatically by Paddle.
+
+updated_at
+
+string
+
+RFC 3339 datetime string of when this entity was updated. Set automatically by Paddle.
+
+List businesses for a customer
+
+get
+
+https://api.paddle.com
+
+/customers/{customer_id}/businesses
+
+Create a business for a customer
+
+post
+
+https://api.paddle.com
+
+/customers/{customer_id}/businesses
+
+Get a business for a customer
+
+get
+
+https://api.paddle.com
+
+/customers/{customer_id}/businesses/{business_id}
+
+Update a business for a customer
+
+patch
+
+https://api.paddle.com
+
+/customers/{customer_id}/businesses/{business_id}

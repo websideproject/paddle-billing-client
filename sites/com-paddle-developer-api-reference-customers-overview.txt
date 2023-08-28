@@ -1,0 +1,155 @@
+API reference
+
+Customers
+
+Customer object
+
+Customer entities hold information about the people and businesses that you sell to. They're related to addresses and businesses.
+
+Customers are the people and businesses that you sell products in your catalog to.
+
+Paddle automatically creates customers for you as part of
+
+, or you can create and manage them using the Dashboard or API.
+
+Customer entities hold information like:
+
+Who you're billing
+
+What their email address is
+
+Whether they've opted-in to marketing from you
+
+Customers have two sub-entities:
+
+, which hold information about customer billing addresses
+
+, which hold information that you need when working with a business
+
+Customers, addresses, and businesses work with
+
+,
+
+, and
+
+to bill for
+
+and
+
+.
+
+Learn how to create a complete customer with a related address and business. See:
+
+There's no delete operation for customers. Use the
+
+to archive customers when you no longer need them. See:
+
+id
+
+string
+
+Unique Paddle ID for this customer entity, prefixed with
+
+ctm_
+
+.
+
+name
+
+string or null
+
+Full name of this customer. Required when creating transactions where
+
+collection_mode
+
+is
+
+manual
+
+(invoices).
+
+email
+
+string
+
+Email address for this customer.
+
+marketing_consent
+
+boolean
+
+Whether this customer opted into marketing from you.
+
+Set to
+
+true
+
+by Paddle where a customer checks the marketing consent box when using Paddle Checkout;
+
+false
+
+otherwise.
+
+status
+
+string
+
+Whether this entity can be used in Paddle.
+
+Show
+
+allowed values
+
+locale
+
+string
+
+Valid IETF BCP 47 short form locale tag. If omitted, defaults to
+
+en
+
+.
+
+created_at
+
+string
+
+RFC 3339 datetime string of when this entity was created. Set automatically by Paddle.
+
+updated_at
+
+string
+
+RFC 3339 datetime string of when this entity was updated. Set automatically by Paddle.
+
+List customers
+
+get
+
+https://api.paddle.com
+
+/customers
+
+Create a customer
+
+post
+
+https://api.paddle.com
+
+/customers
+
+Get a customer
+
+get
+
+https://api.paddle.com
+
+/customers/{customer_id}
+
+Update a customer
+
+patch
+
+https://api.paddle.com
+
+/customers/{customer_id}

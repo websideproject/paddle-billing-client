@@ -1,0 +1,85 @@
+API reference
+
+Events
+
+Event object
+
+Event entities describe something notable that happened in your Paddle system.
+
+When something notable occurs in your system, Paddle creates an event entity with information about what happened. Events are created for actions regardless of how they happened — API request, dashboard, customer action, or system action like a subscription renewal.
+
+Paddle creates events for
+
+. You can use
+
+to see what kind of things Paddle creates events for.
+
+Event entities hold information like:
+
+What kind of event happened
+
+When it happened
+
+The new or changed entity
+
+Keep in mind that some actions might create multiple events. For example, resuming a subscription typically results in a
+
+subscription.resumed
+
+,
+
+tranasction.created
+
+, and other transaction events being created.
+
+Events are related to notifications. You can create notification destinations to get notifications when events happen. See:
+
+event_id
+
+string
+
+Unique Paddle ID for this event, prefixed with
+
+evt_
+
+.
+
+event_type
+
+string
+
+Type of event sent by Paddle, in the format
+
+entity.event_type
+
+.
+
+occurred_at
+
+string
+
+RFC 3339 datetime string of when this event occurred.
+
+notification_id
+
+string
+
+Unique Paddle ID for this notification, prefixed with
+
+ntf_
+
+.
+
+data
+
+object
+
+New or changed entity.
+
+List events
+
+get
+
+https://api.paddle.com
+
+/events
