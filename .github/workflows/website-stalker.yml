@@ -1,0 +1,29 @@
+name: website-stalker
+
+on:
+  push:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 1 * * *' # once per day at 1am
+
+permissions:
+  contents: write
+
+jobs:
+  website-stalker:
+    runs-on: ubuntu-latest
+    env:
+      WEBSITE_STALKER_FROM: ${{ secrets.WEBSITE_STALKER_FROM }}
+    steps:
+      - uses: EdJoPaTo/website-stalker-github-action@v1
+
+      - uses: actions/checkout@v3
+
+      - name: Check website-stalker config
+        run: website-stalker check
+
+      - name: Run website-stalker
+        run: website-stalker run --all --commit
+
+      - if: always()
+        run: git push
