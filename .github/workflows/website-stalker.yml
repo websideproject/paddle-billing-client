@@ -1,4 +1,4 @@
-name: website-stalker
+name: Paddle API Doc Update stalker
 
 on:
   workflow_dispatch:
