@@ -1,7 +1,6 @@
 name: website-stalker
 
 on:
-  push:
   workflow_dispatch:
   schedule:
     - cron: '0 1 * * *' # once per day at 1am
