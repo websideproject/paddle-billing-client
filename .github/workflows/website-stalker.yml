@@ -36,7 +36,6 @@ jobs:
           author: ${{ github.actor }} <${{ github.actor }}@users.noreply.github.com>
           title: 'Update API Reference'
           assignees: bgervan
-          reviewers: bgervan
           draft: false
 
       - if: always()
