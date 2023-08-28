@@ -2,7 +2,7 @@
 
 <div align="center">
 
-[![Build status](https://github.com/bgervan/paddle-billing-client/workflows/build/badge.svg?branch=main&event=push)](https://github.com/bgervan/paddle-billing-client/actions?query=workflow%3Abuild)
+[![Build status](https://github.com/WebstormitDev/paddle-billing-client/workflows/build/badge.svg?branch=main&event=push)](https://github.com/WebstormitDev/paddle-billing-client/actions?query=workflow%3Abuild)
 [![Python Version](https://img.shields.io/pypi/pyversions/paddle-billing-client.svg)](https://pypi.org/project/paddle-billing-client/)
 [![Dependencies Status](https://img.shields.io/badge/dependencies-up%20to%20date-brightgreen.svg)](https://github.com/bgervan/paddle-billing-client/pulls?utf8=%E2%9C%93&q=is%3Apr%20author%3Aapp%2Fdependabot)
 
@@ -342,7 +342,7 @@ Building a new version of the application contains steps:
 
 ## 🛡 License
 
-[![License](https://img.shields.io/github/license/bgervan/paddle-billing-client)](https://github.com/bgervan/paddle-billing-client/blob/main/LICENSE)
+[![License](https://img.shields.io/github/license/WebstormitDev/paddle-billing-client)](https://github.com/WebstormitDev/paddle-billing-client/blob/main/LICENSE)
 
 This project is licensed under the terms of the `MIT` license. See [LICENSE](https://github.com/bgervan/paddle-billing-client/blob/master/LICENSE) for more details.
 
