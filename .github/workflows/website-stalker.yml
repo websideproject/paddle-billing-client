@@ -23,7 +23,20 @@ jobs:
         run: website-stalker check
 
       - name: Run website-stalker
-        run: website-stalker run --all --commit
+        run: website-stalker run --all
+
+      - name: Create Pull Request
+        id: cpr
+        uses: peter-evans/create-pull-request@v5
+        with:
+          branch: paddle-website-stalker
+          commit-message: Update API Reference
+          committer: GitHub <noreply@github.com>
+          author: ${{ github.actor }} <${{ github.actor }}@users.noreply.github.com>
+          title: 'Update API Reference'
+          assignees: bgervan
+          reviewers: bgervan
+          draft: false
 
       - if: always()
         run: git push
