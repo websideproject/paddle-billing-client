@@ -1,6 +1,6 @@
-API reference changes
+API reference
 
-Addresses 2
+Addresses
 
 Address object
 
