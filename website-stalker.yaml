@@ -26,7 +26,7 @@ sites:
       - "https://developer.paddle.com/api-reference/transactions/overview"
       - "https://developer.paddle.com/api-reference/subscriptions/overview"
       - "https://developer.paddle.com/api-reference/adjustments/overview"
-      - "https://developer.paddle.com/api-reference/pricing-preview/preview-prices"
+      - "https://developer.paddle.com/api-reference/pricing-preview/overview"
       - "https://developer.paddle.com/api-reference/events/overview"
       - "https://developer.paddle.com/api-reference/notification-settings/overview"
       - "https://developer.paddle.com/api-reference/notifications/overview"
