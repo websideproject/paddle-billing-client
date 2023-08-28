@@ -1,0 +1,175 @@
+API reference
+
+Pricing preview
+
+Pricing preview object
+
+Pricing previews are calculated totals for prices.
+
+automatically shows the correct prices for a customer based on their location, including localized prices and taxes for their country or region.
+
+You can use
+
+to calculate prices in the same way Paddle Checkout does to
+
+or other page in your app.
+
+Paddle responds with a pricing preview object. This holds calculated totals for prices, including discounts, taxes, and currency conversion.
+
+As well as returning totals in the lowest denomination for a currency, pricing previews contain formatted totals that include the currency symbol and decimal separator.
+
+customer_id
+
+string or null
+
+Paddle ID of the customer that this preview is for, prefixed with
+
+ctm_
+
+.
+
+address_id
+
+string or null
+
+Paddle ID of the address that this preview is for, prefixed with
+
+add_
+
+. Send one of
+
+address_id
+
+,
+
+customer_ip_address
+
+, or the
+
+address
+
+object when previewing.
+
+business_id
+
+string or null
+
+Paddle ID of the business that this preview is for, prefixed with
+
+biz_
+
+.
+
+currency_code
+
+string
+
+Supported three-letter ISO 4217 currency code.
+
+Show
+
+allowed values
+
+discount_id
+
+string or null
+
+Paddle ID of the discount applied to this preview, prefixed with
+
+dsc_
+
+.
+
+address
+
+object or null
+
+Address for this preview. Send one of
+
+address_id
+
+,
+
+customer_ip_address
+
+, or the
+
+address
+
+object when previewing.
+
+postal_code
+
+string or null
+
+ZIP or postal code of this address. Include for more accurate tax calculations.
+
+country_code
+
+string
+
+Supported two-letter ISO 3166-1 alpha-2 country code for this address.
+
+Show
+
+allowed values
+
+customer_ip_address
+
+string or null
+
+IP address for this transaction preview. Send one of
+
+address_id
+
+,
+
+customer_ip_address
+
+, or the
+
+address
+
+object when previewing.
+
+items
+
+array[object]
+
+List of items to preview price calculations for.
+
+price_id
+
+string
+
+Paddle ID for the price to add to this transaction, prefixed with
+
+pri_
+
+.
+
+quantity
+
+integer
+
+Quantity of the item to preview.
+
+details
+
+object
+
+Calculated totals for a price preview, including discounts, tax, and currency conversion.
+
+line_items
+
+array[object]
+
+Information about line items for this preview. Includes totals calculated by Paddle. Considered the source of truth for line item totals.
+
+Preview prices
+
+post
+
+https://api.paddle.com
+
+/pricing-preview
