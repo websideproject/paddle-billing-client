@@ -1,6 +1,6 @@
 API reference changes
 
-Addresses
+Addresses 2
 
 Address object
 

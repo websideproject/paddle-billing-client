@@ -29,6 +29,7 @@ jobs:
         id: cpr
         uses: peter-evans/create-pull-request@v5
         with:
+          token: ${{ secrets.PAT }}
           branch: paddle-website-stalker
           commit-message: Update API Reference
           committer: GitHub <noreply@github.com>
