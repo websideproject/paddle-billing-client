@@ -27,6 +27,9 @@ Python wrapper around the new Paddle Billing API
 ## 📦 Features
 
 - TBD
+- Pydantic models for all API requests and responses
+- Tests with [`pytest`](https://docs.pytest.org/en/latest/) and [`VCR.py`](https://vcrpy.readthedocs.io/en/latest/) for mocking HTTP requests
+- [`Website stalker`](https://github.com/EdJoPaTo/website-stalker) Github Action to monitor any API changes
 
 ### Tests
 
