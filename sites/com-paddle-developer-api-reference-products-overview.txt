@@ -1,0 +1,129 @@
+API reference
+
+Products
+
+Product object
+
+Product entities describe the items that you sell. They hold high-level product attributes.
+
+Products are the items in your catalog that you sell to your customers. For simplicity and flexibility, there's no categories or hierarchies of product – everything you sell starts with a product entity.
+
+Products work with
+
+, which is where you can say how much you charge for a product and how often.
+
+Product entities hold information like:
+
+What the product is called
+
+How it should be taxed
+
+A description of the product
+
+An image to show at checkout and on invoices
+
+Once you've created a product, you can link a price to it. You can add prices to
+
+,
+
+, and
+
+to bill for your products.
+
+Get a step-by-step overview of how to create a product that's ready-to-sell, including prices and price overrides. See:
+
+There's no delete operation for products. Use the
+
+to archive products when you no longer need them. See:
+
+id
+
+string
+
+Unique Paddle ID for this product, prefixed with
+
+pro_
+
+.
+
+name
+
+string
+
+Name of this product.
+
+description
+
+string or null
+
+Short description for this product. Included in the checkout and on some customer documents.
+
+tax_category
+
+string
+
+Tax category for this product. Used for charging the correct rate of tax. Selected tax category must be enabled on your Paddle account.
+
+Show
+
+allowed values
+
+image_url
+
+null or string
+
+Image for this product. Included in the checkout and on some customer documents.
+
+custom_data
+
+object or null
+
+Your own structured key-value data.
+
+status
+
+string
+
+Whether this entity can be used in Paddle.
+
+Show
+
+allowed values
+
+created_at
+
+string
+
+RFC 3339 datetime string of when this entity was created. Set automatically by Paddle.
+
+List products
+
+get
+
+https://api.paddle.com
+
+/products
+
+Create a product
+
+post
+
+https://api.paddle.com
+
+/products
+
+Get a product
+
+get
+
+https://api.paddle.com
+
+/products/{product_id}
+
+Update a product
+
+patch
+
+https://api.paddle.com
+
+/products/{product_id}

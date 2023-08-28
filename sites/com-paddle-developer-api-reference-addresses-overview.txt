@@ -1,0 +1,157 @@
+API reference
+
+Addresses
+
+Address object
+
+Address entities hold billing address information for a customer. They're sub-entities of customers.
+
+Addresses store components of a customer billing address. They're always created against a
+
+entity.
+
+You can create as many addresses as you like against a customer — useful for billing companies with different locations.
+
+Address entities hold address components like:
+
+Country
+
+ZIP/postal code
+
+State (region)
+
+A short, internal description for this address
+
+Customers, addresses, and
+
+work with
+
+,
+
+, and
+
+to bill for
+
+and
+
+.
+
+You can't bill a customer without an address. To make buying as frictionless as possible, Paddle only requires a country
+
+where a ZIP or postal code is also required.
+
+Learn how to create a complete customer with a related address and business. See:
+
+There's no delete operation for addresses. Use the
+
+to archive addresses when you no longer need them. See:
+
+id
+
+string
+
+Unique Paddle ID for this address entity, prefixed with
+
+add_
+
+.
+
+description
+
+string or null
+
+Memorable description for this address.
+
+first_line
+
+string or null
+
+First line of this address.
+
+second_line
+
+string or null
+
+Second line of this address.
+
+city
+
+string or null
+
+City of this address.
+
+postal_code
+
+string or null
+
+ZIP or postal code of this address. Required for some countries.
+
+region
+
+string or null
+
+State, county, or region of this address.
+
+country_code
+
+string
+
+Supported two-letter ISO 3166-1 alpha-2 country code for this address.
+
+Show
+
+allowed values
+
+status
+
+string
+
+Whether this entity can be used in Paddle.
+
+Show
+
+allowed values
+
+created_at
+
+string
+
+RFC 3339 datetime string of when this entity was created. Set automatically by Paddle.
+
+updated_at
+
+string
+
+RFC 3339 datetime string of when this entity was updated. Set automatically by Paddle.
+
+List addresses for a customer
+
+get
+
+https://api.paddle.com
+
+/customers/{customer_id}/addresses
+
+Create an addresses for a customer
+
+post
+
+https://api.paddle.com
+
+/customers/{customer_id}/addresses
+
+Get an address for a customer
+
+get
+
+https://api.paddle.com
+
+/customers/{customer_id}/addresses/{address_id}
+
+Update an address for a customer
+
+patch
+
+https://api.paddle.com
+
+/customers/{customer_id}/addresses/{address_id}

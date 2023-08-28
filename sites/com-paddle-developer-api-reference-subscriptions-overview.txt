@@ -1,0 +1,572 @@
+API reference
+
+Subscriptions
+
+Subscription object
+
+Subscription entities describe a recurring billing relationship with a customer. They're closely related to transactions.
+
+Subscriptions let you charge a customer on a recurring basis. They hold information about what Paddle should charge a customer for and how often.
+
+Paddle automatically creates subscriptions for you when customers pay for recurring items using
+
+, or when you
+
+using a manually-collected transaction.
+
+Subscription entities hold information like:
+
+Who you're billing
+
+Which prices a customer has subscribed to
+
+How often you charge your customer
+
+Details about trial periods
+
+Any upcoming scheduled changes
+
+Subscriptions work
+
+,
+
+, and
+
+to say what a customer has subscribed to, and
+
+,
+
+, and
+
+to say who you're billing.
+
+Billing for subscriptions is powered by
+
+. When a subscription bills, Paddle creates a related transaction to calculate totals and collect for payment.
+
+You can get a preview of the next transaction when getting a subscription
+
+.
+
+A scheduled change is a change that's going to happen automatically when the subscription next bills.
+
+Paddle creates a scheduled change automatically when you
+
+, pause, or
+
+on a subscription and returns them in the
+
+scheduled_change
+
+object.
+
+Proration is how Paddle calculates what a customer should be billed for, based on changes made in the current billing cycle.
+
+When updating subscription items, you must include the
+
+proration_billing_mode
+
+field to tell Paddle how to handle proration for the items you're adding or removing.
+
+See:
+
+Follow our step-by-step guides to learn how to
+
+,
+
+, or
+
+or
+
+.
+
+Subscriptions describe an ongoing financial relationship with a customer, so they can't be deleted. Use the
+
+to cancel a subscription.
+
+id
+
+string
+
+Unique Paddle ID for this subscription entity, prefixed with
+
+sub_
+
+.
+
+status
+
+string
+
+Status of this subscription. Set automatically by Paddle. Use the pause subscription or cancel subscription operations to change.
+
+Show
+
+allowed values
+
+customer_id
+
+string
+
+Paddle ID of the customer that this subscription is for, prefixed with
+
+ctm_
+
+.
+
+address_id
+
+string
+
+Paddle ID of the address that this subscription is for, prefixed with
+
+add_
+
+.
+
+business_id
+
+string or null
+
+Paddle ID of the business that this subscription is for, prefixed with
+
+biz_
+
+.
+
+currency_code
+
+string
+
+Supported three-letter ISO 4217 currency code. Transactions for this subscription are created in this currency. Must be
+
+USD
+
+,
+
+EUR
+
+, or
+
+GBP
+
+if
+
+collection_mode
+
+is
+
+manual
+
+.
+
+Show
+
+allowed values
+
+created_at
+
+string
+
+RFC 3339 datetime string of when this entity was created. Set automatically by Paddle.
+
+updated_at
+
+string
+
+RFC 3339 datetime string of when this entity was updated. Set automatically by Paddle.
+
+started_at
+
+string
+or null
+
+RFC 3339 datetime string of when this subscription started. This may be different from
+
+first_billed_at
+
+if the subscription started in trial.
+
+first_billed_at
+
+string
+or null
+
+RFC 3339 datetime string of when this subscription was first billed. This may be different from
+
+started_at
+
+if the subscription started in trial.
+
+next_billed_at
+
+string
+or null
+
+RFC 3339 datetime string of when this subscription is next scheduled to be billed.
+
+paused_at
+
+string
+or null
+
+RFC 3339 datetime string of when this subscription was paused. Set automatically by Paddle when the pause subscription operation is used.
+
+null
+
+if not paused.
+
+canceled_at
+
+string
+or null
+
+RFC 3339 datetime string of when this subscription was canceled. Set automatically by Paddle when the cancel subscription operation is used.
+
+null
+
+if not canceled.
+
+discount
+
+object or null
+
+Details of the discount applied to this subscription.
+
+id
+
+string
+
+Unique Paddle ID for this discount, prefixed with
+
+dsc_
+
+.
+
+starts_at
+
+string
+
+RFC 3339 datetime string of when this discount was first applied.
+
+ends_at
+
+string
+
+RFC 3339 datetime string of when this discount no longer applies. Where a discount has
+
+maximum_recurring_intervals
+
+, this is the date of the last billing period where this discount applies.
+
+null
+
+where a discount recurs forever.
+
+collection_mode
+
+string
+
+How payment is collected for transactions created for this subscription.
+
+automatic
+
+for checkout,
+
+manual
+
+for invoices.
+
+Show
+
+allowed values
+
+billing_details
+
+object or null
+
+Details for invoicing. Required if
+
+collection_mode
+
+is
+
+manual
+
+.
+
+enable_checkout
+
+boolean
+
+Whether the related transaction may be paid using a Paddle Checkout.
+
+purchase_order_number
+
+string
+
+Customer purchase order number. Appears on invoice documents.
+
+additional_information
+
+string
+
+Notes or other information to include on this invoice. Appears on invoice documents.
+
+payment_terms
+
+object
+
+How long a customer has to pay this invoice once issued.
+
+current_billing_period
+
+object or null
+
+Current billing period for this subscription. Set automatically by Paddle based on the billing cycle.
+
+starts_at
+
+string
+
+RFC 3339 datetime string of when this period starts.
+
+ends_at
+
+string
+
+RFC 3339 datetime string of when this period ends.
+
+billing_cycle
+
+object
+
+How often this subscription renews. Set automatically by Paddle based on the prices on this subscription.
+
+interval
+
+string
+
+Unit of time.
+
+Show
+
+allowed values
+
+frequency
+
+integer
+
+Amount of time.
+
+scheduled_change
+
+object or null
+
+Change that's scheduled to be applied to a subscription. Use the pause subscription, cancel subscription, and resume subscription operations to create scheduled changes.
+
+null
+
+if no scheduled changes.
+
+action
+
+string
+
+Kind of change that's scheduled to be applied to this subscription.
+
+Show
+
+allowed values
+
+effective_at
+
+string
+
+RFC 3339 datetime string of when this scheduled change takes effect.
+
+resume_at
+
+string
+or null
+
+RFC 3339 datetime string of when a paused subscription should resume. Only used for
+
+pause
+
+scheduled changes.
+
+management_urls
+
+object
+
+Public URLs that customers can use to make changes to this subscription.
+
+update_payment_method
+
+string
+or null
+
+Public URL that lets customers update the payment method for this subscription.
+
+cancel
+
+string
+
+Public URL that lets customers cancel this subscription.
+
+items
+
+array[object]
+
+Represents a subscription item.
+
+status
+
+string
+
+Status of this subscription item. Set automatically by Paddle.
+
+Show
+
+allowed values
+
+quantity
+
+number
+
+Quantity of this item on the subscription.
+
+recurring
+
+boolean
+
+Whether this is a recurring item.
+
+false
+
+if one-time.
+
+created_at
+
+string
+
+RFC 3339 datetime string of when this item was added to this subscription.
+
+updated_at
+
+string
+
+RFC 3339 datetime string of when this item was last updated on this subscription.
+
+previously_billed_at
+
+string
+or null
+
+RFC 3339 datetime string of when this item was last billed.
+
+next_billed_at
+
+string
+or null
+
+RFC 3339 datetime string of when this item is next scheduled to be billed.
+
+trial_dates
+
+object or null
+
+Trial dates for this item.
+
+price
+
+object
+
+Price object for this item.
+
+custom_data
+
+object or null
+
+Your own structured key-value data.
+
+List subscriptions
+
+get
+
+https://api.paddle.com
+
+/subscriptions
+
+Get a subscription
+
+get
+
+https://api.paddle.com
+
+/subscriptions/{subscription_id}
+
+Preview an update to a subscription
+
+patch
+
+https://api.paddle.com
+
+/subscriptions/{subscription_id}/preview
+
+Update a subscription
+
+patch
+
+https://api.paddle.com
+
+/subscriptions/{subscription_id}
+
+Get a transaction to update payment method
+
+get
+
+https://api.paddle.com
+
+/subscriptions/{subscription_id}/update-payment-method-transaction
+
+Preview a one-time charge for a subscription
+
+post
+
+https://api.paddle.com
+
+/subscriptions/{subscription_id}/charge/preview
+
+Create a one-time charge for a subscription
+
+post
+
+https://api.paddle.com
+
+/subscriptions/{subscription_id}/charge
+
+Pause a subscription
+
+post
+
+https://api.paddle.com
+
+/subscriptions/{subscription_id}/pause
+
+Resume a paused subscription
+
+post
+
+https://api.paddle.com
+
+/subscriptions/{subscription_id}/resume
+
+Cancel a subscription
+
+post
+
+https://api.paddle.com
+
+/subscriptions/{subscription_id}/cancel
