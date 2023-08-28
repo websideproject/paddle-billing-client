@@ -17,15 +17,13 @@ Python wrapper around the new Paddle Billing API
 
 </div>
 
-## Paddle Classic
-
-If you are looking for the Paddle Classic API, please see [paddle-client](https://github.com/paddle-python/paddle-client)
-
 ## Paddle Classic vs Paddle Billing
 
 - Paddle Classic is the original Paddle API, which is still in use by many merchants. More info can be found [here](https://developer.paddle.com/classic/api-reference/1384a288aca7a-api-reference)
+  - If you are looking for the Paddle Classic API wrapper, please see [paddle-client](https://github.com/paddle-python/paddle-client)
 - Paddle Billing is the new API, which is just launched at 2023. Paddle Billing is a complete rewrite of the Paddle Classic API, and is designed to be more flexible and easier to use. More info can be found [here](https://developer.paddle.com/api-reference/overview)
 
+---
 ## 📦 Features
 
 - TBD
