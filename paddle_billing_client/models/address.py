@@ -11,7 +11,7 @@ from paddle_billing_client.models import PaddleResponse
 class AddressBase(BaseModel):
     description: str
     first_line: str
-    second_line: str
+    second_line: Optional[str]
     city: str
     postal_code: str
     region: str
@@ -22,7 +22,7 @@ class AddressBase(BaseModel):
 class Address(AddressBase):
     id: str
     created_at: datetime
-    updated_at: datetime
+    updated_at: Optional[datetime]
 
 
 class AddressQueryParams(BaseModel):

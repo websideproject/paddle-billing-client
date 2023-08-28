@@ -1,0 +1,75 @@
+interactions:
+- request:
+    body: '{"description": "Test Price", "product_id": "pro_01h89b2j66qq82x6vn5d39c4av",
+      "billing_cycle": {"interval": "month", "frequency": 1}, "tax_mode": "account_setting",
+      "unit_price": {"amount": "1000", "currency_code": "USD"}}'
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - Bearer 559a1eb08e249528c6d897ef407aedbb13fd8d73e0234bafc1
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '222'
+      Content-type:
+      - application/json
+      User-Agent:
+      - python-requests/2.31.0
+    method: POST
+    uri: https://sandbox-api.paddle.com/prices
+  response:
+    body:
+      string: '{"data":{"id":"pri_01h8xce4x86pq3byesf71a7kw1","product_id":"pro_01h89b2j66qq82x6vn5d39c4av","description":"Test
+        Price","billing_cycle":{"interval":"month","frequency":1},"trial_period":null,"tax_mode":"account_setting","unit_price":{"amount":"1000","currency_code":"USD"},"unit_price_overrides":[],"custom_data":null,"status":"active","quantity":{"minimum":1,"maximum":100}},"meta":{"request_id":"d6fc2607-992b-480a-b2b1-f41f296cacc5"}}'
+    headers:
+      CF-Cache-Status:
+      - DYNAMIC
+      CF-RAY:
+      - 7fda69583fc41951-FRA
+      Cache-Control:
+      - no-store, max-age=0
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '437'
+      Content-Security-Policy:
+      - default-src 'none'; frame-ancestors 'none'; base-uri 'none'
+      Content-Type:
+      - application/json
+      Cross-Origin-Embedder-Policy:
+      - require-corp
+      Cross-Origin-Opener-Policy:
+      - same-origin
+      Cross-Origin-Resource-Policy:
+      - same-site
+      Date:
+      - Mon, 28 Aug 2023 06:13:59 GMT
+      Permissions-Policy:
+      - accelerometer=(),ambient-light-sensor=(),autoplay=(),battery=(),camera=(),display-capture=(),document-domain=(),encrypted-media=(),fullscreen=(),gamepad=(),geolocation=(),gyroscope=(),layout-animations=(self),legacy-image-formats=(self),magnetometer=(),microphone=(),midi=(),oversized-images=(self),payment=(),picture-in-picture=(),publickey-credentials-get=(),speaker-selection=(),sync-xhr=(self),unoptimized-images=(self),unsized-media=(self),usb=(),screen-wake-lock=(),web-share=(),xr-spatial-tracking=()
+      Pragma:
+      - no-cache
+      Referrer-Policy:
+      - no-referrer
+      Request-Id:
+      - d6fc2607-992b-480a-b2b1-f41f296cacc5
+      Server:
+      - cloudflare
+      Set-Cookie:
+      - __cf_bm=8U452nr67oalVrWg2m73d2dUrBKht_2DBsvGoFMl8QQ-1693203239-0-ASaMRZ8jy7yvWB8TGO3OTW6NK3gYoUELkUB07m1yZ5vT6ly814fY/7GpvoVCX/MLFTHomSBOxaxXWv8E5PnwpcM=;
+        path=/; expires=Mon, 28-Aug-23 06:43:59 GMT; domain=.paddle.com; HttpOnly;
+        Secure; SameSite=None
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - deny
+      X-Permitted-Cross-Domain-Policies:
+      - none
+    status:
+      code: 201
+      message: Created
+version: 1

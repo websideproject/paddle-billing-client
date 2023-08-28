@@ -7,11 +7,11 @@ from apiclient import (
     HeaderAuthentication,
     JsonRequestFormatter,
     JsonResponseHandler,
-    endpoint,
 )
 from apiclient_pydantic import serialize_all_methods
 
 from paddle_billing_client.endpoints import Endpoints
+from paddle_billing_client.formatters import CustomJsonRequestFormatter
 from paddle_billing_client.models.address import (
     AddressesResponse,
     AddressQueryParams,
@@ -84,11 +84,11 @@ class PaddleApiClient(APIClient):
     def __init__(
         self,
         base_url="https://sandbox-api.paddle.com",
-        request_formatter=JsonRequestFormatter,
+        request_formatter=CustomJsonRequestFormatter,
         response_handler=JsonResponseHandler,
         **kwargs,
     ):
-        self.endpoints: Endpoints = endpoint(Endpoints, base_url=base_url)
+        self.endpoints: Endpoints = Endpoints(base_url=base_url)
         super().__init__(
             request_formatter=request_formatter,
             response_handler=response_handler,

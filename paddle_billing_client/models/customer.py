@@ -9,19 +9,19 @@ from paddle_billing_client.models import PaddleResponse
 
 
 class CustomerBase(BaseModel):
-    id: str
     email: str
     name: Optional[str]
-    locale: str
-    status: Optional[Literal["active", "archived"]]
+    locale: Optional[str]
 
 
 class Customer(CustomerBase):
+    id: str
     marketing_consent: bool
     created_at: datetime
     updated_at: datetime
     imported_at: Optional[datetime]
     source: Optional[str]
+    status: Optional[Literal["active", "archived"]]
 
 
 class CustomerQueryParams(BaseModel):

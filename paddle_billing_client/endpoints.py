@@ -1,4 +1,14 @@
 class Endpoints:
+    def __init__(self, base_url="https://sandbox-api.paddle.com"):
+        self._base_url = base_url
+
+    def __getattribute__(self, name):
+        print(name)
+        value = super().__getattribute__(name)
+        if name.startswith("_"):
+            return value
+        return f"{self._base_url}/{value.lstrip('/')}"
+
     # Products
     create_product: str = "products"
     get_product: str = "products/{product_id}"
@@ -43,7 +53,6 @@ class Endpoints:
     list_transactions: str = "transactions"
     update_transaction: str = "transactions/{transaction_id}"
     preview_transaction: str = "transactions/preview"
-    preview_prices: str = "transactions/pricing-preview"
     get_pdf_for_transaction: str = "transactions/{transaction_id}/invoice"
 
     # Subscriptions
@@ -62,6 +71,9 @@ class Endpoints:
     # Adjustments
     create_adjustment: str = "adjustments"
     list_adjustments: str = "adjustments"
+
+    # Pricing Preview
+    preview_prices: str = "pricing-preview"
 
     # Events
     list_event_types: str = "event-types"

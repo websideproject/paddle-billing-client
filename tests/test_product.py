@@ -91,6 +91,25 @@ class TestProduct:
         )
 
     @pytest.mark.vcr
+    def test_product_get(self):
+        product = self.client.get_product("pro_01h89b2j66qq82x6vn5d39c4av")
+        expected_product = ProductResponse(
+            data=Product(
+                id="pro_01h89b2j66qq82x6vn5d39c4av",
+                name="Test Product New 2",
+                description="Test Product Description",
+                image_url="https://example.com/image.png",
+                custom_data=dict(foo="bar2"),
+                tax_category="standard",
+                status="active",
+                created_at="2023-08-20T11:25:23.014Z",
+            ),
+            meta=dict(request_id="f3d5a132-493b-4111-9143-d600869121e7"),
+        )
+
+        assert deepdiff.DeepDiff(product, expected_product, ignore_order=True) == {}
+
+    @pytest.mark.vcr
     def test_product_list(self):
         products = self.client.list_products()
         expected_products = ProductsResponse(
@@ -128,21 +147,3 @@ class TestProduct:
         )
 
         assert deepdiff.DeepDiff(products, expected_products, ignore_order=True) == {}
-
-    @pytest.mark.vcr
-    def test_product_get(self):
-        product = self.client.get_product("pro_01h89b2j66qq82x6vn5d39c4av")
-        expected_product = ProductResponse(
-            data=Product(
-                id="pro_01h89b2j66qq82x6vn5d39c4av",
-                name="Test Product New 2",
-                description="Test Product Description",
-                image_url="https://example.com/image.png",
-                custom_data=dict(foo="bar2"),
-                tax_category="standard",
-                status="active",
-                created_at="2023-08-20T11:25:23.014Z",
-            ),
-            meta=dict(request_id="f3d5a132-493b-4111-9143-d600869121e7"),
-        )
-        assert deepdiff.DeepDiff(product, expected_product, ignore_order=True) == {}

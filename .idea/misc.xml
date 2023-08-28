@@ -1,4 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="Black">
+    <option name="sdkUUID" value="65492e93-da33-4fed-8f2c-6f6542c3139e" />
+  </component>
   <component name="ProjectRootManager" version="2" project-jdk-name="Poetry (paddle-billing-client)" project-jdk-type="Python SDK" />
+  <component name="PythonCompatibilityInspectionAdvertiser">
+    <option name="version" value="3" />
+  </component>
 </project>

@@ -1,0 +1,73 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - Bearer 559a1eb08e249528c6d897ef407aedbb13fd8d73e0234bafc1
+      Connection:
+      - keep-alive
+      Content-type:
+      - application/json
+      User-Agent:
+      - python-requests/2.31.0
+    method: GET
+    uri: https://sandbox-api.paddle.com/customers?status=active
+  response:
+    body:
+      string: '{"data":[{"id":"ctm_01h8w66qa8djqjhmdkth2fnebk","status":"active","name":"Test
+        Customer 2","email":"asd123@asd.com","marketing_consent":false,"locale":"en","created_at":"2023-08-27T19:05:50.664Z","updated_at":"2023-08-27T19:12:16.802971Z"}],"meta":{"request_id":"a990372f-4438-44f9-9678-61ee4eccc1d8","pagination":{"per_page":50,"next":"https://sandbox-api.paddle.com/customers?after=ctm_01h7mrr5j8rnawwzh9nschgp1v\u0026status=active","has_more":false,"estimated_total":1}}}'
+    headers:
+      CF-Cache-Status:
+      - DYNAMIC
+      CF-RAY:
+      - 7fd6a3a60aa337ca-FRA
+      Cache-Control:
+      - no-store, max-age=0
+      Connection:
+      - keep-alive
+      Content-Security-Policy:
+      - default-src 'none'; frame-ancestors 'none'; base-uri 'none'
+      Content-Type:
+      - application/json
+      Cross-Origin-Embedder-Policy:
+      - require-corp
+      Cross-Origin-Opener-Policy:
+      - same-origin
+      Cross-Origin-Resource-Policy:
+      - same-site
+      Date:
+      - Sun, 27 Aug 2023 19:14:44 GMT
+      Permissions-Policy:
+      - accelerometer=(),ambient-light-sensor=(),autoplay=(),battery=(),camera=(),display-capture=(),document-domain=(),encrypted-media=(),fullscreen=(),gamepad=(),geolocation=(),gyroscope=(),layout-animations=(self),legacy-image-formats=(self),magnetometer=(),microphone=(),midi=(),oversized-images=(self),payment=(),picture-in-picture=(),publickey-credentials-get=(),speaker-selection=(),sync-xhr=(self),unoptimized-images=(self),unsized-media=(self),usb=(),screen-wake-lock=(),web-share=(),xr-spatial-tracking=()
+      Pragma:
+      - no-cache
+      Referrer-Policy:
+      - no-referrer
+      Request-Id:
+      - a990372f-4438-44f9-9678-61ee4eccc1d8
+      Server:
+      - cloudflare
+      Set-Cookie:
+      - __cf_bm=9WNTdMxg68Z9x61IUf.TAlMxGJPx5l7gsvblRBeFVmw-1693163684-0-AVLcdt93UZt77FW1KLzRAz2OKcUKqXZoiAteU2qwqNgBLuUc5NZYS4TRNotQuk/RpGCNj6jqLgA97GIpWm1MC+U=;
+        path=/; expires=Sun, 27-Aug-23 19:44:44 GMT; domain=.paddle.com; HttpOnly;
+        Secure; SameSite=None
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      Transfer-Encoding:
+      - chunked
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - deny
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      content-length:
+      - '896'
+    status:
+      code: 200
+      message: OK
+version: 1

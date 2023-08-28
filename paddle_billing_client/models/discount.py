@@ -18,7 +18,7 @@ class DiscountBase(BaseModel):
     recur: bool
     maximum_recurring_intervals: Optional[int]
     usage_limit: Optional[int]
-    restrict_to: Optional[str]
+    restrict_to: Optional[List[str]]
     expires_at: Optional[datetime]
     status: Optional[Literal["active", "archived", "expired", "used"]]
 

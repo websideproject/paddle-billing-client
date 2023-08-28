@@ -1,3 +1,5 @@
+import functools
+
 from paddle_billing_client.models.address import Address
 from paddle_billing_client.models.business import Business
 from paddle_billing_client.models.customer import Customer
