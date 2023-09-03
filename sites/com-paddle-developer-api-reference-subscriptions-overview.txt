@@ -400,20 +400,24 @@ management_urls
 
 object
 
-Public URLs that customers can use to make changes to this subscription.
+Public URLs that customers can use to make changes to this subscription. For security, the
+
+token
+
+appended to each link is temporary. You shouldn't store these links.
 
 update_payment_method
 
 string
 or null
 
-Public URL that lets customers update the payment method for this subscription.
+Public URL that lets customers update the payment method for this subscription. Creates or gets a transaction that can be used to update a payment method, then passes it to your default checkout page.
 
 cancel
 
 string
 
-Public URL that lets customers cancel this subscription.
+Public URL that lets customers cancel this subscription. Takes customers to a Paddle page that lets them cancel their subscription.
 
 items
 
