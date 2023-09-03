@@ -17,11 +17,13 @@ class CustomerBase(BaseModel):
 class Customer(CustomerBase):
     id: str
     marketing_consent: bool
-    created_at: datetime
-    updated_at: datetime
+    created_at: Optional[datetime]
+    updated_at: Optional[datetime]
     imported_at: Optional[datetime]
     source: Optional[str]
     status: Optional[Literal["active", "archived"]]
+    is_sanctioned: Optional[bool]
+    tax_exemptions: Optional[List[str]]
 
 
 class CustomerQueryParams(BaseModel):

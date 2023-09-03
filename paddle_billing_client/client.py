@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+from typing import Optional
+
 import logging
 
 from apiclient import (
@@ -73,6 +75,8 @@ from paddle_billing_client.models.subscription import (
 )
 from paddle_billing_client.models.transaction import (
     TransactionPdfResponse,
+    TransactionPreviewResponse,
+    TransactionQueryParams,
     TransactionRequest,
     TransactionResponse,
     TransactionsResponse,
@@ -279,32 +283,51 @@ class PaddleApiClient(APIClient):
     Transactions
     """
 
-    def create_transaction(self, data: TransactionRequest) -> TransactionResponse:
+    def create_transaction(
+        self,
+        data: TransactionRequest,
+        query_params: TransactionQueryParams | None = None,
+    ) -> TransactionResponse:
         """Create a transaction"""
-        return self.post(self.endpoints.create_transaction, dict(data))
-
-    def get_transaction(self, transaction_id: str) -> TransactionResponse:
-        """Get a transaction"""
-        return self.get(
-            self.endpoints.get_transaction.format(transaction_id=transaction_id)
+        return self.post(
+            self.endpoints.create_transaction, dict(data), params=dict(query_params)
         )
 
-    def list_transactions(self) -> TransactionsResponse:
+    def get_transaction(
+        self, transaction_id: str, query_params: TransactionQueryParams = None
+    ) -> TransactionResponse:
+        """Get a transaction"""
+        return self.get(
+            self.endpoints.get_transaction.format(transaction_id=transaction_id),
+            params=dict(query_params),
+        )
+
+    def list_transactions(
+        self, query_params: TransactionQueryParams = None
+    ) -> TransactionsResponse:
         """List all transactions"""
-        return self.get(self.endpoints.list_transactions)
+        return self.get(self.endpoints.list_transactions, params=dict(query_params))
 
     def update_transaction(
-        self, transaction_id: str, data: TransactionRequest
+        self,
+        transaction_id: str,
+        data: TransactionRequest,
+        query_params: TransactionQueryParams = None,
     ) -> TransactionResponse:
         """Update a transaction"""
         return self.patch(
             self.endpoints.update_transaction.format(transaction_id=transaction_id),
             dict(data),
+            params=dict(query_params),
         )
 
-    def preview_transaction(self, data: TransactionRequest) -> TransactionResponse:
+    def preview_transaction(
+        self, data: TransactionRequest, query_params: TransactionQueryParams = None
+    ) -> TransactionPreviewResponse:
         """Preview a transaction"""
-        return self.post(self.endpoints.preview_transaction, dict(data))
+        return self.post(
+            self.endpoints.preview_transaction, dict(data), params=dict(query_params)
+        )
 
     def preview_prices(self, data: TransactionRequest) -> TransactionResponse:
         """Preview prices"""
