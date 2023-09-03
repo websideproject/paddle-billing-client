@@ -40,10 +40,10 @@ Python wrapper around the new Paddle Billing API
 - [x] Customers
 - [x] Addresses
 - [x] Businesses
-- [ ] Transactions
+- [x] Transactions
 - [ ] Subscriptions
 - [ ] Adjustments
-- [ ] Pricing Previews
+- [x] Pricing Previews
 - [ ] Event types
 - [ ] Events
 - [ ] Notification Settings

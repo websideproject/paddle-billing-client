@@ -142,7 +142,6 @@ source = ["tests"]
 [tool.poetry-dynamic-versioning]
 enable = true
 vcs = "git"
-
 [coverage.paths]
 source = "paddle-billing-client"
 

@@ -56,7 +56,7 @@ description
 
 string or null
 
-Short description for this product. Included in the checkout and on some customer documents.
+Short description for this product.
 
 tax_category
 

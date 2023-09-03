@@ -104,8 +104,8 @@ class LineItemTotals(BaseModel):
 
 
 class LineItem(BaseModel):
-    id: str
-    price_id: str
+    id: str | None
+    price_id: str | None
     quantity: int
     proration: LineItemProration | None
     tax_rate: str
@@ -115,12 +115,12 @@ class LineItem(BaseModel):
 
 
 class TransactionDetails(BaseModel):
-    tax_rates_used: list[TaxRatesUsed]
-    totals: Totals
+    tax_rates_used: list[TaxRatesUsed] | None
+    totals: Totals | None
     adjusted_totals: AdjustedTotals | None
     payout_totals: PayoutTotals | None
     adjusted_payout_totals: AdjustedPayoutTotals | None
-    line_items: list[LineItem]
+    line_items: list[LineItem] | None
 
 
 class BillingDetails(BaseModel):
@@ -131,7 +131,7 @@ class BillingDetails(BaseModel):
 
 
 class TransactionBase(BaseModel):
-    items: list[dict]
+    items: list[dict] | None
     status: None | (
         Literal["draft", "ready", "billed", "paid", "completed", "canceled", "past_due"]
     )
@@ -140,29 +140,36 @@ class TransactionBase(BaseModel):
     business_id: str | None
     discount_id: str | None
     custom_data: dict | None
-    collection_mode: Literal["automatic", "manual"]
+    collection_mode: Literal["automatic", "manual"] | None
     billing_details: BillingDetails | None
     billing_period: BillingPeriod | None
     currency_code: str
+    customer_ip_address: str | None
+    ignore_trials: bool | None
+    address: Address | None
 
 
 class Transaction(TransactionBase):
-    id: str
+    id: str | None
     customer: Customer | None
-    address: Address | None
     business: Business | None
     discount: Discount | None
+    seller: dict | None
     adjustments_totals: dict | None
-    origin: str
+    origin: str | None
     subscription_id: str | None
     invoice_id: str | None
     invoice_number: str | None
-    created_at: datetime
-    updated_at: datetime
+    created_at: datetime | None
+    updated_at: datetime | None
     billed_at: str | None
     details: TransactionDetails
-    payments: list[dict]
+    payments: list[dict] | None
     checkout: dict | None
+
+
+class TransactionPreview(TransactionBase):
+    pass
 
 
 class TransactionQueryParams(BaseModel):
@@ -186,7 +193,7 @@ class TransactionQueryParams(BaseModel):
     # Return only the IDs specified. Use a comma separated list to get multiple entities.
     id: str | None = None
     # Include related entities in the response.
-    # 'address', 'adjustment', 'adjustment_totals', 'business', 'customer', 'discount'
+    # address|business|customer|discount|seller|adjustment|adjustments_totals
     include: str | None = None
     invoice_number: str | None = None
     # Order returned entities by the specified field and direction ([ASC] or [DESC]).
@@ -233,6 +240,10 @@ class TransactionsResponse(PaddleResponse):
 
 class TransactionRequest(TransactionBase):
     pass
+
+
+class TransactionPreviewResponse(PaddleResponse):
+    data: TransactionPreview
 
 
 class TransactionPdf(BaseModel):
