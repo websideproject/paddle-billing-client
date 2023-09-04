@@ -42,7 +42,7 @@ Python wrapper around the new Paddle Billing API
 - [x] Businesses
 - [x] Transactions
 - [ ] Subscriptions
-- [ ] Adjustments
+- [x] Adjustments
 - [x] Pricing Previews
 - [ ] Event types
 - [ ] Events
