@@ -470,23 +470,40 @@ class PaddleApiClient(APIClient):
         """Create notification settings"""
         return self.post(self.endpoints.create_notification_setting, dict(data))
 
-    def get_notification_settings(self) -> NotificationSettingResponse:
+    def get_notification_setting(
+        self, notification_setting_id: str
+    ) -> NotificationSettingResponse:
         """Get notification settings"""
-        return self.get(self.endpoints.get_notification_setting)
+        return self.get(
+            self.endpoints.get_notification_setting.format(
+                notification_setting_id=notification_setting_id
+            )
+        )
 
     def list_notification_settings(self) -> NotificationSettingsResponse:
         """List notification settings"""
         return self.get(self.endpoints.list_notification_settings)
 
     def update_notification_setting(
-        self, data: NotificationSettingRequest
+        self, notification_setting_id: str, data: NotificationSettingRequest
     ) -> NotificationSettingResponse:
         """Update notification settings"""
-        return self.patch(self.endpoints.update_notification_setting, dict(data))
+        return self.patch(
+            self.endpoints.update_notification_setting.format(
+                notification_setting_id=notification_setting_id
+            ),
+            dict(data),
+        )
 
-    def delete_notification_setting(self) -> NotificationSettingResponse:
+    def delete_notification_setting(
+        self, notification_setting_id: str
+    ) -> NotificationSettingResponse:
         """Delete notification settings"""
-        return self.delete(self.endpoints.delete_notification_setting)
+        return self.delete(
+            self.endpoints.delete_notification_setting.format(
+                notification_setting_id=notification_setting_id
+            )
+        )
 
     """
     Notifications

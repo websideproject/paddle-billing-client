@@ -34,4 +34,4 @@ class NotificationSettingsResponse(BaseModel):
 
 
 class NotificationSettingRequest(NotificationSettingBase):
-    pass
+    subscribed_events: List[str]
