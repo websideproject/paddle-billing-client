@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 from typing import List, Literal, Optional
 
 from datetime import datetime
@@ -15,31 +17,31 @@ class Contact(BaseModel):
 
 class BusinessBase(BaseModel):
     name: str
-    company_number: str
-    tax_identifier: str
-    contacts: List[Contact]
-    status: Optional[Literal["active", "archived"]]
+    company_number: str | None
+    tax_identifier: str | None
+    contacts: list[Contact]
+    status: Literal["active", "archived"] | None
 
 
 class Business(BusinessBase):
     id: str
-    created_at: Optional[datetime]
-    updated_at: Optional[datetime]
+    created_at: datetime | None
+    updated_at: datetime | None
 
 
 class BusinessQueryParams(BaseModel):
     # Return entities after the specified cursor. Used for working through paginated results.
-    after: Optional[str] = None
+    after: str | None = None
     # Return only the IDs specified. Use a comma separated list to get multiple entities.
-    id: Optional[str] = None
+    id: str | None = None
     # Order returned entities by the specified field and direction ([ASC] or [DESC]).
-    order_by: Optional[Literal["[ASC]", "[DESC]"]] = None
+    order_by: Literal["[ASC]", "[DESC]"] | None = None
     # Set how many entities are returned per page. Default: 50
-    per_page: Optional[int] = None
+    per_page: int | None = None
     # Return entities that match a search query. Searches id and type fields.
-    search: Optional[str] = None
+    search: str | None = None
     # Return entities that match the specified status. Use a comma separated list to specify multiple status values.
-    status: Optional[str] = None
+    status: str | None = None
 
     @validator("status", allow_reuse=True)
     def check_status(cls, v: str) -> str:
@@ -56,7 +58,7 @@ class BusinessResponse(PaddleResponse):
 
 
 class BusinessesResponse(PaddleResponse):
-    data: List[Business]
+    data: list[Business]
 
 
 class BusinessRequest(BusinessBase):
