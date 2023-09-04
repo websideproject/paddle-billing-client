@@ -49,7 +49,7 @@ Python wrapper around the new Paddle Billing API
 - [x] Pricing Previews
 - [x] Event types
 - [x] Events
-- [ ] Notification Settings
+- [x] Notification Settings
 - [ ] Notifications
 - [ ] Notification logs
 

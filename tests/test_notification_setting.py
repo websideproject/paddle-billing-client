@@ -25,14 +25,6 @@ class TestNotificationSetting:
             ),
         )
 
-    """
-    create_notification_setting: str = "notification-settings"
-    get_notification_setting: str = "notification-settings/{notification_setting_id}"
-    list_notification_settings: str = "notification-settings"
-    update_notification_setting: str = "notification-settings/{notification_setting_id}"
-    delete_notification_setting: str = "notification-settings/{notification_setting_id}"
-    """
-
     @pytest.mark.vcr
     def test_create_notification_setting(self):
         notification_setting = self.client.create_notification_setting(

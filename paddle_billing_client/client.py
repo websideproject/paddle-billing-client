@@ -48,6 +48,7 @@ from paddle_billing_client.models.event import EventsResponse, EventTypesRespons
 from paddle_billing_client.models.notification import (
     NotificationQueryParams,
     NotificationReplayResponse,
+    NotificationResponse,
     NotificationsResponse,
 )
 from paddle_billing_client.models.notification_setting import (
@@ -157,7 +158,9 @@ class PaddleApiClient(APIClient):
         """Get a discount"""
         return self.get(self.endpoints.get_discount.format(discount_id=discount_id))
 
-    def list_discounts(self, query_params: DiscountQueryParams) -> DiscountsResponse:
+    def list_discounts(
+        self, query_params: DiscountQueryParams = None
+    ) -> DiscountsResponse:
         """List all discounts"""
         return self.get(self.endpoints.list_discounts, params=dict(query_params))
 
@@ -181,7 +184,9 @@ class PaddleApiClient(APIClient):
         """Get a customer"""
         return self.get(self.endpoints.get_customer.format(customer_id=customer_id))
 
-    def list_customers(self, query_params: CustomerQueryParams) -> CustomersResponse:
+    def list_customers(
+        self, query_params: CustomerQueryParams = None
+    ) -> CustomersResponse:
         """List all customers"""
         return self.get(self.endpoints.list_customers, params=dict(query_params))
 
@@ -217,7 +222,7 @@ class PaddleApiClient(APIClient):
         )
 
     def list_addresses_for_customer(
-        self, customer_id: str, query_params: AddressQueryParams
+        self, customer_id: str, query_params: AddressQueryParams = None
     ) -> AddressesResponse:
         """List all addresses for a customer"""
         return self.get(
@@ -260,7 +265,7 @@ class PaddleApiClient(APIClient):
         )
 
     def list_businesses_for_customer(
-        self, customer_id: str, query_params: BusinessQueryParams
+        self, customer_id: str, query_params: BusinessQueryParams = None
     ) -> BusinessesResponse:
         """List all businesses for a customer"""
         return self.get(
@@ -286,7 +291,7 @@ class PaddleApiClient(APIClient):
     def create_transaction(
         self,
         data: TransactionRequest,
-        query_params: TransactionQueryParams | None = None,
+        query_params: TransactionQueryParams = None,
     ) -> TransactionResponse:
         """Create a transaction"""
         return self.post(
@@ -350,7 +355,7 @@ class PaddleApiClient(APIClient):
         )
 
     def list_subscriptions(
-        self, query_params: SubscriptionQueryParams
+        self, query_params: SubscriptionQueryParams = None
     ) -> SubscriptionsResponse:
         """List all subscriptions"""
         return self.get(self.endpoints.list_subscriptions, params=dict(query_params))
@@ -443,7 +448,7 @@ class PaddleApiClient(APIClient):
         return self.post(self.endpoints.create_adjustment, dict(data))
 
     def list_adjustments(
-        self, query_params: AdjustmentQueryParams
+        self, query_params: AdjustmentQueryParams = None
     ) -> AdjustmentsResponse:
         """List all customers"""
         return self.get(self.endpoints.list_adjustments, params=dict(query_params))
@@ -509,14 +514,14 @@ class PaddleApiClient(APIClient):
     Notifications
     """
 
-    def get_notification(self, notification_id: str) -> NotificationsResponse:
+    def get_notification(self, notification_id: str) -> NotificationResponse:
         """Get a notification"""
         return self.get(
             self.endpoints.get_notification.format(notification_id=notification_id)
         )
 
     def list_notifications(
-        self, query_params: NotificationQueryParams
+        self, query_params: NotificationQueryParams = None
     ) -> NotificationsResponse:
         """List all notifications"""
         return self.get(self.endpoints.list_notifications, params=dict(query_params))

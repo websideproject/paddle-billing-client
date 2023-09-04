@@ -88,6 +88,6 @@ class Endpoints:
     delete_notification_setting: str = "notification-settings/{notification_setting_id}"
 
     # Notifications
-    get_notification: str = "notification/{notification_id}"
+    get_notification: str = "notifications/{notification_id}"
     list_notifications: str = "notifications"
-    replay_notification: str = "notification/{notification_id}/replay"
+    replay_notification: str = "notifications/{notification_id}/replay"
