@@ -48,6 +48,7 @@ from paddle_billing_client.models.event import EventsResponse, EventTypesRespons
 from paddle_billing_client.models.notification import (
     NotificationQueryParams,
     NotificationReplayResponse,
+    NotificationResponse,
     NotificationsResponse,
 )
 from paddle_billing_client.models.notification_setting import (
@@ -157,7 +158,9 @@ class PaddleApiClient(APIClient):
         """Get a discount"""
         return self.get(self.endpoints.get_discount.format(discount_id=discount_id))
 
-    def list_discounts(self, query_params: DiscountQueryParams) -> DiscountsResponse:
+    def list_discounts(
+        self, query_params: DiscountQueryParams = None
+    ) -> DiscountsResponse:
         """List all discounts"""
         return self.get(self.endpoints.list_discounts, params=dict(query_params))
 
@@ -181,7 +184,9 @@ class PaddleApiClient(APIClient):
         """Get a customer"""
         return self.get(self.endpoints.get_customer.format(customer_id=customer_id))
 
-    def list_customers(self, query_params: CustomerQueryParams) -> CustomersResponse:
+    def list_customers(
+        self, query_params: CustomerQueryParams = None
+    ) -> CustomersResponse:
         """List all customers"""
         return self.get(self.endpoints.list_customers, params=dict(query_params))
 
@@ -217,7 +222,7 @@ class PaddleApiClient(APIClient):
         )
 
     def list_addresses_for_customer(
-        self, customer_id: str, query_params: AddressQueryParams
+        self, customer_id: str, query_params: AddressQueryParams = None
     ) -> AddressesResponse:
         """List all addresses for a customer"""
         return self.get(
@@ -260,7 +265,7 @@ class PaddleApiClient(APIClient):
         )
 
     def list_businesses_for_customer(
-        self, customer_id: str, query_params: BusinessQueryParams
+        self, customer_id: str, query_params: BusinessQueryParams = None
     ) -> BusinessesResponse:
         """List all businesses for a customer"""
         return self.get(
@@ -286,7 +291,7 @@ class PaddleApiClient(APIClient):
     def create_transaction(
         self,
         data: TransactionRequest,
-        query_params: TransactionQueryParams | None = None,
+        query_params: TransactionQueryParams = None,
     ) -> TransactionResponse:
         """Create a transaction"""
         return self.post(
@@ -350,7 +355,7 @@ class PaddleApiClient(APIClient):
         )
 
     def list_subscriptions(
-        self, query_params: SubscriptionQueryParams
+        self, query_params: SubscriptionQueryParams = None
     ) -> SubscriptionsResponse:
         """List all subscriptions"""
         return self.get(self.endpoints.list_subscriptions, params=dict(query_params))
@@ -359,7 +364,7 @@ class PaddleApiClient(APIClient):
         self, subscription_id: str, data: SubscriptionRequest
     ) -> SubscriptionResponse:
         """Preview an update to a subscription"""
-        return self.post(
+        return self.patch(
             self.endpoints.preview_update_subscription.format(
                 subscription_id=subscription_id
             ),
@@ -370,7 +375,7 @@ class PaddleApiClient(APIClient):
         self, subscription_id: str, data: SubscriptionRequest
     ) -> SubscriptionResponse:
         """Update a subscription"""
-        return self.post(
+        return self.patch(
             self.endpoints.update_subscription.format(subscription_id=subscription_id),
             dict(data),
         )
@@ -385,9 +390,20 @@ class PaddleApiClient(APIClient):
             )
         )
 
+    def preview_one_time_charge(
+        self, subscription_id: str, data: SubscriptionRequest
+    ) -> SubscriptionResponse:
+        """Preview a one-time charge"""
+        return self.post(
+            self.endpoints.preview_one_time_charge.format(
+                subscription_id=subscription_id
+            ),
+            dict(data),
+        )
+
     def create_one_time_charge(
         self, subscription_id: str, data: SubscriptionRequest
-    ) -> TransactionResponse:
+    ) -> SubscriptionResponse:
         """Create a one-time charge"""
         return self.post(
             self.endpoints.create_one_time_charge.format(
@@ -432,7 +448,7 @@ class PaddleApiClient(APIClient):
         return self.post(self.endpoints.create_adjustment, dict(data))
 
     def list_adjustments(
-        self, query_params: AdjustmentQueryParams
+        self, query_params: AdjustmentQueryParams = None
     ) -> AdjustmentsResponse:
         """List all customers"""
         return self.get(self.endpoints.list_adjustments, params=dict(query_params))
@@ -459,36 +475,53 @@ class PaddleApiClient(APIClient):
         """Create notification settings"""
         return self.post(self.endpoints.create_notification_setting, dict(data))
 
-    def get_notification_settings(self) -> NotificationSettingResponse:
+    def get_notification_setting(
+        self, notification_setting_id: str
+    ) -> NotificationSettingResponse:
         """Get notification settings"""
-        return self.get(self.endpoints.get_notification_setting)
+        return self.get(
+            self.endpoints.get_notification_setting.format(
+                notification_setting_id=notification_setting_id
+            )
+        )
 
     def list_notification_settings(self) -> NotificationSettingsResponse:
         """List notification settings"""
         return self.get(self.endpoints.list_notification_settings)
 
     def update_notification_setting(
-        self, data: NotificationSettingRequest
+        self, notification_setting_id: str, data: NotificationSettingRequest
     ) -> NotificationSettingResponse:
         """Update notification settings"""
-        return self.patch(self.endpoints.update_notification_setting, dict(data))
+        return self.patch(
+            self.endpoints.update_notification_setting.format(
+                notification_setting_id=notification_setting_id
+            ),
+            dict(data),
+        )
 
-    def delete_notification_setting(self) -> NotificationSettingResponse:
+    def delete_notification_setting(
+        self, notification_setting_id: str
+    ) -> NotificationSettingResponse:
         """Delete notification settings"""
-        return self.delete(self.endpoints.delete_notification_setting)
+        return self.delete(
+            self.endpoints.delete_notification_setting.format(
+                notification_setting_id=notification_setting_id
+            )
+        )
 
     """
     Notifications
     """
 
-    def get_notification(self, notification_id: str) -> NotificationsResponse:
+    def get_notification(self, notification_id: str) -> NotificationResponse:
         """Get a notification"""
         return self.get(
             self.endpoints.get_notification.format(notification_id=notification_id)
         )
 
     def list_notifications(
-        self, query_params: NotificationQueryParams
+        self, query_params: NotificationQueryParams = None
     ) -> NotificationsResponse:
         """List all notifications"""
         return self.get(self.endpoints.list_notifications, params=dict(query_params))
@@ -499,65 +532,3 @@ class PaddleApiClient(APIClient):
             self.endpoints.replay_notification.format(notification_id=notification_id),
             dict(),
         )
-
-
-if __name__ == "__main__":
-    # create logger
-    logger = logging.getLogger("apiclient.client")
-    logger.setLevel(logging.DEBUG)
-
-    # create console handler and set level to debug
-    ch = logging.StreamHandler()
-    ch.setLevel(logging.DEBUG)
-
-    # create formatter
-    formatter = logging.Formatter(
-        "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
-    )
-
-    # add formatter to ch
-    ch.setFormatter(formatter)
-
-    # add ch to logger
-    logger.addHandler(ch)
-    logger.info("Hello from %s!" % __name__)
-
-    # 'application' code
-    logger.debug("debug message")
-    logger.info("info message")
-    logger.error("error message")
-    logger.critical("critical message")
-
-    print(NotificationsResponse.schema_json(indent=2))
-    client = PaddleApiClient(
-        authentication_method=HeaderAuthentication(
-            token="559a1eb08e249528c6d897ef407aedbb13fd8d73e0234bafc1"
-        ),
-    )
-    notifications = client.list_notifications(
-        NotificationQueryParams(status="failed,delivered")
-    )
-    print(notifications)
-    for _data in notifications.data:
-        print(_data.type)
-        print(_data.payload.data)
-        print(_data.id)
-
-    # product = client.create_product(ProductRequest(
-    #     name='Test Product New',
-    #     tax_category='standard',
-    #     description='Test Product Description',
-    #     image_url='https://example.com/image.png',
-    #     custom_data=dict(foo='bar'),
-    # ))
-    # print(product)
-    #
-    # Update product
-    # updated_product = client.update_product('pro_01h7z2efpr73taw4myty4jmq28', ProductRequest(
-    #     name='Test Produc new 3',
-    #     tax_category='standard',
-    #     description='Test Product Description',
-    #     image_url='https://example.com/image.png',
-    #     custom_data=dict(foo='bar'),
-    # ))
-    # print(updated_product)

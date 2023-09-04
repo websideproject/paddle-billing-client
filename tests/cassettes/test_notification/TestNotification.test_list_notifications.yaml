@@ -1,0 +1,78 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - Bearer 559a1eb08e249528c6d897ef407aedbb13fd8d73e0234bafc1
+      Connection:
+      - keep-alive
+      Content-type:
+      - application/json
+      User-Agent:
+      - python-requests/2.31.0
+    method: GET
+    uri: https://sandbox-api.paddle.com/notifications
+  response:
+    body:
+      string: '{"data":[{"id":"ntf_01h9g0mtsp2mae24351z8nfsg1","type":"subscription.updated","status":"delivered","payload":{"data":{"id":"sub_01h9fja8n8w8f9he3gbgy518mt","items":[{"price":{"id":"pri_01h81k4xtxq5atfyjdfadsavd8","tax_mode":"account_setting","product_id":"pro_01h81jnhdrz5wfde6cn8wg9y1y","unit_price":{"amount":"1525","currency_code":"USD"},"description":"Test
+        Price Description 2","trial_period":null,"billing_cycle":{"interval":"month","frequency":1}},"status":"active","quantity":1,"recurring":true,"created_at":"2023-09-04T07:43:03.848Z","updated_at":"2023-09-04T07:43:03.848Z","trial_dates":null,"next_billed_at":null,"previously_billed_at":"2023-09-04T07:43:03.848Z"}],"status":"active","discount":null,"paused_at":null,"address_id":"add_01h9fj8v8ej6cqs7v9jrabrjp5","created_at":"2023-09-04T07:43:03.848Z","started_at":"2023-09-04T07:43:03.848Z","updated_at":"2023-09-04T11:53:28.992Z","business_id":"biz_01h8xg9dgqkehwp72x067vems9","canceled_at":null,"custom_data":null,"customer_id":"ctm_01h8w66qa8djqjhmdkth2fnebk","billing_cycle":{"interval":"month","frequency":1},"currency_code":"USD","next_billed_at":null,"billing_details":{"payment_terms":{"interval":"week","frequency":2},"enable_checkout":true,"purchase_order_number":null,"additional_information":null},"collection_mode":"manual","first_billed_at":"2023-09-04T07:43:03.848Z","scheduled_change":{"action":"cancel","resume_at":null,"effective_at":"2023-10-04T07:43:03.848Z"},"current_billing_period":{"ends_at":"2023-10-04T07:43:03.848Z","starts_at":"2023-09-04T07:43:03.848Z"}},"event_id":"evt_01h9g0mtq3fkpsb6cdftgb0an0","event_type":"subscription.updated","occurred_at":"2023-09-04T11:53:30.083681Z","notification_id":"ntf_01h9g0mtsp2mae24351z8nfsg1"},"occurred_at":"2023-09-04T11:53:30.083681Z","delivered_at":"2023-09-04T11:53:30.467385Z","replayed_at":null,"origin":"event","last_attempt_at":"2023-09-04T11:53:30.205837Z","retry_at":null,"times_attempted":1,"notification_setting_id":"ntfset_01h7mt960x2r58dp0wrevgzk41"},{"id":"ntf_01h9fy6jw3dnqwzhsdwd1t3p4q","type":"subscription.updated","status":"delivered","payload":{"data":{"id":"sub_01h9fs0mgwkhtdan4qd4r7qq77","items":[{"price":{"id":"pri_01h7mrnc315chey77qhrd32vfs","tax_mode":"account_setting","product_id":"pro_01h7mrm9f0xvrvvwvkg1b7q8e3","unit_price":{"amount":"1270","currency_code":"USD"},"description":"asd","trial_period":null,"billing_cycle":{"interval":"month","frequency":1}},"status":"active","quantity":1,"recurring":true,"created_at":"2023-09-04T09:40:08.348Z","updated_at":"2023-09-04T09:40:08.348Z","trial_dates":null,"next_billed_at":null,"previously_billed_at":"2023-09-04T09:40:06.415402Z"}],"status":"active","discount":null,"paused_at":null,"address_id":"add_01h9fryr9ftp2er4g1sxjhqg8w","created_at":"2023-09-04T09:40:08.348Z","started_at":"2023-09-04T09:40:06.415402Z","updated_at":"2023-09-04T11:10:45.159Z","business_id":null,"canceled_at":null,"custom_data":null,"customer_id":"ctm_01h9fryr8y9k8r4k0fjgkhem6p","billing_cycle":{"interval":"month","frequency":1},"currency_code":"USD","next_billed_at":null,"billing_details":null,"collection_mode":"automatic","first_billed_at":"2023-09-04T09:40:06.415402Z","scheduled_change":{"action":"pause","resume_at":null,"effective_at":"2023-10-04T09:40:06.415402Z"},"current_billing_period":{"ends_at":"2023-10-04T09:40:06.415402Z","starts_at":"2023-09-04T09:40:06.415402Z"}},"event_id":"evt_01h9fy6js58ny2hg9e5ee0m7td","event_type":"subscription.updated","occurred_at":"2023-09-04T11:10:46.053471Z","notification_id":"ntf_01h9fy6jw3dnqwzhsdwd1t3p4q"},"occurred_at":"2023-09-04T11:10:46.053471Z","delivered_at":"2023-09-04T11:10:46.422260Z","replayed_at":null,"origin":"event","last_attempt_at":"2023-09-04T11:10:46.173869Z","retry_at":null,"times_attempted":1,"notification_setting_id":"ntfset_01h7mt960x2r58dp0wrevgzk41"},{"id":"ntf_01h9fxhe651pdwk7m35e4svdah","type":"transaction.updated","status":"delivered","payload":{"data":{"id":"txn_01h9fxh5ch237z4rnrxb87rqr2","items":[{"price":{"id":"pri_01h9fwyrg7wtge506jpqjdfekr","status":"active","quantity":{"maximum":1,"minimum":1},"tax_mode":"account_setting","product_id":"pro_01h89b2j66qq82x6vn5d39c4av","unit_price":{"amount":"10000","currency_code":"USD"},"description":"One
+        time purchase","trial_period":null,"billing_cycle":null,"unit_price_overrides":[]},"quantity":1}],"origin":"subscription_charge","status":"completed","details":{"totals":{"fee":null,"tax":"2700","total":"12700","credit":"0","balance":"0","discount":"0","earnings":null,"subtotal":"10000","grand_total":"12700","currency_code":"USD","exchange_rate":"1"},"line_items":[{"id":"txnitm_01h9fxh5e9gkab3abgn9yvtvdz","totals":{"tax":"2700","total":"12700","discount":"0","subtotal":"10000"},"product":{"id":"pro_01h89b2j66qq82x6vn5d39c4av","name":"Test
+        Product New 2","status":"active","image_url":"https://example.com/image.png","description":"Test
+        Product Description","tax_category":"standard"},"price_id":"pri_01h9fwyrg7wtge506jpqjdfekr","quantity":1,"tax_rate":"0.27","unit_totals":{"tax":"2700","total":"12700","discount":"0","subtotal":"10000"}}],"payout_totals":null,"tax_rates_used":[{"totals":{"tax":"2700","total":"12700","discount":"0","subtotal":"10000"},"tax_rate":"0.27"}],"adjusted_totals":{"fee":"0","tax":"2700","total":"12700","earnings":"0","subtotal":"10000","grand_total":"12700","currency_code":"USD"},"adjusted_payout_totals":null},"checkout":{"url":"https://webstormit.com?_ptxn=txn_01h9fxh5ch237z4rnrxb87rqr2"},"payments":[{"amount":"12700","status":"captured","created_at":"2023-09-04T10:59:04.483431Z","error_code":null,"captured_at":"2023-09-04T10:59:06.850433Z","method_details":{"card":{"type":"visa","last4":"5556","expiry_year":2024,"expiry_month":1},"type":"card"},"payment_attempt_id":"f237591a-d3a7-4990-b654-c1135347e8ec","stored_payment_method_id":"ef9df7ea-5f85-4a64-ad48-c13753540e28"}],"billed_at":"2023-09-04T10:59:04.209753Z","address_id":"add_01h9fryr9ftp2er4g1sxjhqg8w","created_at":"2023-09-04T10:59:04.283136Z","invoice_id":"inv_01h9fxh9zw9q2hk2k0f78mra5q","updated_at":"2023-09-04T10:59:12.889595647Z","business_id":null,"custom_data":null,"customer_id":"ctm_01h9fryr8y9k8r4k0fjgkhem6p","discount_id":null,"currency_code":"USD","billing_period":{"ends_at":"2023-10-04T09:40:06.415402Z","starts_at":"2023-09-04T09:40:06.415402Z"},"invoice_number":"3789-10004","billing_details":null,"collection_mode":"automatic","subscription_id":"sub_01h9fs0mgwkhtdan4qd4r7qq77"},"event_id":"evt_01h9fxhe42nttzszaxmhvd23h5","event_type":"transaction.updated","occurred_at":"2023-09-04T10:59:13.155048Z","notification_id":"ntf_01h9fxhe651pdwk7m35e4svdah"},"occurred_at":"2023-09-04T10:59:13.155048Z","delivered_at":"2023-09-04T10:59:13.499271Z","replayed_at":null,"origin":"event","last_attempt_at":"2023-09-04T10:59:13.251145Z","retry_at":null,"times_attempted":1,"notification_setting_id":"ntfset_01h7mt960x2r58dp0wrevgzk41"}],"meta":{"pagination":{"per_page":50,"estimated_total":2,"next":"http://sandbox-api.paddle.com/notifications?after=ntf_01h9fxhe651pdwk7m35e4svdah","has_more":true},"request_id":"dce2a16b-4248-4625-af2e-aba9cb2839e1"}}'
+    headers:
+      CF-Cache-Status:
+      - DYNAMIC
+      CF-RAY:
+      - 8017541b8e306853-BUD
+      Cache-Control:
+      - no-cache, private
+      Connection:
+      - keep-alive
+      Content-Security-Policy:
+      - default-src 'none'; frame-ancestors 'none'; base-uri 'none'
+      Content-Type:
+      - application/json
+      Correlation-Id:
+      - dce2a16b-4248-4625-af2e-aba9cb2839e1
+      Cross-Origin-Embedder-Policy:
+      - require-corp
+      Cross-Origin-Opener-Policy:
+      - same-origin
+      Cross-Origin-Resource-Policy:
+      - same-site
+      Date:
+      - Mon, 04 Sep 2023 15:40:01 GMT
+      Permissions-Policy:
+      - accelerometer=(),ambient-light-sensor=(),autoplay=(),battery=(),camera=(),display-capture=(),document-domain=(),encrypted-media=(),fullscreen=(),gamepad=(),geolocation=(),gyroscope=(),layout-animations=(self),legacy-image-formats=(self),magnetometer=(),microphone=(),midi=(),oversized-images=(self),payment=(),picture-in-picture=(),publickey-credentials-get=(),speaker-selection=(),sync-xhr=(self),unoptimized-images=(self),unsized-media=(self),usb=(),screen-wake-lock=(),web-share=(),xr-spatial-tracking=()
+      Referrer-Policy:
+      - no-referrer
+      Request-Id:
+      - dce2a16b-4248-4625-af2e-aba9cb2839e1
+      Server:
+      - cloudflare
+      Set-Cookie:
+      - __cf_bm=MkbD2W1P0OgeuNq0qjQ7Dtia22ZAfYpEtuieYJaL92A-1693842001-0-AQZqQCYDy8MFcSPcrKynwF9aVz8+oXpVJRxtlvmFNV+4HKtDCT7vFDiB6OFVkv+G9EuXCsyjl9qK7B1pM4V+VB4=;
+        path=/; expires=Mon, 04-Sep-23 16:10:01 GMT; domain=.paddle.com; HttpOnly;
+        Secure; SameSite=None
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      Transfer-Encoding:
+      - chunked
+      X-Content-Type-Options:
+      - nosniff
+      X-Correlation-Id:
+      - dce2a16b-4248-4625-af2e-aba9cb2839e1
+      X-Frame-Options:
+      - deny
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      content-length:
+      - '95835'
+    status:
+      code: 200
+      message: OK
+version: 1

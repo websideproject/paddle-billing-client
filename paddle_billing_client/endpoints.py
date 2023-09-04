@@ -63,6 +63,7 @@ class Endpoints:
     get_transaction_to_update_payment_method: str = (
         "subscriptions/{subscription_id}/update-payment-method-transaction"
     )
+    preview_one_time_charge: str = "subscriptions/{subscription_id}/charge/preview"
     create_one_time_charge: str = "subscriptions/{subscription_id}/charge"
     pause_subscription: str = "subscriptions/{subscription_id}/pause"
     resume_subscription: str = "subscriptions/{subscription_id}/resume"
@@ -87,6 +88,6 @@ class Endpoints:
     delete_notification_setting: str = "notification-settings/{notification_setting_id}"
 
     # Notifications
-    get_notification: str = "notification/{notification_id}"
+    get_notification: str = "notifications/{notification_id}"
     list_notifications: str = "notifications"
-    replay_notification: str = "notification/{notification_id}/replay"
+    replay_notification: str = "notifications/{notification_id}/replay"

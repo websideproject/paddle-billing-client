@@ -8,52 +8,57 @@ from pydantic import validator
 
 from paddle_billing_client.models.base import LazyBaseModel as BaseModel
 from paddle_billing_client.models.base import PaddleResponse
+from paddle_billing_client.models.common import BillingPeriod
 from paddle_billing_client.models.price import BillingCycle, Price
+from paddle_billing_client.models.transaction import Transaction
 
 
 class Item(BaseModel):
-    price: Price
-    status: str
-    quantity: int
-    recurring: bool
-    created_at: datetime
-    updated_at: datetime
-    next_billed_at: str | None
-    previously_billed_at: str | None
+    price: Price | None
+    price_id: str | None
+    status: str | None
+    quantity: int | None
+    recurring: bool | None
+    created_at: datetime | None
+    updated_at: datetime | None
+    next_billed_at: datetime | None
+    previously_billed_at: datetime | None
 
 
-class BillingPeriod(BaseModel):
-    ends_at: str
-    starts_at: str
+class ScheduledChange(BaseModel):
+    action: Literal["cancel", "pause", "resume"] | None
+    effective_at: datetime | None
+    resume_at: datetime | None
 
 
 class SubscriptionBase(BaseModel):
-    status: str
-    customer_id: str
-    address_id: str
+    status: str | None
+    customer_id: str | None
+    address_id: str | None
     business_id: str | None
-    currency_code: str
-    created_at: datetime
-    updated_at: datetime
-    started_at: datetime
-    first_billed_at: datetime
+    currency_code: str | None
+    created_at: datetime | None
+    updated_at: datetime | None
+    started_at: datetime | None
+    first_billed_at: datetime | None
     next_billed_at: datetime | None
     paused_at: datetime | None
     canceled_at: datetime | None
-    collection_mode: str
+    collection_mode: str | None
     billing_details: dict | None
-    current_billing_period: BillingPeriod
-    billing_cycle: BillingCycle
+    current_billing_period: BillingPeriod | None
+    billing_cycle: BillingCycle | None
     recurring_transaction_details: dict | None
-    next_transaction: dict | None
-    scheduled_change: dict | None
-    items: list[Item]
+    scheduled_change: ScheduledChange | None
+    items: list[Item] | None
     custom_data: dict | None
     management_urls: dict | None
 
 
 class Subscription(SubscriptionBase):
-    id: str
+    id: str | None
+    next_transaction: Transaction | None
+    immediate_transaction: Transaction | None
 
 
 class SubscriptionQueryParams(BaseModel):

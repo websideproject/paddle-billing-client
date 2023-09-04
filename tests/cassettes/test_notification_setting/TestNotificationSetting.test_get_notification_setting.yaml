@@ -1,0 +1,95 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - Bearer 559a1eb08e249528c6d897ef407aedbb13fd8d73e0234bafc1
+      Connection:
+      - keep-alive
+      Content-type:
+      - application/json
+      User-Agent:
+      - python-requests/2.31.0
+    method: GET
+    uri: https://sandbox-api.paddle.com/notification-settings/ntfset_01h9gb2gj5grek32ptb024ygke
+  response:
+    body:
+      string: '{"data":{"id":"ntfset_01h9gb2gj5grek32ptb024ygke","description":"Test
+        Notification Setting","type":"url","destination":"https://webhook.site/8b4f9b9f-1b0e-4b3c-8d7f-4d3f0e0a6b3b","active":true,"api_version":1,"include_sensitive_fields":false,"subscribed_events":[{"name":"transaction.billed","description":"Occurs
+        when a transaction is billed. Its status field changes to billed and billed_at
+        is populated.","group":"Transaction","available_versions":[1]},{"name":"transaction.canceled","description":"Occurs
+        when a transaction is canceled. Its status field changes to canceled.","group":"Transaction","available_versions":[1]},{"name":"transaction.completed","description":"Occurs
+        when a transaction is completed. Its status field changes to completed.","group":"Transaction","available_versions":[1]},{"name":"transaction.created","description":"Occurs
+        when a transaction is created.","group":"Transaction","available_versions":[1]},{"name":"transaction.payment_failed","description":"Occurs
+        when a payment fails for a transaction. The payments array is updated with
+        details of the payment attempt.","group":"Transaction","available_versions":[1]},{"name":"transaction.ready","description":"Occurs
+        when a transaction is ready to be billed. Its status field changes to ready.","group":"Transaction","available_versions":[1]},{"name":"transaction.updated","description":"Occurs
+        when a transaction is updated.","group":"Transaction","available_versions":[1]},{"name":"subscription.activated","description":"Occurs
+        when a subscription becomes active. Its status field changes to active. This
+        means any trial period has elapsed and Paddle has successfully billed the
+        customer.","group":"Subscription","available_versions":[1]},{"name":"subscription.created","description":"Occurs
+        when a subscription is created. subscription.trialing or subscription.activated
+        typically follow.","group":"Subscription","available_versions":[1]},{"name":"subscription.past_due","description":"Occurs
+        when a subscription has an unpaid transaction. Its status changes to past_due.","group":"Subscription","available_versions":[1]},{"name":"subscription.paused","description":"Occurs
+        when a subscription is paused. Its status field changes to paused.","group":"Subscription","available_versions":[1]},{"name":"subscription.resumed","description":"Occurs
+        when a subscription is resumed after being paused. Its status field changes
+        to active.","group":"Subscription","available_versions":[1]},{"name":"subscription.trialing","description":"Occurs
+        when a subscription enters trial period.","group":"Subscription","available_versions":[1]},{"name":"subscription.updated","description":"Occurs
+        when a subscription is updated.","group":"Subscription","available_versions":[1]}],"endpoint_secret_key":"pdl_ntfset_01h9gb2gj5grek32ptb024ygke_+ahXo6Zd7+PnDE/9f7BPSMOlqIY+9YRl"},"meta":{"request_id":"9fdbcd42-c03d-4871-8275-aa7cc163b13e"}}'
+    headers:
+      CF-Cache-Status:
+      - DYNAMIC
+      CF-RAY:
+      - 80171be5ad711cc8-BUD
+      Cache-Control:
+      - no-cache, private
+      Connection:
+      - keep-alive
+      Content-Security-Policy:
+      - default-src 'none'; frame-ancestors 'none'; base-uri 'none'
+      Content-Type:
+      - application/json
+      Correlation-Id:
+      - 9fdbcd42-c03d-4871-8275-aa7cc163b13e
+      Cross-Origin-Embedder-Policy:
+      - require-corp
+      Cross-Origin-Opener-Policy:
+      - same-origin
+      Cross-Origin-Resource-Policy:
+      - same-site
+      Date:
+      - Mon, 04 Sep 2023 15:01:39 GMT
+      Permissions-Policy:
+      - accelerometer=(),ambient-light-sensor=(),autoplay=(),battery=(),camera=(),display-capture=(),document-domain=(),encrypted-media=(),fullscreen=(),gamepad=(),geolocation=(),gyroscope=(),layout-animations=(self),legacy-image-formats=(self),magnetometer=(),microphone=(),midi=(),oversized-images=(self),payment=(),picture-in-picture=(),publickey-credentials-get=(),speaker-selection=(),sync-xhr=(self),unoptimized-images=(self),unsized-media=(self),usb=(),screen-wake-lock=(),web-share=(),xr-spatial-tracking=()
+      Referrer-Policy:
+      - no-referrer
+      Request-Id:
+      - 9fdbcd42-c03d-4871-8275-aa7cc163b13e
+      Server:
+      - cloudflare
+      Set-Cookie:
+      - __cf_bm=rs2HCieC8QsV35V2.Vfd0i0mqJseTzA9w6O9trOGCVw-1693839699-0-AQS3L3DPQvalvyPfrjocEk3AqDxRFtAvdrUZN7usf+/JXAzcrgvMe4UoKYXobGcZuxhUQQVI6GPpzulvLSS4++E=;
+        path=/; expires=Mon, 04-Sep-23 15:31:39 GMT; domain=.paddle.com; HttpOnly;
+        Secure; SameSite=None
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      Transfer-Encoding:
+      - chunked
+      X-Content-Type-Options:
+      - nosniff
+      X-Correlation-Id:
+      - 9fdbcd42-c03d-4871-8275-aa7cc163b13e
+      X-Frame-Options:
+      - deny
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      content-length:
+      - '2905'
+    status:
+      code: 200
+      message: OK
+version: 1

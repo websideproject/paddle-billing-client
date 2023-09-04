@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 from typing import Any, Dict, List, Literal, Optional
 
 from datetime import datetime
@@ -22,12 +24,12 @@ class AdjustmentStatus(str, Enum):
 
 
 class AdjustmentItem(BaseModel):
-    id: str
+    id: str | None
     item_id: str
     type: str
     amount: str
-    proration: Optional[str]
-    totals: dict
+    proration: str | None
+    totals: dict | None
 
 
 class AdjustmentBase(BaseModel):
@@ -36,13 +38,13 @@ class AdjustmentBase(BaseModel):
     # 'chargeback' and 'chargeback_warning' adjustments are created automatically by Paddle.
     action: AdjustmentAction
     transaction_id: str
-    reason: Optional[str]
-    items: List[AdjustmentItem]
+    reason: str | None
+    items: list[AdjustmentItem]
 
 
 class Adjustment(AdjustmentBase):
     id: str
-    subscription_id: Optional[str]
+    subscription_id: str | None
     customer_id: str
     currency_code: str
     # Status of this adjustment. Set automatically by Paddle.
@@ -58,26 +60,26 @@ class Adjustment(AdjustmentBase):
 
 class AdjustmentQueryParams(BaseModel):
     # Return entities for the specified action.
-    action: Optional[AdjustmentAction]
+    action: AdjustmentAction | None
     # Return entities after the specified cursor. Used for working through paginated results.
-    after: Optional[str] = None
+    after: str | None = None
     # Return entities related to the specified customer. Use a comma separated list to specify multiple customer IDs.
-    customer_id: Optional[str]
+    customer_id: str | None
     # Order returned entities by the specified field and direction ([ASC] or [DESC]).
-    order_by: Optional[Literal["[ASC]", "[DESC]"]] = None
+    order_by: Literal["[ASC]", "[DESC]"] | None = None
     # Set how many entities are returned per page. Default: 50
-    per_page: Optional[int] = None
+    per_page: int | None = None
     # Return entities that match the specified status. Use a comma separated list to specify multiple status values.
-    status: Optional[str] = None
+    status: str | None = None
     # Return entities related to the specified subscription.
     # Use a comma separated list to specify multiple subscription IDs.
-    subscription_id: Optional[str]
+    subscription_id: str | None
     # Return entities related to the specified transaction.
     # Use a comma separated list to specify multiple transaction IDs.
-    transaction_id: str
+    transaction_id: str | None
     # Return only the IDs specified.
     # Use a comma separated list to get multiple entities.
-    id: Optional[str] = None
+    id: str | None = None
 
     @validator("status", allow_reuse=True)
     def check_status(cls, v: str) -> str:  # pragma: no cover
@@ -94,7 +96,7 @@ class AdjustmentResponse(BaseModel):
 
 
 class AdjustmentsResponse(BaseModel):
-    data: List[Adjustment]
+    data: list[Adjustment]
 
 
 class AdjustmentRequest(AdjustmentBase):

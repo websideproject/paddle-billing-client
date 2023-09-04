@@ -1,0 +1,70 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - Bearer 559a1eb08e249528c6d897ef407aedbb13fd8d73e0234bafc1
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '0'
+      Content-type:
+      - application/json
+      User-Agent:
+      - python-requests/2.31.0
+    method: DELETE
+    uri: https://sandbox-api.paddle.com/notification-settings/ntfset_01h9gb2gj5grek32ptb024ygke
+  response:
+    body:
+      string: ''
+    headers:
+      CF-Cache-Status:
+      - DYNAMIC
+      CF-RAY:
+      - 80172a676ae168bf-BUD
+      Cache-Control:
+      - no-cache, private
+      Connection:
+      - keep-alive
+      Content-Security-Policy:
+      - default-src 'none'; frame-ancestors 'none'; base-uri 'none'
+      Correlation-Id:
+      - 14da5982-a6aa-44cd-863c-8077c7ca7903
+      Cross-Origin-Embedder-Policy:
+      - require-corp
+      Cross-Origin-Opener-Policy:
+      - same-origin
+      Cross-Origin-Resource-Policy:
+      - same-site
+      Date:
+      - Mon, 04 Sep 2023 15:11:33 GMT
+      Permissions-Policy:
+      - accelerometer=(),ambient-light-sensor=(),autoplay=(),battery=(),camera=(),display-capture=(),document-domain=(),encrypted-media=(),fullscreen=(),gamepad=(),geolocation=(),gyroscope=(),layout-animations=(self),legacy-image-formats=(self),magnetometer=(),microphone=(),midi=(),oversized-images=(self),payment=(),picture-in-picture=(),publickey-credentials-get=(),speaker-selection=(),sync-xhr=(self),unoptimized-images=(self),unsized-media=(self),usb=(),screen-wake-lock=(),web-share=(),xr-spatial-tracking=()
+      Referrer-Policy:
+      - no-referrer
+      Request-Id:
+      - 14da5982-a6aa-44cd-863c-8077c7ca7903
+      Server:
+      - cloudflare
+      Set-Cookie:
+      - __cf_bm=O7ZRSo8ZlE22AgQnnmaEDhs2DZDVE4TYxjCbmmNSTXA-1693840293-0-AekZImaoFqdfy1yE0Z1ulL+QreuZJKEbuZEfQj9dapSMbskrPBSDDuDRQXzGYKhpoRimLGLptM5YFeYibLowCsU=;
+        path=/; expires=Mon, 04-Sep-23 15:41:33 GMT; domain=.paddle.com; HttpOnly;
+        Secure; SameSite=None
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      X-Content-Type-Options:
+      - nosniff
+      X-Correlation-Id:
+      - 14da5982-a6aa-44cd-863c-8077c7ca7903
+      X-Frame-Options:
+      - deny
+      X-Permitted-Cross-Domain-Policies:
+      - none
+    status:
+      code: 204
+      message: No Content
+version: 1

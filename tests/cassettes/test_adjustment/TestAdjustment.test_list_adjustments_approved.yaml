@@ -1,0 +1,72 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - Bearer 559a1eb08e249528c6d897ef407aedbb13fd8d73e0234bafc1
+      Connection:
+      - keep-alive
+      Content-type:
+      - application/json
+      User-Agent:
+      - python-requests/2.31.0
+    method: GET
+    uri: https://sandbox-api.paddle.com/adjustments?status=approved
+  response:
+    body:
+      string: '{"data":[],"meta":{"request_id":"7ef9a244-24e8-42b2-9428-6c2c54e4bbfa","pagination":{"per_page":10,"next":"https://sandbox-api.paddle.com/adjustments?status=approved","has_more":false,"estimated_total":3}}}'
+    headers:
+      CF-Cache-Status:
+      - DYNAMIC
+      CF-RAY:
+      - 8014c289294103bf-BUD
+      Cache-Control:
+      - no-store, max-age=0
+      Connection:
+      - keep-alive
+      Content-Security-Policy:
+      - default-src 'none'; frame-ancestors 'none'; base-uri 'none'
+      Content-Type:
+      - application/json; charset=utf-8
+      Cross-Origin-Embedder-Policy:
+      - require-corp
+      Cross-Origin-Opener-Policy:
+      - same-origin
+      Cross-Origin-Resource-Policy:
+      - same-site
+      Date:
+      - Mon, 04 Sep 2023 08:11:07 GMT
+      Permissions-Policy:
+      - accelerometer=(),ambient-light-sensor=(),autoplay=(),battery=(),camera=(),display-capture=(),document-domain=(),encrypted-media=(),fullscreen=(),gamepad=(),geolocation=(),gyroscope=(),layout-animations=(self),legacy-image-formats=(self),magnetometer=(),microphone=(),midi=(),oversized-images=(self),payment=(),picture-in-picture=(),publickey-credentials-get=(),speaker-selection=(),sync-xhr=(self),unoptimized-images=(self),unsized-media=(self),usb=(),screen-wake-lock=(),web-share=(),xr-spatial-tracking=()
+      Pragma:
+      - no-cache
+      Referrer-Policy:
+      - no-referrer
+      Request-Id:
+      - 7ef9a244-24e8-42b2-9428-6c2c54e4bbfa
+      Server:
+      - cloudflare
+      Set-Cookie:
+      - __cf_bm=jlWq5MTyV81a.tosTrBBVjDW6lcSMqTXgrXsdYMbyBU-1693815067-0-AZ8LVHCk4Dvdra0nstZ/E05NNE1OghQWQ4wk9ilDczPSGWrCxi+Y081X0vD78MOCOdDFjpbHT2Bx2XV/NgUVHV8=;
+        path=/; expires=Mon, 04-Sep-23 08:41:07 GMT; domain=.paddle.com; HttpOnly;
+        Secure; SameSite=None
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      Transfer-Encoding:
+      - chunked
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - deny
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      content-length:
+      - '206'
+    status:
+      code: 200
+      message: OK
+version: 1

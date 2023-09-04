@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 from typing import List, Literal, Optional
 
 from datetime import datetime
@@ -13,24 +15,24 @@ class EventType(BaseModel):
     name: str
     description: str
     group: str
-    available_versions: List[int]
+    available_versions: list[int]
 
 
 class EventTypesResponse(PaddleResponse):
-    data: List[EventType]
+    data: list[EventType]
 
 
 class EventQueryParams(BaseModel):
     # Return entities after the specified cursor. Used for working through paginated results.
-    after: Optional[str] = None
+    after: str | None = None
     # Order returned entities by the specified field and direction ([ASC] or [DESC]).
-    order_by: Optional[Literal["[ASC]", "[DESC]"]] = None
+    order_by: Literal["[ASC]", "[DESC]"] | None = None
     # Set how many entities are returned per page. Default: 50
-    per_page: Optional[int] = None
+    per_page: int | None = None
 
 
 class Event(BaseModel):
-    notification_id: str
+    notification_id: str | None
     event_id: str
     event_type: str
     data: dict
@@ -43,4 +45,4 @@ class Event(BaseModel):
 
 
 class EventsResponse(PaddleResponse):
-    data: List[Event]
+    data: list[Event]

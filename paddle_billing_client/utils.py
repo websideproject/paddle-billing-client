@@ -1,6 +1,7 @@
 import functools
 
 from paddle_billing_client.models.address import Address
+from paddle_billing_client.models.adjustment import Adjustment
 from paddle_billing_client.models.business import Business
 from paddle_billing_client.models.customer import Customer
 from paddle_billing_client.models.price import Price
@@ -24,4 +25,6 @@ def parse_event_to_model(event_type: str, data):
         return Address(**data)
     elif event_type.startswith("business"):
         return Business(**data)
+    elif event_type.startswith("adjustment"):
+        return Adjustment(**data)
     return data

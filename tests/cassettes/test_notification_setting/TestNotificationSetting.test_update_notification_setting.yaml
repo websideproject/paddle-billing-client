@@ -1,0 +1,90 @@
+interactions:
+- request:
+    body: '{"description": "Test Notification Setting 2", "destination": "https://webhook.site/8b4f9b9f-1b0e-4b3c-8d7f-4d3f0e0a6b3b",
+      "subscribed_events": ["transaction.billed", "transaction.canceled", "transaction.completed",
+      "transaction.created", "transaction.payment_failed", "transaction.ready", "transaction.updated"],
+      "type": "url", "active": false, "api_version": 1, "include_sensitive_fields":
+      false}'
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - Bearer 559a1eb08e249528c6d897ef407aedbb13fd8d73e0234bafc1
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '398'
+      Content-type:
+      - application/json
+      User-Agent:
+      - python-requests/2.31.0
+    method: PATCH
+    uri: https://sandbox-api.paddle.com/notification-settings/ntfset_01h9gb2gj5grek32ptb024ygke
+  response:
+    body:
+      string: '{"data":{"id":"ntfset_01h9gb2gj5grek32ptb024ygke","description":"Test
+        Notification Setting 2","type":"url","destination":"https://webhook.site/8b4f9b9f-1b0e-4b3c-8d7f-4d3f0e0a6b3b","active":false,"api_version":1,"include_sensitive_fields":false,"subscribed_events":[{"name":"transaction.billed","description":"Occurs
+        when a transaction is billed. Its status field changes to billed and billed_at
+        is populated.","group":"Transaction","available_versions":[1]},{"name":"transaction.canceled","description":"Occurs
+        when a transaction is canceled. Its status field changes to canceled.","group":"Transaction","available_versions":[1]},{"name":"transaction.completed","description":"Occurs
+        when a transaction is completed. Its status field changes to completed.","group":"Transaction","available_versions":[1]},{"name":"transaction.created","description":"Occurs
+        when a transaction is created.","group":"Transaction","available_versions":[1]},{"name":"transaction.payment_failed","description":"Occurs
+        when a payment fails for a transaction. The payments array is updated with
+        details of the payment attempt.","group":"Transaction","available_versions":[1]},{"name":"transaction.ready","description":"Occurs
+        when a transaction is ready to be billed. Its status field changes to ready.","group":"Transaction","available_versions":[1]},{"name":"transaction.updated","description":"Occurs
+        when a transaction is updated.","group":"Transaction","available_versions":[1]}],"endpoint_secret_key":"pdl_ntfset_01h9gb2gj5grek32ptb024ygke_+ahXo6Zd7+PnDE/9f7BPSMOlqIY+9YRl"},"meta":{"request_id":"6592c87a-7e37-4764-96ad-e43c04be8f7c"}}'
+    headers:
+      CF-Cache-Status:
+      - DYNAMIC
+      CF-RAY:
+      - 801724e2e83a68ad-BUD
+      Cache-Control:
+      - no-cache, private
+      Connection:
+      - keep-alive
+      Content-Security-Policy:
+      - default-src 'none'; frame-ancestors 'none'; base-uri 'none'
+      Content-Type:
+      - application/json
+      Correlation-Id:
+      - 6592c87a-7e37-4764-96ad-e43c04be8f7c
+      Cross-Origin-Embedder-Policy:
+      - require-corp
+      Cross-Origin-Opener-Policy:
+      - same-origin
+      Cross-Origin-Resource-Policy:
+      - same-site
+      Date:
+      - Mon, 04 Sep 2023 15:07:47 GMT
+      Permissions-Policy:
+      - accelerometer=(),ambient-light-sensor=(),autoplay=(),battery=(),camera=(),display-capture=(),document-domain=(),encrypted-media=(),fullscreen=(),gamepad=(),geolocation=(),gyroscope=(),layout-animations=(self),legacy-image-formats=(self),magnetometer=(),microphone=(),midi=(),oversized-images=(self),payment=(),picture-in-picture=(),publickey-credentials-get=(),speaker-selection=(),sync-xhr=(self),unoptimized-images=(self),unsized-media=(self),usb=(),screen-wake-lock=(),web-share=(),xr-spatial-tracking=()
+      Referrer-Policy:
+      - no-referrer
+      Request-Id:
+      - 6592c87a-7e37-4764-96ad-e43c04be8f7c
+      Server:
+      - cloudflare
+      Set-Cookie:
+      - __cf_bm=OjLk6._2AEGf.bn4E9l0ew_aIj7ZcTbvAqX9MbNXU94-1693840067-0-AcjN7oKm3iScKmU7xrMvLb3DpMQcUVSCPwHs9+8mKUx7Qjzc++60CgfV4ToRZxpG6rome26ddEnzpdFO0G/oMao=;
+        path=/; expires=Mon, 04-Sep-23 15:37:47 GMT; domain=.paddle.com; HttpOnly;
+        Secure; SameSite=None
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      Transfer-Encoding:
+      - chunked
+      X-Content-Type-Options:
+      - nosniff
+      X-Correlation-Id:
+      - 6592c87a-7e37-4764-96ad-e43c04be8f7c
+      X-Frame-Options:
+      - deny
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      content-length:
+      - '1619'
+    status:
+      code: 200
+      message: OK
+version: 1
