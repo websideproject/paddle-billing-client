@@ -50,7 +50,7 @@ Python wrapper around the new Paddle Billing API
 - [x] Event types
 - [x] Events
 - [x] Notification Settings
-- [ ] Notifications
+- [x] Notifications
 - [ ] Notification logs
 
 ## Installation
