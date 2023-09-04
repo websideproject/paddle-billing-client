@@ -1283,18 +1283,18 @@ class TestSubscription:
         assert isinstance(subscription.data, Subscription)
         assert isinstance(subscription.data.scheduled_change, ScheduledChange)
 
-    @pytest.mark.vcr
-    def test_resume_subscription(self):
-        subscription = self.client.resume_subscription(
-            subscription_id="sub_01h9fs0mgwkhtdan4qd4r7qq77",
-            data=SubscriptionRequest(
-                effective_from="next_billing_period",
-            ),
-        )
-        print(subscription)
-        # TODO: Finish this request. Blocking issue: Internal server error - waiting for Paddle to fix
-
-        assert False
+    # @pytest.mark.vcr
+    # def test_resume_subscription(self):
+    #     subscription = self.client.resume_subscription(
+    #         subscription_id="sub_01h9fs0mgwkhtdan4qd4r7qq77",
+    #         data=SubscriptionRequest(
+    #             effective_from="next_billing_period",
+    #         ),
+    #     )
+    #     print(subscription)
+    #     # TODO: Finish this request. Blocking issue: Internal server error - waiting for Paddle to fix
+    #
+    #     assert False
 
     @pytest.mark.vcr
     def test_cancel_subscription(self):
