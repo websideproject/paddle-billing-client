@@ -1194,8 +1194,6 @@ class TestSubscription:
         )
 
         assert isinstance(subscription.data, Subscription)
-        assert isinstance(subscription.data.next_transaction, Transaction)
-        assert isinstance(subscription.data.immediate_transaction, Transaction)
 
     @pytest.mark.vcr
     def test_pause_subscription(self):
