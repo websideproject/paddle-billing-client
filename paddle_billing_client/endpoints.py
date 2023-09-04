@@ -63,6 +63,7 @@ class Endpoints:
     get_transaction_to_update_payment_method: str = (
         "subscriptions/{subscription_id}/update-payment-method-transaction"
     )
+    preview_one_time_charge: str = "subscriptions/{subscription_id}/charge/preview"
     create_one_time_charge: str = "subscriptions/{subscription_id}/charge"
     pause_subscription: str = "subscriptions/{subscription_id}/pause"
     resume_subscription: str = "subscriptions/{subscription_id}/resume"

@@ -10,10 +10,10 @@ from paddle_billing_client.models import LazyBaseModel as BaseModel
 from paddle_billing_client.models import PaddleResponse
 from paddle_billing_client.models.address import Address
 from paddle_billing_client.models.business import Business
+from paddle_billing_client.models.common import BillingPeriod
 from paddle_billing_client.models.customer import Customer
 from paddle_billing_client.models.discount import Discount
 from paddle_billing_client.models.product import Product
-from paddle_billing_client.models.subscription import BillingPeriod
 
 
 class TaxRatesTotals(BaseModel):
@@ -143,7 +143,7 @@ class TransactionBase(BaseModel):
     collection_mode: Literal["automatic", "manual"] | None
     billing_details: BillingDetails | None
     billing_period: BillingPeriod | None
-    currency_code: str
+    currency_code: str | None
     customer_ip_address: str | None
     ignore_trials: bool | None
     address: Address | None

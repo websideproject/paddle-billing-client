@@ -359,7 +359,7 @@ class PaddleApiClient(APIClient):
         self, subscription_id: str, data: SubscriptionRequest
     ) -> SubscriptionResponse:
         """Preview an update to a subscription"""
-        return self.post(
+        return self.patch(
             self.endpoints.preview_update_subscription.format(
                 subscription_id=subscription_id
             ),
@@ -370,7 +370,7 @@ class PaddleApiClient(APIClient):
         self, subscription_id: str, data: SubscriptionRequest
     ) -> SubscriptionResponse:
         """Update a subscription"""
-        return self.post(
+        return self.patch(
             self.endpoints.update_subscription.format(subscription_id=subscription_id),
             dict(data),
         )
@@ -385,9 +385,20 @@ class PaddleApiClient(APIClient):
             )
         )
 
+    def preview_one_time_charge(
+        self, subscription_id: str, data: SubscriptionRequest
+    ) -> SubscriptionResponse:
+        """Preview a one-time charge"""
+        return self.post(
+            self.endpoints.preview_one_time_charge.format(
+                subscription_id=subscription_id
+            ),
+            dict(data),
+        )
+
     def create_one_time_charge(
         self, subscription_id: str, data: SubscriptionRequest
-    ) -> TransactionResponse:
+    ) -> SubscriptionResponse:
         """Create a one-time charge"""
         return self.post(
             self.endpoints.create_one_time_charge.format(
