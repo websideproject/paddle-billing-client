@@ -1,0 +1,91 @@
+API reference
+
+Overview
+
+Use the Paddle API to create, read, and update information in your Paddle system.
+
+The Paddle API is a REST API that lets you integrate Paddle into your app and work with the data in your Paddle system. It uses JSON formatted data for requests and responses.
+
+Use the Paddle API to:
+
+Create, read, and update all the information in your Paddle system.
+
+Integrate Paddle with your app to build signup and other subscription management workflows.
+
+Plug Paddle into other systems that your business uses, like CRM, ERP, or accounting solutions.
+
+The base URLs for the Paddle API are the same for all endpoints. The
+
+is specified a header in your API request rather than in the path.
+
+There are different URLs for
+
+sandbox
+
+and
+
+live
+
+accounts:
+
+Your sandbox account is for evaluation and testing. All transactions are tests, meaning transactions are simulated and any money isn't real.
+
+1
+
+1
+
+https://sandbox-api.paddle.com/
+
+Your live account is where you sell with Paddle. Transactions are real, meaning payment methods are charged and you earn real money.
+
+1
+
+1
+
+https://api.paddle.com/
+
+All requests must be made over
+
+HTTPS
+
+. Any
+
+HTTP
+
+request will be automatically redirected.
+
+Make your first request, set your version, and learn how success responses look.
+
+Authentication
+
+Versioning
+
+Success responses
+
+Learn about the core entities in the Paddle API and how they relate to each other.
+
+Products
+
+Prices
+
+Discounts
+
+Customers
+
+Addresses
+
+Businesses
+
+Transactions
+
+Subscriptions
+
+Adjustments
+
+Events
+
+Notification settings
+
+Notifications
+
+On this page
