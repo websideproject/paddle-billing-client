@@ -17,6 +17,14 @@ sites:
       - css_remove: a
       - html_textify
   - url:
+      - "https://developer.paddle.com/changelog/overview"
+    editors:
+      - html_prettify
+      - css_select: .markdown-content-root
+      - css_remove: svg
+      - css_remove: a
+      - html_textify
+  - url:
       - "https://developer.paddle.com/api-reference/products/overview"
       - "https://developer.paddle.com/api-reference/prices/overview"
       - "https://developer.paddle.com/api-reference/discounts/overview"
