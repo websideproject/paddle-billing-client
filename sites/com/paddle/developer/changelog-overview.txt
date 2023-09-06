@@ -1,0 +1,129 @@
+changelog
+
+Overview
+
+Track changes to the Paddle platform, including the Paddle API and Paddle.js.
+
+Aug 22, 2023
+
+Check the new
+
+update_summary
+
+object returned when previewing an update to a subscription or billing for a one-time charge to get an overview of any prorated credits and charges created as a result of the change.
+
+Jul 20, 2023
+
+Present charge totals to a customer before billing a one-time charge to a subscription using the new
+
+/subscriptions/{id}/charge/preview
+
+endpoint.
+
+Jul 18, 2023
+
+Get localized prices for a country, including taxes and discount calculation using the new
+
+/price-preview
+
+endpoint. Paddle returns formatted prices, including currency symbol, so you can pass straight to your frontend.
+
+Jul 10, 2023
+
+Use the new
+
+subscription_charge
+
+allowed value for the
+
+origin
+
+field against a transaction to more easily determine why a transaction was created for a subscription.
+
+Jun 29, 2023
+
+Use the new
+
+/subscriptions/{subscription_id}/update-payment-method-transaction
+
+endpoint to get a transaction that you can pass to Paddle.js to let customers update their payment details.
+
+Jun 28, 2023
+
+Filter to see recurring or one-time prices when using the list prices operation with the
+
+recurring
+
+query parameter.
+
+Jun 23, 2023
+
+See how transaction totals and payout totals look after adjustments using the
+
+transaction.details.adjusted_totals
+
+and
+
+transaction.details.adjusted_payout_totals
+
+.
+
+Jun 23, 2023
+
+Use the
+
+adjustments_totals
+
+include parameter to return a total for all the adjustments against a transaction, including a breakdown by adjustment action.
+
+Jun 20, 2023
+
+Resend a notification that's
+
+delivered
+
+or
+
+failed
+
+using the new
+
+/notifications/{notification_id}/replay
+
+endpoint.
+
+Jun 15, 2023
+
+Find all notifications that relate to a customer, subscription, or transaction entity using the new
+
+filter
+
+query parameter. Plus, filter notifications by date period using the
+
+from
+
+and
+
+to
+
+parameters.
+
+Jun 13, 2023
+
+We added a new
+
+discountCode
+
+parameter and
+
+data-discount-code
+
+HTML data attribute to Paddle.js to let you pass a discount code when opening a checkout.
+
+Jun 5, 2023
+
+Get the amount that a customer has to pay more easily using the new
+
+transaction.details.totals.grand_total
+
+field against totals for a transaction. It's especially useful for completed transactions.

@@ -20,11 +20,11 @@ Python wrapper around the new Paddle Billing API
 ## Paddle Classic vs Paddle Billing
 
 - Paddle Classic is the original Paddle API, which is still in use by many merchants. More info can be found [here](https://developer.paddle.com/classic/api-reference/1384a288aca7a-api-reference)
-  - If you are looking for the Paddle Classic API wrapper, please see [paddle-client](https://github.com/paddle-python/paddle-client)
+  - If you are looking for the Paddle Classic API wrapper, please see [`paddle-client`](https://github.com/paddle-python/paddle-client)
 - Paddle Billing is the new API, which is just launched at 2023, August. Paddle Billing is a complete rewrite of the Paddle Classic API, and is designed to be more flexible and easier to use. More info can be found [here](https://developer.paddle.com/api-reference/overview)
 
 ### Django Integration
-- For Paddle Classic, there is a Django integration available at [dj-paddle](https://github.com/paddle-python/dj-paddle) and [django-paddle](https://github.com/kennell/django-paddle)
+- For Paddle Classic, there is a Django integration available at [`dj-paddle`](https://github.com/paddle-python/dj-paddle) and [`django-paddle`](https://github.com/kennell/django-paddle)
 - For Paddle Billing, there is a Work In Progress Django integration available at (TBD)
 ---
 ## 📦 Features
