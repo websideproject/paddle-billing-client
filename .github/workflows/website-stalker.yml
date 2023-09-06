@@ -16,7 +16,7 @@ jobs:
     steps:
       - uses: EdJoPaTo/website-stalker-github-action@v1
 
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
       - name: Check website-stalker config
         working-directory: sites
