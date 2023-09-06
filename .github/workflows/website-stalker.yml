@@ -22,6 +22,7 @@ jobs:
         run: website-stalker check
 
       - name: Run website-stalker
+        working-directory: sites
         run: website-stalker run --all
 
       - name: Create Pull Request
