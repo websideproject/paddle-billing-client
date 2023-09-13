@@ -1128,13 +1128,13 @@ testing = ["fields", "hunter", "process-tests", "pytest-xdist", "six", "virtuale
 
 [[package]]
 name = "pytest-html"
-version = "4.0.0"
+version = "4.0.1"
 description = "pytest plugin for generating HTML reports"
 optional = false
 python-versions = ">=3.8"
 files = [
-    {file = "pytest_html-4.0.0-py3-none-any.whl", hash = "sha256:79c4677ed6196417bf290d8b81f706342ae49f726f623728efa3f7dfff09f8eb"},
-    {file = "pytest_html-4.0.0.tar.gz", hash = "sha256:3b473cc278272f8b5a34cd3bf10f88ac5fcb17cb5af22f9323514af00c310e64"},
+    {file = "pytest_html-4.0.1-py3-none-any.whl", hash = "sha256:81383115dec5d182bf19c5dbae0bc2bebf7ad5c371fda477ebe9b7b054d2b63b"},
+    {file = "pytest_html-4.0.1.tar.gz", hash = "sha256:2d5e2863196a940607a477d747793c75f18d76fa72276c5d4db423a39665f55c"},
 ]
 
 [package.dependencies]
@@ -1722,4 +1722,4 @@ multidict = ">=4.0"
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.8"
-content-hash = "906470d256fcebcf99b623a70f578e4ce90d9346a9d2304f4c52e0fb35f7854a"
+content-hash = "931985e037cc72a7254e30990618c277ca5a6728f78a5a9e548c4b936a3041db"
