@@ -14,6 +14,7 @@
 ![Coverage Report](assets/images/coverage.svg)
 ![HitCount](https://img.shields.io/endpoint?url=https%3A%2F%2Fhits.dwyl.com%2FWebstormitDev%2Fpaddle-billing-client.json&label=Visitors&color=%23FF7F50&link=http%3A%2F%2Fhits.dwyl.com%2FWebstormitDev%2Fpaddle-billing-client)
 ![UniqueHitCount](https://img.shields.io/endpoint?url=https%3A%2F%2Fhits.dwyl.com%2FWebstormitDev%2Fpaddle-billing-client.json%3Fshow%3Dunique&label=Unique%20visitors&color=%23DC143C&link=http%3A%2F%2Fhits.dwyl.com%2FWebstormitDev%2Fpaddle-billing-client)
+![Downloads](https://img.shields.io/pypi/dm/paddle-billing-client.svg)
 
 Python wrapper around the new Paddle Billing API
 
