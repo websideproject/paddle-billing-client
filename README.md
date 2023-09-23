@@ -70,8 +70,12 @@ poetry add paddle-billing-client
 ## Usage
 
 ```python
+from paddle_billing_client.client import PaddleApiClient
+from apiclient import HeaderAuthentication
+
+
 client = PaddleApiClient(
-    base_url="https://sandbox-api.paddle.com/", 
+    base_url="https://sandbox-api.paddle.com", 
     authentication_method=HeaderAuthentication(token="your-paddle-token")
 )
 
