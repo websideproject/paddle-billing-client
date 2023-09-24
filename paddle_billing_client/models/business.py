@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from typing import List, Literal, Optional
+from typing import Dict, List, Literal, Optional
 
 from datetime import datetime
 
@@ -21,6 +21,7 @@ class BusinessBase(BaseModel):
     tax_identifier: str | None
     contacts: list[Contact]
     status: Literal["active", "archived"] | None
+    custom_data: dict[str, str] | None
 
 
 class Business(BusinessBase):

@@ -33,6 +33,8 @@ from paddle_billing_client.models.business import (
     BusinessResponse,
 )
 from paddle_billing_client.models.customer import (
+    CustomerBalancesQueryParams,
+    CustomerBalancesResponse,
     CustomerQueryParams,
     CustomerRequest,
     CustomerResponse,
@@ -196,6 +198,14 @@ class PaddleApiClient(APIClient):
         """Update a customer"""
         return self.patch(
             self.endpoints.update_customer.format(customer_id=customer_id), dict(data)
+        )
+
+    def list_customer_credit_balances(
+        self, query_params: CustomerBalancesQueryParams = None
+    ) -> CustomerBalancesResponse:
+        """List credit balances for a customer"""
+        return self.get(
+            self.endpoints.list_customer_credit_balances, params=dict(query_params)
         )
 
     """
@@ -407,6 +417,17 @@ class PaddleApiClient(APIClient):
         """Create a one-time charge"""
         return self.post(
             self.endpoints.create_one_time_charge.format(
+                subscription_id=subscription_id
+            ),
+            dict(data),
+        )
+
+    def activate_trialing_subscription(
+        self, subscription_id: str, data: SubscriptionRequest
+    ) -> SubscriptionResponse:
+        """Activate a trialing subscription"""
+        return self.post(
+            self.endpoints.activate_trialing_subscription.format(
                 subscription_id=subscription_id
             ),
             dict(data),

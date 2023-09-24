@@ -1,4 +1,4 @@
-from typing import List, Literal, Optional
+from typing import Dict, List, Literal, Optional
 
 from datetime import datetime
 
@@ -12,6 +12,7 @@ class CustomerBase(BaseModel):
     email: str
     name: Optional[str]
     locale: Optional[str]
+    custom_data: Optional[Dict[str, str]]
 
 
 class Customer(CustomerBase):
@@ -60,3 +61,24 @@ class CustomersResponse(PaddleResponse):
 
 class CustomerRequest(CustomerBase):
     pass
+
+
+class CustomerBalancesQueryParams(BaseModel):
+    # Return entities that match the currency code. Use a comma separated list to specify multiple currency codes.
+    currency_code: Optional[str] = None
+
+
+class Balance(BaseModel):
+    available: str
+    reserved: str
+    used: str
+
+
+class CustomerBalance(BaseModel):
+    customer_id: str
+    currency_code: str
+    balance: Balance
+
+
+class CustomerBalancesResponse(PaddleResponse):
+    data: List[CustomerBalance]
