@@ -44,6 +44,8 @@ ntfset_
 
 .
 
+readOnly
+
 description
 
 string
@@ -86,7 +88,7 @@ Whether potentially sensitive fields should be sent to this notification destina
 
 subscribed_events
 
-array or array[object],array[object]
+array[object]
 
 Represents an event type.
 
