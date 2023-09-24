@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from typing import List, Literal, Optional
+from typing import Dict, List, Literal, Optional
 
 from datetime import datetime
 
@@ -19,6 +19,7 @@ class AddressBase(BaseModel):
     region: str | None
     country_code: str | None
     status: Literal["active", "archived"] | None
+    custom_data: dict[str, str] | None
 
 
 class Address(AddressBase):

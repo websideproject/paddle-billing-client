@@ -1,4 +1,4 @@
-from typing import List, Literal, Optional
+from typing import Dict, List, Literal, Optional
 
 from datetime import datetime
 
@@ -21,6 +21,7 @@ class DiscountBase(BaseModel):
     restrict_to: Optional[List[str]]
     expires_at: Optional[datetime]
     status: Optional[Literal["active", "archived", "expired", "used"]]
+    custom_data: Optional[Dict[str, str]]
 
 
 class Discount(DiscountBase):
@@ -28,6 +29,7 @@ class Discount(DiscountBase):
     times_used: int
     created_at: Optional[datetime]
     updated_at: Optional[datetime]
+    external_id: Optional[str]
 
 
 class DiscountQueryParams(BaseModel):

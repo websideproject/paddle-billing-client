@@ -32,6 +32,7 @@ class Endpoints:
     get_customer: str = "customers/{customer_id}"
     list_customers: str = "customers"
     update_customer: str = "customers/{customer_id}"
+    list_customer_credit_balances: str = "customers/{customer_id}/credit-balances"
 
     # Addresses
     create_address_for_customer: str = "customers/{customer_id}/addresses"
@@ -65,6 +66,7 @@ class Endpoints:
     )
     preview_one_time_charge: str = "subscriptions/{subscription_id}/charge/preview"
     create_one_time_charge: str = "subscriptions/{subscription_id}/charge"
+    activate_trialing_subscription: str = "subscriptions/{subscription_id}/activate"
     pause_subscription: str = "subscriptions/{subscription_id}/pause"
     resume_subscription: str = "subscriptions/{subscription_id}/resume"
     cancel_subscription: str = "subscriptions/{subscription_id}/cancel"

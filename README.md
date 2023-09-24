@@ -32,8 +32,6 @@ Python wrapper around the new Paddle Billing API
 ---
 ## 📦 Features
 
-- TBD
-- 
 - Pydantic models for all API requests and responses
 - Tests with [`pytest`](https://docs.pytest.org/en/latest/) and [`VCR.py`](https://vcrpy.readthedocs.io/en/latest/) for mocking HTTP requests
 - [`Website stalker`](https://github.com/EdJoPaTo/website-stalker) Github Action to monitor any API changes
@@ -44,10 +42,13 @@ Python wrapper around the new Paddle Billing API
 - [x] Prices
 - [x] Discounts
 - [x] Customers
+   - [ ] Customer Credit balances
 - [x] Addresses
 - [x] Businesses
 - [x] Transactions
-- [x] Subscriptions (except resume)
+- [x] Subscriptions (except resume and activate)
+   - [ ] Subscription Resume
+   - [ ] Subscription Activate Trialing
 - [x] Adjustments
 - [x] Pricing Previews
 - [x] Event types
