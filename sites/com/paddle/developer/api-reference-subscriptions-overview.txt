@@ -551,6 +551,14 @@ https://api.paddle.com
 
 /subscriptions/{subscription_id}/charge
 
+Activate a trialing subscription
+
+post
+
+https://api.paddle.com
+
+/subscriptions/{subscription_id}/activate
+
 Pause a subscription
 
 post

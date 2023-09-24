@@ -4,6 +4,82 @@ Overview
 
 Track changes to the Paddle platform, including the Paddle API and Paddle.js.
 
+Sep 22, 2023
+
+Create prices, discounts, transactions, and subscriptions in Colombian Peso.
+
+COP
+
+is a new allowed value for
+
+currency_code
+
+for payments.
+
+Sep 21, 2023
+
+Include an object of
+
+custom_data
+
+with requests when creating or updating customers, addresses, and businesses to store your own arbitrary key-value data.
+
+Sep 20, 2023
+
+Subscribe to the new
+
+transaction.paid
+
+event to get notified when a transaction is paid but not yet fully processed.
+
+transaction.completed
+
+now include details of the related subscription and invoice number.
+
+Sep 15, 2023
+
+List credit balances for a customer using the new
+
+/customers/{customer_id}/credit-balances
+
+endpoint to see how much credit a customer has to use, and how much credit they've previously used.
+
+Sep 13, 2023
+
+Send a request to the
+
+/subscriptions/{subscription_id}/activate
+
+endpoint to immediately activate a trialing subscription.
+
+Sep 13, 2023
+
+Add or remove recurring items, change quantities, bill for one-time charges, and change the next billing date for subscriptions in trial.
+
+Sep 8, 2023
+
+Subscribe to notifications for payouts for Paddle to get notified when payouts are initiated (
+
+payout.created
+
+) and when they're paid (
+
+payout.paid
+
+.)
+
+Sep 8, 2023
+
+Subscribe to notifications for discount events to get notified when discounts are created (
+
+discount.created
+
+) and when they're updated (
+
+discount.updated
+
+.)
+
 Aug 22, 2023
 
 Check the new

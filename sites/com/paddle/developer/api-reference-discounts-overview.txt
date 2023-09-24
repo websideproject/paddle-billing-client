@@ -70,6 +70,12 @@ Show
 
 allowed values
 
+external_id
+
+string
+
+An optional reference ID from the originating system. Used when an discount is imported. Can contain any number of characters excluding white space.
+
 description
 
 string
@@ -200,6 +206,12 @@ RFC 3339 datetime string of when this discount expires. Discount can no longer b
 null
 
 if this discount can be applied forever.
+
+custom_data
+
+object or null
+
+Your own structured key-value data.
 
 times_used
 

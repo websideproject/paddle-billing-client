@@ -102,6 +102,12 @@ Show
 
 allowed values
 
+custom_data
+
+object or null
+
+Your own structured key-value data.
+
 status
 
 string
