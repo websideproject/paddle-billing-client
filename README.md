@@ -35,6 +35,7 @@ Python wrapper around the new Paddle Billing API
 - Pydantic models for all API requests and responses
 - Tests with [`pytest`](https://docs.pytest.org/en/latest/) and [`VCR.py`](https://vcrpy.readthedocs.io/en/latest/) for mocking HTTP requests
 - [`Website stalker`](https://github.com/EdJoPaTo/website-stalker) Github Action to monitor any API changes
+- Pagination support with generator to process pages one by one
 
 ### Tests
 
@@ -93,10 +94,24 @@ product = client.create_product(
         )
                          
 # Get all products
-products = client.products.get_products()
+products = client.list_products()
 
-# Get all plans
-plans = client.plans.get_plans()
+# Get all prices
+plans = client.list_prices()
+
+# Pagination
+from paddle_billing_client.pagination import paginate
+from paddle_billing_client.models.notification import NotificationQueryParams
+
+for notification in paginate(client.list_notifications, query_params=NotificationQueryParams(
+        status="delivered",
+        after='ntf_01hb1n6nw8yx1wwts2cyh632s9',
+        per_page=10
+    )):
+        # Process notifications page by page
+        print("Notification:")
+        print(len(notification.data))
+        print(notification.data[-1].id)
 ```
 - Sandbox API url: `https://sandbox-api.paddle.com/`
 - Live API url: `https://api.paddle.com/`

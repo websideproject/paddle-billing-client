@@ -2,7 +2,7 @@ from typing import Dict, List, Literal, Optional
 
 from datetime import datetime
 
-from pydantic import validator
+from pydantic import Extra, validator
 
 from paddle_billing_client.models import LazyBaseModel as BaseModel
 from paddle_billing_client.models.price import Price
@@ -60,6 +60,9 @@ class ProductQueryParams(BaseModel):
             "website-hosting",
         ]
     ] = None
+
+    class Config:
+        extra = Extra.forbid
 
     @validator("status", allow_reuse=True)
     def check_status(cls, v: str) -> str:  # pragma: no cover

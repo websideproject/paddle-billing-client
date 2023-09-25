@@ -2,7 +2,7 @@ from typing import Dict, List, Literal, Optional
 
 from datetime import datetime
 
-from pydantic import validator
+from pydantic import Extra, validator
 
 from paddle_billing_client.models import LazyBaseModel as BaseModel
 from paddle_billing_client.models import PaddleResponse
@@ -41,6 +41,9 @@ class CustomerQueryParams(BaseModel):
     # Return entities that match the specified status. Use a comma separated list to specify multiple status values.
     status: Optional[str] = None
 
+    class Config:
+        extra = Extra.forbid
+
     @validator("status", allow_reuse=True)
     def check_status(cls, v: str) -> str:  # pragma: no cover
         valid_statuses = ["active", "archived"]
@@ -66,6 +69,9 @@ class CustomerRequest(CustomerBase):
 class CustomerBalancesQueryParams(BaseModel):
     # Return entities that match the currency code. Use a comma separated list to specify multiple currency codes.
     currency_code: Optional[str] = None
+
+    class Config:
+        extra = Extra.forbid
 
 
 class Balance(BaseModel):

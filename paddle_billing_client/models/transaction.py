@@ -4,7 +4,7 @@ from typing import Dict, List, Literal, Optional
 
 from datetime import datetime
 
-from pydantic import validator
+from pydantic import Extra, validator
 
 from paddle_billing_client.models import LazyBaseModel as BaseModel
 from paddle_billing_client.models import PaddleResponse
@@ -211,6 +211,9 @@ class TransactionQueryParams(BaseModel):
     # [GT] (greater than), or [GTE] (greater than or equal to) operators.
     # For example, billed_at=2023-04-18T17:03:26 or billed_at[LT]=2023-04-18T17:03:26.
     updated_at: datetime | str | None = None
+
+    class Config:
+        extra = Extra.forbid
 
     @validator("status", allow_reuse=True)
     def check_status(cls, v: str) -> str:  # pragma: no cover

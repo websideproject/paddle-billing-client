@@ -4,7 +4,7 @@ from typing import List, Literal, Optional
 
 from datetime import datetime
 
-from pydantic import validator
+from pydantic import Extra, validator
 
 from paddle_billing_client.models.base import LazyBaseModel as BaseModel
 from paddle_billing_client.models.base import PaddleResponse
@@ -75,6 +75,9 @@ class SubscriptionQueryParams(BaseModel):
     price_id: str | None = None
     # Return entities that match the specified status. Use a comma separated list to specify multiple status values.
     status: str | None = None
+
+    class Config:
+        extra = Extra.forbid
 
     @validator("status", allow_reuse=True)
     def check_status(cls, v: str) -> str:  # pragma: no cover

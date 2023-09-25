@@ -1,6 +1,6 @@
 from typing import Dict, List, Literal, Optional
 
-from pydantic import validator
+from pydantic import Extra, validator
 
 from paddle_billing_client.models import LazyBaseModel as BaseModel
 from paddle_billing_client.models import PaddleResponse
@@ -58,6 +58,9 @@ class PriceQueryParams(BaseModel):
     status: Optional[str] = None
     # Determine whether returned entities are for recurring prices (true) or one-time prices (false).
     recurring: Optional[bool] = None
+
+    class Config:
+        extra = Extra.forbid
 
     @validator("status", allow_reuse=True)
     def check_status(cls, v: str) -> str:  # pragma: no cover
