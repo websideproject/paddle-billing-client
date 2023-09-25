@@ -1,15 +1,6 @@
 from __future__ import annotations
 
-from typing import Optional
-
-import logging
-
-from apiclient import (
-    APIClient,
-    HeaderAuthentication,
-    JsonRequestFormatter,
-    JsonResponseHandler,
-)
+from apiclient import APIClient, JsonResponseHandler
 from apiclient_pydantic import serialize_all_methods
 
 from paddle_billing_client.endpoints import Endpoints
@@ -32,6 +23,7 @@ from paddle_billing_client.models.business import (
     BusinessRequest,
     BusinessResponse,
 )
+from paddle_billing_client.models.common import Paginate
 from paddle_billing_client.models.customer import (
     CustomerBalancesQueryParams,
     CustomerBalancesResponse,
@@ -115,10 +107,13 @@ class PaddleApiClient(APIClient):
         return self.get(self.endpoints.get_product.format(product_id=product_id))
 
     def list_products(
-        self, query_params: ProductQueryParams = None
+        self, query_params: ProductQueryParams = None, paginate: Paginate = None
     ) -> ProductsResponse:
         """List all products"""
-        return self.get(self.endpoints.list_products, params=dict(query_params))
+        return self.get(
+            dict(paginate)["next"] if paginate else self.endpoints.list_products,
+            params=dict(query_params),
+        )
 
     def update_product(self, product_id: str, data: ProductRequest) -> ProductResponse:
         """Update a product"""
@@ -138,9 +133,14 @@ class PaddleApiClient(APIClient):
         """Get a price"""
         return self.get(self.endpoints.get_price.format(price_id=price_id))
 
-    def list_prices(self, query_params: PriceQueryParams = None) -> PricesResponse:
+    def list_prices(
+        self, query_params: PriceQueryParams = None, paginate: Paginate = None
+    ) -> PricesResponse:
         """List all prices"""
-        return self.get(self.endpoints.list_prices, params=dict(query_params))
+        return self.get(
+            dict(paginate)["next"] if paginate else self.endpoints.list_prices,
+            params=dict(query_params),
+        )
 
     def update_price(self, price_id: str, data: PriceRequest) -> PriceResponse:
         """Update a price"""
@@ -161,10 +161,13 @@ class PaddleApiClient(APIClient):
         return self.get(self.endpoints.get_discount.format(discount_id=discount_id))
 
     def list_discounts(
-        self, query_params: DiscountQueryParams = None
+        self, query_params: DiscountQueryParams = None, paginate: Paginate = None
     ) -> DiscountsResponse:
         """List all discounts"""
-        return self.get(self.endpoints.list_discounts, params=dict(query_params))
+        return self.get(
+            dict(paginate)["next"] if paginate else self.endpoints.list_discounts,
+            params=dict(query_params),
+        )
 
     def update_discount(
         self, discount_id: str, data: DiscountRequest
@@ -187,10 +190,13 @@ class PaddleApiClient(APIClient):
         return self.get(self.endpoints.get_customer.format(customer_id=customer_id))
 
     def list_customers(
-        self, query_params: CustomerQueryParams = None
+        self, query_params: CustomerQueryParams = None, paginate: Paginate = None
     ) -> CustomersResponse:
         """List all customers"""
-        return self.get(self.endpoints.list_customers, params=dict(query_params))
+        return self.get(
+            dict(paginate)["next"] if paginate else self.endpoints.list_customers,
+            params=dict(query_params),
+        )
 
     def update_customer(
         self, customer_id: str, data: CustomerRequest
@@ -232,11 +238,18 @@ class PaddleApiClient(APIClient):
         )
 
     def list_addresses_for_customer(
-        self, customer_id: str, query_params: AddressQueryParams = None
+        self,
+        customer_id: str,
+        query_params: AddressQueryParams = None,
+        paginate: Paginate = None,
     ) -> AddressesResponse:
         """List all addresses for a customer"""
         return self.get(
-            self.endpoints.list_addresses_for_customer.format(customer_id=customer_id),
+            dict(paginate)["next"]
+            if paginate
+            else self.endpoints.list_addresses_for_customer.format(
+                customer_id=customer_id
+            ),
             params=dict(query_params),
         )
 
@@ -275,11 +288,18 @@ class PaddleApiClient(APIClient):
         )
 
     def list_businesses_for_customer(
-        self, customer_id: str, query_params: BusinessQueryParams = None
+        self,
+        customer_id: str,
+        query_params: BusinessQueryParams = None,
+        paginate: Paginate = None,
     ) -> BusinessesResponse:
         """List all businesses for a customer"""
         return self.get(
-            self.endpoints.list_businesses_for_customer.format(customer_id=customer_id),
+            dict(paginate)["next"]
+            if paginate
+            else self.endpoints.list_businesses_for_customer.format(
+                customer_id=customer_id
+            ),
             params=dict(query_params),
         )
 
@@ -318,10 +338,13 @@ class PaddleApiClient(APIClient):
         )
 
     def list_transactions(
-        self, query_params: TransactionQueryParams = None
+        self, query_params: TransactionQueryParams = None, paginate: Paginate = None
     ) -> TransactionsResponse:
         """List all transactions"""
-        return self.get(self.endpoints.list_transactions, params=dict(query_params))
+        return self.get(
+            dict(paginate)["next"] if paginate else self.endpoints.list_transactions,
+            params=dict(query_params),
+        )
 
     def update_transaction(
         self,
@@ -365,10 +388,13 @@ class PaddleApiClient(APIClient):
         )
 
     def list_subscriptions(
-        self, query_params: SubscriptionQueryParams = None
+        self, query_params: SubscriptionQueryParams = None, paginate: Paginate = None
     ) -> SubscriptionsResponse:
         """List all subscriptions"""
-        return self.get(self.endpoints.list_subscriptions, params=dict(query_params))
+        return self.get(
+            dict(paginate)["next"] if paginate else self.endpoints.list_subscriptions,
+            params=dict(query_params),
+        )
 
     def preview_update_subscription(
         self, subscription_id: str, data: SubscriptionRequest
@@ -469,10 +495,13 @@ class PaddleApiClient(APIClient):
         return self.post(self.endpoints.create_adjustment, dict(data))
 
     def list_adjustments(
-        self, query_params: AdjustmentQueryParams = None
+        self, query_params: AdjustmentQueryParams = None, paginate: Paginate = None
     ) -> AdjustmentsResponse:
         """List all customers"""
-        return self.get(self.endpoints.list_adjustments, params=dict(query_params))
+        return self.get(
+            dict(paginate)["next"] if paginate else self.endpoints.list_adjustments,
+            params=dict(query_params),
+        )
 
     """
     Events
@@ -542,10 +571,15 @@ class PaddleApiClient(APIClient):
         )
 
     def list_notifications(
-        self, query_params: NotificationQueryParams = None
+        self,
+        query_params: NotificationQueryParams = None,
+        paginate: Paginate = None,
     ) -> NotificationsResponse:
         """List all notifications"""
-        return self.get(self.endpoints.list_notifications, params=dict(query_params))
+        return self.get(
+            dict(paginate)["next"] if paginate else self.endpoints.list_notifications,
+            params=dict(query_params),
+        )
 
     def replay_notification(self, notification_id: str) -> NotificationReplayResponse:
         """Replay a notification"""

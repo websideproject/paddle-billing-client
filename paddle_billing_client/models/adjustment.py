@@ -4,10 +4,11 @@ from typing import Any, Dict, List, Literal, Optional
 
 from datetime import datetime
 
-from pydantic import validator
+from pydantic import Extra, validator
 from pydantic.types import Enum
 
 from paddle_billing_client.models.base import LazyBaseModel as BaseModel
+from paddle_billing_client.models.common import BillingPeriod
 
 
 class AdjustmentAction(str, Enum):
@@ -23,12 +24,17 @@ class AdjustmentStatus(str, Enum):
     rejected = "rejected"
 
 
+class AdjustmentItemProration(BaseModel):
+    rate: str
+    billing_period: BillingPeriod | None
+
+
 class AdjustmentItem(BaseModel):
     id: str | None
     item_id: str
     type: str
     amount: str
-    proration: str | None
+    proration: AdjustmentItemProration | None
     totals: dict | None
 
 
@@ -53,7 +59,7 @@ class Adjustment(AdjustmentBase):
     # 'credit' adjustments are created with the status 'approved'.
     status: AdjustmentStatus
     totals: dict
-    payout_totals: dict
+    payout_totals: dict | None
     created_at: datetime
     updated_at: datetime
 
@@ -80,6 +86,9 @@ class AdjustmentQueryParams(BaseModel):
     # Return only the IDs specified.
     # Use a comma separated list to get multiple entities.
     id: str | None = None
+
+    class Config:
+        extra = Extra.forbid
 
     @validator("status", allow_reuse=True)
     def check_status(cls, v: str) -> str:  # pragma: no cover

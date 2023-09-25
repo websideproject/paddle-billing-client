@@ -4,7 +4,7 @@ from typing import List, Literal, Optional
 
 from datetime import datetime
 
-from pydantic import Field, root_validator, validator
+from pydantic import Extra, Field, root_validator, validator
 
 from paddle_billing_client.models import LazyBaseModel as BaseModel
 from paddle_billing_client.models import PaddleResponse
@@ -63,6 +63,9 @@ class NotificationQueryParams(BaseModel):
     to: str | None = None
     # Return entities from a specific time.
     from_field: str | None = Field(None, alias="from")
+
+    class Config:
+        extra = Extra.forbid
 
     @validator("status", allow_reuse=True)
     def check_status(cls, v: str) -> str:  # pragma: no cover
