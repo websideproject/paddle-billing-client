@@ -8,6 +8,7 @@ from pydantic import Extra, validator
 from pydantic.types import Enum
 
 from paddle_billing_client.models.base import LazyBaseModel as BaseModel
+from paddle_billing_client.models.base import PaddleResponse
 from paddle_billing_client.models.common import BillingPeriod
 
 
@@ -100,32 +101,13 @@ class AdjustmentQueryParams(BaseModel):
         return v
 
 
-class AdjustmentResponse(BaseModel):
+class AdjustmentResponse(PaddleResponse):
     data: Adjustment
 
 
-class AdjustmentsResponse(BaseModel):
+class AdjustmentsResponse(PaddleResponse):
     data: list[Adjustment]
 
 
 class AdjustmentRequest(AdjustmentBase):
     pass
-
-
-if __name__ == "__main__":
-    adjustment = Adjustment(
-        id="1",
-        action="refund",
-        transaction_id="1",
-        subscription_id="1",
-        customer_id="1",
-        reason="1",
-        currency_code="USD",
-        status="pending_approval",
-        items=[],
-        totals={},
-        payout_totals={},
-        created_at="2023-03-21T18:34:44.148562Z",
-        updated_at="2023-03-21T18:34:44.148562Z",
-    )
-    print(adjustment.action == AdjustmentAction.refund)

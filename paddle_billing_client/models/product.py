@@ -5,6 +5,7 @@ from datetime import datetime
 from pydantic import Extra, validator
 
 from paddle_billing_client.models import LazyBaseModel as BaseModel
+from paddle_billing_client.models import PaddleResponse
 from paddle_billing_client.models.price import Price
 
 
@@ -74,11 +75,11 @@ class ProductQueryParams(BaseModel):
         return v
 
 
-class ProductResponse(BaseModel):
+class ProductResponse(PaddleResponse):
     data: Product
 
 
-class ProductsResponse(BaseModel):
+class ProductsResponse(PaddleResponse):
     data: List[Product]
 
 
