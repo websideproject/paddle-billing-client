@@ -4,6 +4,42 @@ Overview
 
 Track changes to the Paddle platform, including the Paddle API and Paddle.js.
 
+Sep 28, 2023
+
+Use the new
+
+showAddDiscount
+
+parameter or
+
+show-add-discount
+
+HTML data attribute when working with Paddle.js to hide the option to add a discount at checkout.
+
+Sep 28, 2023
+
+Let customers pay for subscriptions using Apple Pay and Google Pay, with no engineering effort required on your part. You may see
+
+apple_pay
+
+and
+
+google_pay
+
+as values for
+
+transaction.payments[].method_details.type
+
+when working with subscription-related transactions.
+
+Sep 27, 2023
+
+Listen to the new
+
+checkout.warning
+
+event to get details about invalid or missing information passed to a checkout when opening, so you can handle problems in your frontend.
+
 Sep 22, 2023
 
 Create prices, discounts, transactions, and subscriptions in Colombian Peso.
