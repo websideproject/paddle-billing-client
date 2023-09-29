@@ -1,6 +1,7 @@
 from typing import List, Literal, Optional
 
 from paddle_billing_client.models import LazyBaseModel as BaseModel
+from paddle_billing_client.models import PaddleResponse
 
 
 class SubscribedEvent(BaseModel):
@@ -25,11 +26,11 @@ class NotificationSetting(NotificationSettingBase):
     endpoint_secret_key: str
 
 
-class NotificationSettingResponse(BaseModel):
+class NotificationSettingResponse(PaddleResponse):
     data: NotificationSetting
 
 
-class NotificationSettingsResponse(BaseModel):
+class NotificationSettingsResponse(PaddleResponse):
     data: List[NotificationSetting]
 
 
