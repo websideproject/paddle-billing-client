@@ -10,8 +10,8 @@ description = "Python wrapper around the new Paddle Billing API"
 readme = "README.md"
 authors = ["Benjamin Gervan <bgervan@webstormit.com>"]
 license = "MIT"
-repository = "https://github.com/WebstormitDev/paddle-billing-client"
-homepage = "https://github.com/WebstormitDev/paddle-billing-client"
+repository = "https://github.com/websideproject/paddle-billing-client"
+homepage = "https://github.com/websideproject/paddle-billing-client"
 
 # Keywords description https://python-poetry.org/docs/pyproject/#keywords
 keywords = []  #! Update me
