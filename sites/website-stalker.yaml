@@ -12,7 +12,7 @@ sites:
       - "https://developer.paddle.com/api-reference/overview"
     editors:
       - html_prettify
-      - css_select: .markdown-content-root
+      - css_select: .dev-docs-changelog-overview-root
       - css_remove: svg
       - css_remove: a
       - html_textify
