@@ -37,20 +37,20 @@ importlib_metadata = {version = "^4.5.0", python = "<3.8"}
 api-client-pydantic = "^2.2.1"
 [tool.poetry.dev-dependencies]
 bandit = "^1.7.1"
-black = {version = "^23.9.1", allow-prereleases = true}
+black = {version = "^23.11.0", allow-prereleases = true}
 darglint = "^1.8.1"
 isort = {extras = ["colors"], version = "^5.12.0"}
-mypy = "^1.5.1"
+mypy = "^1.7.0"
 mypy-extensions = "^1.0.0"
-pre-commit = "^3.4.0"
+pre-commit = "^3.5.0"
 pydocstyle = "^6.1.1"
-pylint = "^2.11.1"
-pytest = "^7.4.2"
+pylint = "^3.0.2"
+pytest = "^7.4.3"
 pyupgrade = "^3.8.0"
-safety = "^2.3.5"
-coverage = "^7.3.1"
+safety = "^2.4.0b2"
+coverage = "^7.3.2"
 coverage-badge = "^1.1.0"
-pytest-html = "^4.0.2"
+pytest-html = "^4.1.1"
 pytest-cov = "^4.1.0"
 
 [tool.poetry.group.dev.dependencies]

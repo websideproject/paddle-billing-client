@@ -100,6 +100,12 @@ Show
 
 allowed values
 
+custom_data
+
+object or null
+
+Your own structured key-value data.
+
 locale
 
 string
@@ -153,3 +159,11 @@ patch
 https://api.paddle.com
 
 /customers/{customer_id}
+
+List credit balances for a customer
+
+get
+
+https://api.paddle.com
+
+/customers/{customer_id}/credit-balances

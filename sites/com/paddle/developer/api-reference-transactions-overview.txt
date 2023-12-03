@@ -98,7 +98,15 @@ or
 
 canceled
 
-, other statuses are set automatically by Paddle.
+, other statuses are set automatically by Paddle. Automatically-collected transactions may return
+
+completed
+
+if payment is captured successfully, or
+
+past_due
+
+if payment failed.
 
 Show
 
@@ -464,7 +472,11 @@ error_code
 
 string or null
 
-Error code relating to a payment issue
+Reason why a payment attempt failed. Returns
+
+null
+
+if payment captured successfully.
 
 Show
 
@@ -521,7 +533,7 @@ otherwise.
 
 url
 
-string or null
+string
 
 Paddle Checkout URL for this transaction, composed of your default payment URL +
 

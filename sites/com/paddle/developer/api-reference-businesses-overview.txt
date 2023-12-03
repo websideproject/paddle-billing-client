@@ -110,6 +110,12 @@ string
 
 RFC 3339 datetime string of when this entity was updated. Set automatically by Paddle.
 
+custom_data
+
+object or null
+
+Your own structured key-value data.
+
 List businesses for a customer
 
 get
