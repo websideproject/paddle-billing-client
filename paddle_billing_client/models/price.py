@@ -26,11 +26,16 @@ class UnitPriceOverride(BaseModel):
     unit_price: UnitPrice
 
 
+class TrialPeriod(BaseModel):
+    interval: str
+    frequency: int
+
+
 class PriceBase(BaseModel):
     description: str
     product_id: Optional[str]
     billing_cycle: Optional[BillingCycle]
-    trial_period: Optional[str]
+    trial_period: Optional[TrialPeriod]
     tax_mode: str
     unit_price_overrides: Optional[List[UnitPriceOverride]]
     quantity: Optional[Quantity]

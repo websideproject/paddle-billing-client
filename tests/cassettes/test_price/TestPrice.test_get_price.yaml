@@ -19,7 +19,7 @@ interactions:
   response:
     body:
       string: '{"data":{"id":"pri_01h8xce4x86pq3byesf71a7kw1","product_id":"pro_01h89b2j66qq82x6vn5d39c4av","description":"Test
-        Price Updated","billing_cycle":{"interval":"month","frequency":1},"trial_period":null,"tax_mode":"account_setting","unit_price":{"amount":"1200","currency_code":"USD"},"unit_price_overrides":[],"custom_data":null,"status":"active","quantity":{"minimum":1,"maximum":100}},"meta":{"request_id":"2f32b40b-c38c-49c5-9dfe-4e779a66208c"}}'
+        Price Updated","billing_cycle":{"interval":"month","frequency":1},"trial_period": {"interval": "day","frequency": 3},"tax_mode":"account_setting","unit_price":{"amount":"1200","currency_code":"USD"},"unit_price_overrides":[],"custom_data":null,"status":"active","quantity":{"minimum":1,"maximum":100}},"meta":{"request_id":"2f32b40b-c38c-49c5-9dfe-4e779a66208c"}}'
     headers:
       CF-Cache-Status:
       - DYNAMIC

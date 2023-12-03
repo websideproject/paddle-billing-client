@@ -13,6 +13,7 @@ from paddle_billing_client.models.price import (
     PriceResponse,
     PricesResponse,
     Quantity,
+    TrialPeriod,
 )
 
 
@@ -165,6 +166,10 @@ class TestPrice:
                 unit_price=dict(
                     amount="1200",
                     currency_code="USD",
+                ),
+                trial_period=TrialPeriod(
+                    interval="day",
+                    frequency=3,
                 ),
                 billing_cycle=BillingCycle(
                     interval="month",
