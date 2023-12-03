@@ -3,7 +3,6 @@ class Endpoints:
         self._base_url = base_url
 
     def __getattribute__(self, name):
-        print(name)
         value = super().__getattribute__(name)
         if name.startswith("_"):
             return value

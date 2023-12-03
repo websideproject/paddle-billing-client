@@ -14,7 +14,7 @@ class DiscountBase(BaseModel):
     type: Literal["flat", "flat_per_seat", "percentage"]
     enabled_for_checkout: bool
     code: str
-    currency_code: str
+    currency_code: Optional[str]
     recur: bool
     maximum_recurring_intervals: Optional[int]
     usage_limit: Optional[int]
