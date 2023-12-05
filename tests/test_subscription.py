@@ -105,7 +105,11 @@ class TestSubscription:
                     "update_payment_method": None,
                     "cancel": "https://sandbox-buyer-portal.paddle.com/subscriptions/sub_01h7n3a88jwktex2tfjzahmn57/cancel?token=pga_eyJhbGciOiJSUzI1NiIsImtpZCI6IjUwMWI4NGRhNWExYmIyODU2NDcyM2EzNDFkZGY5NTcyZDQwNDAwNDI4OTg3NzQyNjgzZWUyOWYyYTdmYjc0NDkiLCJ0eXAiOiJKV1QifQ.eyJpZCI6InBnYV8wMWg5Zm1lM2I0ZGI3bTduNnNtZTR2eWV5dyIsInNlbGxlci1pZCI6Ijg5MzkiLCJ0eXBlIjoic3RhbmRhcmQiLCJ2ZXJzaW9uIjoiMSIsInVzYWdlIjoibWFuYWdlbWVudF91cmwiLCJzY29wZSI6ImN1c3RvbWVyLnN1YnNjcmlwdGlvbi1wYXltZW50LnVwZGF0ZSBjdXN0b21lci5zdWJzY3JpcHRpb24tcGF5bWVudC5yZWFkIGN1c3RvbWVyLnN1YnNjcmlwdGlvbi1jYW5jZWwuY3JlYXRlIGN1c3RvbWVyLnN1YnNjcmlwdGlvbi5yZWFkIiwiaXNzIjoiZ3Vlc3RhY2Nlc3Mtc2VydmljZSIsInN1YiI6ImN0bV8wMWg3bXJyNWo4cm5hd3d6aDluc2NoZ3AxdiIsImlhdCI6MTY5MzgxNTYwNiwiZXhwIjoxNzI1NDM4MDA2fQ.EoPDg2jcSwZJ_Gu3-e0EwA6gNQW3qF6Tegh-Z0GC1RT4oO6phSSYR2Q6p7GXImaoqzw6ohS88x2bV2DaHXmagbmcvrv80vAq-UKRSfZfTPzvYhR5pN6RNeR95gxUmxZJrJ-IFehXsbHtwqiJNe7pkd8pY7tnmbw4rEHf5b6cPmXjfrJFI8N9IynJ_k6WJamA7rVjV81mtwxVUfWrW2a49bpaboyhM08eVAZL5ziQNBJynhsCm8wKVJTjiWm7t2iU3-sQ1yQh-JWQLYgck_EVTqbDZHySRgvUzWWcl9XMCaEn1_W-Zl8_GKfMs0sqyc88wgbi9RcjZG-6pzAOYWU6XA",
                 },
-                discount=None,
+                discount=dict(
+                    id="dsc_01h83xenpcfjyhkqr4x214m02x",
+                    starts_at="2023-08-18T16:25:40.591Z",
+                    ends_at=None,
+                ),
             ),
             meta=dict(request_id="0f7e095c-b6b9-49e8-bc43-7037aa40e91d"),
         )
@@ -118,6 +122,10 @@ class TestSubscription:
             )
             == {}
         )
+        assert isinstance(subscription, SubscriptionResponse)
+        assert isinstance(subscription.data, Subscription)
+        assert subscription.data.id == "sub_01h7n3a88jwktex2tfjzahmn57"
+        assert subscription.data.discount.id == "dsc_01h83xenpcfjyhkqr4x214m02x"
 
     @pytest.mark.vcr
     def test_list_subscriptions(self):

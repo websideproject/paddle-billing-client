@@ -31,6 +31,12 @@ class ScheduledChange(BaseModel):
     resume_at: datetime | None
 
 
+class SubscriptionDiscount(BaseModel):
+    id: str
+    starts_at: datetime
+    ends_at: datetime | None
+
+
 class SubscriptionBase(BaseModel):
     status: str | None
     customer_id: str | None
@@ -53,6 +59,7 @@ class SubscriptionBase(BaseModel):
     items: list[Item] | None
     custom_data: dict | None
     management_urls: dict | None
+    discount: SubscriptionDiscount | None
 
 
 class Subscription(SubscriptionBase):
@@ -97,6 +104,12 @@ class SubscriptionsResponse(PaddleResponse):
     data: list[Subscription]
 
 
+class SubscriptionDiscountRequest(BaseModel):
+    id: str
+    effective_from: Literal["next_billing_period", "immediately"] | None
+
+
 class SubscriptionRequest(SubscriptionBase):
     effective_from: datetime | Literal["next_billing_period", "immediately"] | None
     resume_at: datetime | None
+    discount: SubscriptionDiscountRequest | None
