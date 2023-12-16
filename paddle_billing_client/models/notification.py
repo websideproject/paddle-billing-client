@@ -34,10 +34,10 @@ class Notification(BaseModel):
     status: str
     payload: NotificationPayload
     occurred_at: datetime
-    delivered_at: datetime
+    delivered_at: datetime | None
     replayed_at: str | None
     origin: str
-    last_attempt_at: datetime
+    last_attempt_at: datetime | None
     retry_at: str | None
     times_attempted: int
     notification_setting_id: str
