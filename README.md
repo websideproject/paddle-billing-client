@@ -52,6 +52,7 @@ Python wrapper around the new Paddle Billing API
    - [ ] Subscription Activate Trialing
 - [x] Adjustments
 - [x] Pricing Previews
+- [ ] Reports
 - [x] Event types
 - [x] Events
 - [x] Notification Settings
