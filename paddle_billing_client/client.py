@@ -511,9 +511,11 @@ class PaddleApiClient(APIClient):
         """List all customers"""
         return self.get(self.endpoints.list_event_types)
 
-    def list_events(self) -> EventsResponse:
+    def list_events(self, paginate: Paginate = None) -> EventsResponse:
         """List all customers"""
-        return self.get(self.endpoints.list_events)
+        return self.get(
+            dict(paginate)["next"] if paginate else self.endpoints.list_events,
+        )
 
     """
     Notification settings
