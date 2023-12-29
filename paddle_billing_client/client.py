@@ -416,6 +416,15 @@ class PaddleApiClient(APIClient):
             dict(data),
         )
 
+    def unschedule_pause_from_subscription(
+        self, subscription_id: str
+    ) -> SubscriptionResponse:
+        """Remove a scheduled pause from a subscription"""
+        return self.patch(
+            self.endpoints.update_subscription.format(subscription_id=subscription_id),
+            {"scheduled_change": None},
+        )
+
     def get_transaction_to_update_payment_method(
         self, subscription_id: str
     ) -> TransactionResponse:
