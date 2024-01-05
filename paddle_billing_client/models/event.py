@@ -4,7 +4,7 @@ from typing import List, Literal, Optional
 
 from datetime import datetime
 
-from pydantic import root_validator
+from pydantic import model_validator
 
 from paddle_billing_client.models import LazyBaseModel as BaseModel
 from paddle_billing_client.models import PaddleResponse
@@ -32,16 +32,16 @@ class EventQueryParams(BaseModel):
 
 
 class Event(BaseModel):
-    notification_id: str | None
+    notification_id: str | None = None
     event_id: str
     event_type: str
-    data: dict
+    data: dict | BaseModel  # | Subscription | Transaction | Customer | Product | Price | Address | Business | Adjustment
     occurred_at: datetime
 
-    @root_validator(pre=False, allow_reuse=True)
-    def select_data(cls, values):  # pragma: no cover
-        values["data"] = parse_event_to_model(values["event_type"], values["data"])
-        return values
+    @model_validator(mode="after")
+    def check_status(self):
+        self.data = parse_event_to_model(self.event_type, self.data)
+        return self
 
 
 class EventsResponse(PaddleResponse):

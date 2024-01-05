@@ -35,7 +35,7 @@ class TestAdjustment:
                     dict(
                         item_id="txnitm_01h7n3a7jefxzqhpaw6hdc523q",
                         type="partial",
-                        amount=100,
+                        amount="100",
                     ),
                 ],
             )

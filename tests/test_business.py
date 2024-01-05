@@ -11,6 +11,7 @@ from paddle_billing_client.models.business import (
     BusinessQueryParams,
     BusinessRequest,
     BusinessResponse,
+    Contact,
 )
 
 
@@ -75,7 +76,7 @@ class TestBusiness:
         assert business.data.company_number == "123456789"
         assert business.data.tax_identifier == "123456789"
         assert business.data.contacts == [
-            dict(
+            Contact(
                 name="Test Contact",
                 email="asd@asd.com",
             ),
@@ -129,7 +130,7 @@ class TestBusiness:
         assert business.data.company_number == "123456789"
         assert business.data.tax_identifier == "123456789"
         assert business.data.contacts == [
-            dict(
+            Contact(
                 name="Test Contact",
                 email="asd@asd.com",
             ),
@@ -172,7 +173,7 @@ class TestBusiness:
         assert business.data.company_number == "123456789"
         assert business.data.tax_identifier == "123456789"
         assert business.data.contacts == [
-            dict(
+            Contact(
                 name="Test Contact",
                 email="asd@asd.com",
             ),
@@ -232,7 +233,7 @@ class TestBusiness:
         assert businesses.data[0].company_number == "123456789"
         assert businesses.data[0].tax_identifier == "123456789"
         assert businesses.data[0].contacts == [
-            dict(
+            Contact(
                 name="Test Contact",
                 email="asd@asd.com",
             ),

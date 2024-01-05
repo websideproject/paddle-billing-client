@@ -1,10 +1,10 @@
 from __future__ import annotations
 
-from typing import Dict, List, Literal, Optional
+from typing import Literal
 
 from datetime import datetime
 
-from pydantic import Extra, validator
+from pydantic import ConfigDict, model_validator
 
 from paddle_billing_client.models import LazyBaseModel as BaseModel
 from paddle_billing_client.models import PaddleResponse
@@ -17,17 +17,17 @@ class Contact(BaseModel):
 
 class BusinessBase(BaseModel):
     name: str
-    company_number: str | None
-    tax_identifier: str | None
+    company_number: str | None = None
+    tax_identifier: str | None = None
     contacts: list[Contact]
-    status: Literal["active", "archived"] | None
-    custom_data: dict[str, str] | None
+    status: Literal["active", "archived"] | None = None
+    custom_data: dict[str, str] | None = None
 
 
 class Business(BusinessBase):
     id: str
-    created_at: datetime | None
-    updated_at: datetime | None
+    created_at: datetime | None = None
+    updated_at: datetime | None = None
 
 
 class BusinessQueryParams(BaseModel):
@@ -44,17 +44,18 @@ class BusinessQueryParams(BaseModel):
     # Return entities that match the specified status. Use a comma separated list to specify multiple status values.
     status: str | None = None
 
-    class Config:
-        extra = Extra.forbid
+    model_config = ConfigDict(extra="forbid")
 
-    @validator("status", allow_reuse=True)
-    def check_status(cls, v: str) -> str:
+    @model_validator(mode="after")
+    def check_status(self):
         valid_statuses = ["active", "archived"]
-        if not all([s in valid_statuses for s in v.split(",")]):
+        if self.status and not all(
+            [s in valid_statuses for s in self.status.split(",")]
+        ):
             raise ValueError(
-                f"Query param invalid status: {v}, allowed values: {valid_statuses}"
+                f"Query param invalid status: {self.status}, allowed values: {valid_statuses}"
             )
-        return v
+        return self
 
 
 class BusinessResponse(PaddleResponse):

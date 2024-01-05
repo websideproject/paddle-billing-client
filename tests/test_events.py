@@ -57,7 +57,7 @@ class TestEvents:
                     notification_id=None,
                     event_id="evt_01h9g0mtq3fkpsb6cdftgb0an0",
                     event_type="subscription.updated",
-                    data=Subscription(
+                    data=dict(
                         status="active",
                         customer_id="ctm_01h8w66qa8djqjhmdkth2fnebk",
                         address_id="add_01h9fj8v8ej6cqs7v9jrabrjp5",
@@ -177,7 +177,7 @@ class TestEvents:
                     notification_id=None,
                     event_id="evt_01h9fy6js58ny2hg9e5ee0m7td",
                     event_type="subscription.updated",
-                    data=Subscription(
+                    data=dict(
                         status="active",
                         customer_id="ctm_01h9fryr8y9k8r4k0fjgkhem6p",
                         address_id="add_01h9fryr9ftp2er4g1sxjhqg8w",
@@ -292,7 +292,7 @@ class TestEvents:
                     notification_id=None,
                     event_id="evt_01h9fxhe42nttzszaxmhvd23h5",
                     event_type="transaction.updated",
-                    data=Transaction(
+                    data=dict(
                         items=[
                             {
                                 "price": {
@@ -447,7 +447,7 @@ class TestEvents:
                     notification_id=None,
                     event_id="evt_01h9fxhah0bv7gpt9b1219ca71",
                     event_type="transaction.completed",
-                    data=Transaction(
+                    data=dict(
                         items=[
                             {
                                 "price": {
@@ -624,7 +624,7 @@ class TestEvents:
                     notification_id=None,
                     event_id="evt_01h9fxh93bfqqax355za7k79c4",
                     event_type="subscription.updated",
-                    data=Subscription(
+                    data=dict(
                         status="active",
                         customer_id="ctm_01h9fryr8y9k8r4k0fjgkhem6p",
                         address_id="add_01h9fryr9ftp2er4g1sxjhqg8w",
@@ -737,7 +737,7 @@ class TestEvents:
                     notification_id=None,
                     event_id="evt_01h9fxh63wpbbbr8r1s759bvc3",
                     event_type="transaction.billed",
-                    data=Transaction(
+                    data=dict(
                         items=[
                             {
                                 "price": {
@@ -866,7 +866,7 @@ class TestEvents:
                     notification_id=None,
                     event_id="evt_01h9fxh63wnzea8nkkbmexdnw7",
                     event_type="transaction.created",
-                    data=Transaction(
+                    data=dict(
                         items=[
                             {
                                 "price": {
@@ -995,7 +995,7 @@ class TestEvents:
                     notification_id=None,
                     event_id="evt_01h9fwyrypzzy63jy7y9yz1gg4",
                     event_type="price.created",
-                    data=Price(
+                    data=dict(
                         description="One time purchase",
                         product_id="pro_01h89b2j66qq82x6vn5d39c4av",
                         billing_cycle=None,
@@ -1016,7 +1016,7 @@ class TestEvents:
                     notification_id=None,
                     event_id="evt_01h9fs2dsmnrkp8dcfgrtjav2a",
                     event_type="transaction.created",
-                    data=Transaction(
+                    data=dict(
                         items=[
                             {
                                 "price": {
@@ -1151,7 +1151,7 @@ class TestEvents:
                     notification_id=None,
                     event_id="evt_01h9fs2dsc7f9vj1np59s7nv60",
                     event_type="transaction.ready",
-                    data=Transaction(
+                    data=dict(
                         items=[
                             {
                                 "price": {
@@ -1286,7 +1286,7 @@ class TestEvents:
                     notification_id=None,
                     event_id="evt_01h9fs0s0ttfmrns1nahk8fa87",
                     event_type="transaction.updated",
-                    data=Transaction(
+                    data=dict(
                         items=[
                             {
                                 "price": {
@@ -1444,7 +1444,7 @@ class TestEvents:
                     notification_id=None,
                     event_id="evt_01h9fs0ngq0adgwq8cpy0stmej",
                     event_type="transaction.updated",
-                    data=Transaction(
+                    data=dict(
                         items=[
                             {
                                 "price": {
@@ -1615,7 +1615,7 @@ class TestEvents:
                     notification_id=None,
                     event_id="evt_01h9fs0nadngthj7ekep98qnhf",
                     event_type="subscription.activated",
-                    data=Subscription(
+                    data=dict(
                         status="active",
                         customer_id="ctm_01h9fryr8y9k8r4k0fjgkhem6p",
                         address_id="add_01h9fryr9ftp2er4g1sxjhqg8w",
@@ -1728,7 +1728,7 @@ class TestEvents:
                     notification_id=None,
                     event_id="evt_01h9fs0n9wvsk5sbce5tabnmca",
                     event_type="subscription.created",
-                    data=Subscription(
+                    data=dict(
                         status="active",
                         customer_id="ctm_01h9fryr8y9k8r4k0fjgkhem6p",
                         address_id="add_01h9fryr9ftp2er4g1sxjhqg8w",
@@ -1842,7 +1842,7 @@ class TestEvents:
                     notification_id=None,
                     event_id="evt_01h9fs0mkwjyyn1hdktk2ekps2",
                     event_type="transaction.completed",
-                    data=Transaction(
+                    data=dict(
                         items=[
                             {
                                 "price": {
@@ -2019,7 +2019,7 @@ class TestEvents:
                     notification_id=None,
                     event_id="evt_01h9fryrxydkskmjse59dvywgv",
                     event_type="address.created",
-                    data=Address(
+                    data=dict(
                         description=None,
                         first_line=None,
                         second_line=None,
@@ -2044,7 +2044,7 @@ class TestEvents:
                     notification_id=None,
                     event_id="evt_01h9fryrvat82dm82kqs6jpavm",
                     event_type="customer.created",
-                    data=Customer(
+                    data=dict(
                         email="asd1@asd.com",
                         name=None,
                         locale="en",
@@ -2070,7 +2070,7 @@ class TestEvents:
                     notification_id=None,
                     event_id="evt_01h9fryrtc4xzw4hr2t5peq9ec",
                     event_type="transaction.ready",
-                    data=Transaction(
+                    data=dict(
                         items=[
                             {
                                 "price": {
@@ -2206,7 +2206,7 @@ class TestEvents:
                     notification_id=None,
                     event_id="evt_01h9fryrrf1arppa2csg1v3r1c",
                     event_type="transaction.updated",
-                    data=Transaction(
+                    data=dict(
                         items=[
                             {
                                 "price": {
@@ -2342,7 +2342,7 @@ class TestEvents:
                     notification_id=None,
                     event_id="evt_01h9fry6za208s8td0t0ym815c",
                     event_type="transaction.created",
-                    data=Transaction(
+                    data=dict(
                         items=[
                             {
                                 "price": {
@@ -2471,7 +2471,7 @@ class TestEvents:
                     notification_id=None,
                     event_id="evt_01h9frxehahz646as6ggcy22de",
                     event_type="transaction.created",
-                    data=Transaction(
+                    data=dict(
                         items=[
                             {
                                 "price": {
@@ -2600,7 +2600,7 @@ class TestEvents:
                     notification_id=None,
                     event_id="evt_01h9fqcaarn5bym9t4v5dbh8g2",
                     event_type="subscription.updated",
-                    data=Subscription(
+                    data=dict(
                         status="active",
                         customer_id="ctm_01h7mrr5j8rnawwzh9nschgp1v",
                         address_id="add_01h7mrzwtwthvqqy7vq90f0kd7",

@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from pydantic import BaseModel, Extra
+from pydantic import BaseModel, ConfigDict
 
 
 class BillingPeriod(BaseModel):
@@ -9,7 +9,6 @@ class BillingPeriod(BaseModel):
 
 
 class Paginate(BaseModel):
-    next: str | None
+    next: str | None = None
 
-    class Config:
-        extra = Extra.forbid
+    model_config = ConfigDict(extra="forbid")

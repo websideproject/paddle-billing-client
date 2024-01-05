@@ -54,7 +54,15 @@ class TestCustomer:
             ),
             meta=dict(request_id="e29fd968-27c5-4362-8503-3b56664d8fbe"),
         )
-        assert deepdiff.DeepDiff(customer, expected_customer, ignore_order=True) == {}
+        assert (
+            deepdiff.DeepDiff(
+                customer,
+                expected_customer,
+                ignore_order=True,
+                exclude_regex_paths=r".+\.model_fields_set",
+            )
+            == {}
+        )
 
         assert isinstance(customer, CustomerResponse)
         assert isinstance(customer.data, Customer)
@@ -94,7 +102,15 @@ class TestCustomer:
             meta=dict(request_id="53538604-e97c-488f-8e8e-baa80c9dfc6d"),
         )
 
-        assert deepdiff.DeepDiff(customer, expected_customer, ignore_order=True) == {}
+        assert (
+            deepdiff.DeepDiff(
+                customer,
+                expected_customer,
+                ignore_order=True,
+                exclude_regex_paths=r".+\.model_fields_set",
+            )
+            == {}
+        )
 
         assert isinstance(customer, CustomerResponse)
         assert isinstance(customer.data, Customer)
@@ -130,7 +146,15 @@ class TestCustomer:
             meta=dict(request_id="a7fb5f17-64cb-4539-b041-d067df13f791"),
         )
 
-        assert deepdiff.DeepDiff(customer, expected_customer, ignore_order=True) == {}
+        assert (
+            deepdiff.DeepDiff(
+                customer,
+                expected_customer,
+                ignore_order=True,
+                exclude_regex_paths=r".+\.model_fields_set",
+            )
+            == {}
+        )
 
         assert isinstance(customer, CustomerResponse)
         assert isinstance(customer.data, Customer)

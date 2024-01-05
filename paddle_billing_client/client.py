@@ -107,7 +107,9 @@ class PaddleApiClient(APIClient):
         return self.get(self.endpoints.get_product.format(product_id=product_id))
 
     def list_products(
-        self, query_params: ProductQueryParams = None, paginate: Paginate = None
+        self,
+        query_params: ProductQueryParams = ProductQueryParams(),
+        paginate: Paginate = None,
     ) -> ProductsResponse:
         """List all products"""
         return self.get(
@@ -134,7 +136,9 @@ class PaddleApiClient(APIClient):
         return self.get(self.endpoints.get_price.format(price_id=price_id))
 
     def list_prices(
-        self, query_params: PriceQueryParams = None, paginate: Paginate = None
+        self,
+        query_params: PriceQueryParams = PriceQueryParams(),
+        paginate: Paginate = None,
     ) -> PricesResponse:
         """List all prices"""
         return self.get(
@@ -161,7 +165,9 @@ class PaddleApiClient(APIClient):
         return self.get(self.endpoints.get_discount.format(discount_id=discount_id))
 
     def list_discounts(
-        self, query_params: DiscountQueryParams = None, paginate: Paginate = None
+        self,
+        query_params: DiscountQueryParams = DiscountQueryParams(),
+        paginate: Paginate = None,
     ) -> DiscountsResponse:
         """List all discounts"""
         return self.get(
@@ -190,7 +196,9 @@ class PaddleApiClient(APIClient):
         return self.get(self.endpoints.get_customer.format(customer_id=customer_id))
 
     def list_customers(
-        self, query_params: CustomerQueryParams = None, paginate: Paginate = None
+        self,
+        query_params: CustomerQueryParams = CustomerQueryParams(),
+        paginate: Paginate = None,
     ) -> CustomersResponse:
         """List all customers"""
         return self.get(
@@ -207,7 +215,7 @@ class PaddleApiClient(APIClient):
         )
 
     def list_customer_credit_balances(
-        self, query_params: CustomerBalancesQueryParams = None
+        self, query_params: CustomerBalancesQueryParams = CustomerBalancesQueryParams()
     ) -> CustomerBalancesResponse:
         """List credit balances for a customer"""
         return self.get(
@@ -240,7 +248,7 @@ class PaddleApiClient(APIClient):
     def list_addresses_for_customer(
         self,
         customer_id: str,
-        query_params: AddressQueryParams = None,
+        query_params: AddressQueryParams = AddressQueryParams(),
         paginate: Paginate = None,
     ) -> AddressesResponse:
         """List all addresses for a customer"""
@@ -290,7 +298,7 @@ class PaddleApiClient(APIClient):
     def list_businesses_for_customer(
         self,
         customer_id: str,
-        query_params: BusinessQueryParams = None,
+        query_params: BusinessQueryParams = BusinessQueryParams(),
         paginate: Paginate = None,
     ) -> BusinessesResponse:
         """List all businesses for a customer"""
@@ -321,7 +329,7 @@ class PaddleApiClient(APIClient):
     def create_transaction(
         self,
         data: TransactionRequest,
-        query_params: TransactionQueryParams = None,
+        query_params: TransactionQueryParams = TransactionQueryParams(),
     ) -> TransactionResponse:
         """Create a transaction"""
         return self.post(
@@ -329,7 +337,9 @@ class PaddleApiClient(APIClient):
         )
 
     def get_transaction(
-        self, transaction_id: str, query_params: TransactionQueryParams = None
+        self,
+        transaction_id: str,
+        query_params: TransactionQueryParams = TransactionQueryParams(),
     ) -> TransactionResponse:
         """Get a transaction"""
         return self.get(
@@ -338,7 +348,9 @@ class PaddleApiClient(APIClient):
         )
 
     def list_transactions(
-        self, query_params: TransactionQueryParams = None, paginate: Paginate = None
+        self,
+        query_params: TransactionQueryParams = TransactionQueryParams(),
+        paginate: Paginate = None,
     ) -> TransactionsResponse:
         """List all transactions"""
         return self.get(
@@ -350,7 +362,7 @@ class PaddleApiClient(APIClient):
         self,
         transaction_id: str,
         data: TransactionRequest,
-        query_params: TransactionQueryParams = None,
+        query_params: TransactionQueryParams = TransactionQueryParams(),
     ) -> TransactionResponse:
         """Update a transaction"""
         return self.patch(
@@ -360,7 +372,9 @@ class PaddleApiClient(APIClient):
         )
 
     def preview_transaction(
-        self, data: TransactionRequest, query_params: TransactionQueryParams = None
+        self,
+        data: TransactionRequest,
+        query_params: TransactionQueryParams = TransactionQueryParams(),
     ) -> TransactionPreviewResponse:
         """Preview a transaction"""
         return self.post(
@@ -388,7 +402,9 @@ class PaddleApiClient(APIClient):
         )
 
     def list_subscriptions(
-        self, query_params: SubscriptionQueryParams = None, paginate: Paginate = None
+        self,
+        query_params: SubscriptionQueryParams = SubscriptionQueryParams(),
+        paginate: Paginate = None,
     ) -> SubscriptionsResponse:
         """List all subscriptions"""
         return self.get(
@@ -504,7 +520,9 @@ class PaddleApiClient(APIClient):
         return self.post(self.endpoints.create_adjustment, dict(data))
 
     def list_adjustments(
-        self, query_params: AdjustmentQueryParams = None, paginate: Paginate = None
+        self,
+        query_params: AdjustmentQueryParams = AdjustmentQueryParams(),
+        paginate: Paginate = None,
     ) -> AdjustmentsResponse:
         """List all customers"""
         return self.get(
@@ -563,7 +581,7 @@ class PaddleApiClient(APIClient):
 
     def delete_notification_setting(
         self, notification_setting_id: str
-    ) -> NotificationSettingResponse:
+    ) -> NotificationSettingResponse | None:
         """Delete notification settings"""
         return self.delete(
             self.endpoints.delete_notification_setting.format(
@@ -583,7 +601,7 @@ class PaddleApiClient(APIClient):
 
     def list_notifications(
         self,
-        query_params: NotificationQueryParams = None,
+        query_params: NotificationQueryParams = NotificationQueryParams(),
         paginate: Paginate = None,
     ) -> NotificationsResponse:
         """List all notifications"""
