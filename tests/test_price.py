@@ -14,6 +14,7 @@ from paddle_billing_client.models.price import (
     PricesResponse,
     Quantity,
     TrialPeriod,
+    UnitPrice,
 )
 
 
@@ -67,14 +68,22 @@ class TestPrice:
             ),
             meta=dict(request_id="d6fc2607-992b-480a-b2b1-f41f296cacc5"),
         )
-        assert deepdiff.DeepDiff(price, expected_price, ignore_order=True) == {}
+        assert (
+            deepdiff.DeepDiff(
+                price,
+                expected_price,
+                ignore_order=True,
+                exclude_regex_paths=r".+\.model_fields_set",
+            )
+            == {}
+        )
 
         assert isinstance(price, PriceResponse)
         assert isinstance(price.data, Price)
         assert str.startswith(price.data.id, "pri_")
         assert price.data.product_id == "pro_01h89b2j66qq82x6vn5d39c4av"
         assert price.data.description == "Test Price"
-        assert price.data.unit_price == dict(
+        assert price.data.unit_price == UnitPrice(
             amount="1000",
             currency_code="USD",
         )
@@ -130,14 +139,22 @@ class TestPrice:
             ),
             meta=dict(request_id="213c471d-a71c-43f0-b336-34ff914166d3"),
         )
-        assert deepdiff.DeepDiff(price, expected_price, ignore_order=True) == {}
+        assert (
+            deepdiff.DeepDiff(
+                price,
+                expected_price,
+                ignore_order=True,
+                exclude_regex_paths=r".+\.model_fields_set",
+            )
+            == {}
+        )
 
         assert isinstance(price, PriceResponse)
         assert isinstance(price.data, Price)
         assert str.startswith(price.data.id, "pri_")
         assert price.data.product_id == "pro_01h89b2j66qq82x6vn5d39c4av"
         assert price.data.description == "Test Price Updated"
-        assert price.data.unit_price == dict(
+        assert price.data.unit_price == UnitPrice(
             amount="1200",
             currency_code="USD",
         )
@@ -185,14 +202,22 @@ class TestPrice:
             ),
             meta=dict(request_id="2f32b40b-c38c-49c5-9dfe-4e779a66208c"),
         )
-        assert deepdiff.DeepDiff(price, expected_price, ignore_order=True) == {}
+        assert (
+            deepdiff.DeepDiff(
+                price,
+                expected_price,
+                ignore_order=True,
+                exclude_regex_paths=r".+\.model_fields_set",
+            )
+            == {}
+        )
 
         assert isinstance(price, PriceResponse)
         assert isinstance(price.data, Price)
         assert str.startswith(price.data.id, "pri_")
         assert price.data.product_id == "pro_01h89b2j66qq82x6vn5d39c4av"
         assert price.data.description == "Test Price Updated"
-        assert price.data.unit_price == dict(
+        assert price.data.unit_price == UnitPrice(
             amount="1200",
             currency_code="USD",
         )
@@ -248,7 +273,15 @@ class TestPrice:
                 ),
             ),
         )
-        assert deepdiff.DeepDiff(prices, expected_prices, ignore_order=True) == {}
+        assert (
+            deepdiff.DeepDiff(
+                prices,
+                expected_prices,
+                ignore_order=True,
+                exclude_regex_paths=r".+\.model_fields_set",
+            )
+            == {}
+        )
 
         assert isinstance(prices, PricesResponse)
         assert isinstance(prices.data, list)
@@ -256,7 +289,7 @@ class TestPrice:
         assert str.startswith(prices.data[0].id, "pri_")
         assert prices.data[0].product_id == "pro_01h89b2j66qq82x6vn5d39c4av"
         assert prices.data[0].description == "Test Price Updated"
-        assert prices.data[0].unit_price == dict(
+        assert prices.data[0].unit_price == UnitPrice(
             amount="1200",
             currency_code="USD",
         )

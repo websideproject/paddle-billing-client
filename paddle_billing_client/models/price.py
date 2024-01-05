@@ -1,6 +1,8 @@
+from __future__ import annotations
+
 from typing import Dict, List, Literal, Optional
 
-from pydantic import Extra, validator
+from pydantic import ConfigDict, model_validator
 
 from paddle_billing_client.models import LazyBaseModel as BaseModel
 from paddle_billing_client.models import PaddleResponse
@@ -22,7 +24,7 @@ class BillingCycle(BaseModel):
 
 
 class UnitPriceOverride(BaseModel):
-    country_codes: List[str]
+    country_codes: list[str]
     unit_price: UnitPrice
 
 
@@ -33,48 +35,49 @@ class TrialPeriod(BaseModel):
 
 class PriceBase(BaseModel):
     description: str
-    product_id: Optional[str]
-    billing_cycle: Optional[BillingCycle]
-    trial_period: Optional[TrialPeriod]
+    product_id: str | None = None
+    billing_cycle: BillingCycle | None = None
+    trial_period: TrialPeriod | None = None
     tax_mode: str
-    unit_price_overrides: Optional[List[UnitPriceOverride]]
-    quantity: Optional[Quantity]
-    custom_data: Optional[Dict[str, str]]
+    unit_price_overrides: list[UnitPriceOverride] | None = None
+    quantity: Quantity | None = None
+    custom_data: dict[str, str] | None = None
 
 
 class Price(PriceBase):
     id: str
     unit_price: UnitPrice
-    status: Optional[str]
+    status: str | None = None
 
 
 class PriceQueryParams(BaseModel):
     # Return entities after the specified cursor. Used for working through paginated results.
-    after: Optional[str] = None
+    after: str | None = None
     # Return only the IDs specified. Use a comma separated list to get multiple entities.
-    id: Optional[str] = None
+    id: str | None = None
     # Include related entities in the response.
-    include: Optional[Literal["product"]] = None
+    include: Literal["product"] | None = None
     # Order returned entities by the specified field and direction ([ASC] or [DESC]).
-    order_by: Optional[Literal["[ASC]", "[DESC]"]] = None
+    order_by: Literal["[ASC]", "[DESC]"] | None = None
     # Set how many entities are returned per page. Default: 50
-    per_page: Optional[int] = None
+    per_page: int | None = None
     # Return entities that match the specified status. Use a comma separated list to specify multiple status values.
-    status: Optional[str] = None
+    status: str | None = None
     # Determine whether returned entities are for recurring prices (true) or one-time prices (false).
-    recurring: Optional[bool] = None
+    recurring: bool | None = None
 
-    class Config:
-        extra = Extra.forbid
+    model_config = ConfigDict(extra="forbid")
 
-    @validator("status", allow_reuse=True)
-    def check_status(cls, v: str) -> str:  # pragma: no cover
+    @model_validator(mode="after")
+    def check_status(self):
         valid_statuses = ["active", "archived"]
-        if not all([s in valid_statuses for s in v.split(",")]):
+        if self.status and not all(
+            [s in valid_statuses for s in self.status.split(",")]
+        ):
             raise ValueError(
-                f"Query param invalid status: {v}, allowed values: {valid_statuses}"
+                f"Query param invalid status: {self.status}, allowed values: {valid_statuses}"
             )
-        return v
+        return self
 
 
 class PriceResponse(PaddleResponse):
@@ -82,7 +85,7 @@ class PriceResponse(PaddleResponse):
 
 
 class PricesResponse(PaddleResponse):
-    data: List[Price]
+    data: list[Price]
 
 
 class PriceRequest(PriceBase):

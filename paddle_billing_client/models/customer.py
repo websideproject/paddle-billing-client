@@ -2,7 +2,7 @@ from typing import Dict, List, Literal, Optional
 
 from datetime import datetime
 
-from pydantic import Extra, validator
+from pydantic import ConfigDict, model_validator
 
 from paddle_billing_client.models import LazyBaseModel as BaseModel
 from paddle_billing_client.models import PaddleResponse
@@ -10,21 +10,21 @@ from paddle_billing_client.models import PaddleResponse
 
 class CustomerBase(BaseModel):
     email: str
-    name: Optional[str]
-    locale: Optional[str]
-    custom_data: Optional[Dict[str, str]]
+    name: Optional[str] = None
+    locale: Optional[str] = None
+    custom_data: Optional[Dict[str, str]] = None
 
 
 class Customer(CustomerBase):
     id: str
     marketing_consent: bool
-    created_at: Optional[datetime]
-    updated_at: Optional[datetime]
-    imported_at: Optional[datetime]
-    source: Optional[str]
-    status: Optional[Literal["active", "archived"]]
-    is_sanctioned: Optional[bool]
-    tax_exemptions: Optional[List[str]]
+    created_at: Optional[datetime] = None
+    updated_at: Optional[datetime] = None
+    imported_at: Optional[datetime] = None
+    source: Optional[str] = None
+    status: Optional[Literal["active", "archived"]] = None
+    is_sanctioned: Optional[bool] = None
+    tax_exemptions: Optional[List[str]] = None
 
 
 class CustomerQueryParams(BaseModel):
@@ -41,17 +41,18 @@ class CustomerQueryParams(BaseModel):
     # Return entities that match the specified status. Use a comma separated list to specify multiple status values.
     status: Optional[str] = None
 
-    class Config:
-        extra = Extra.forbid
+    model_config = ConfigDict(extra="forbid")
 
-    @validator("status", allow_reuse=True)
-    def check_status(cls, v: str) -> str:  # pragma: no cover
+    @model_validator(mode="after")
+    def check_status(self):
         valid_statuses = ["active", "archived"]
-        if not all([s in valid_statuses for s in v.split(",")]):
+        if self.status and not all(
+            [s in valid_statuses for s in self.status.split(",")]
+        ):
             raise ValueError(
-                f"Query param invalid status: {v}, allowed values: {valid_statuses}"
+                f"Query param invalid status: {self.status}, allowed values: {valid_statuses}"
             )
-        return v
+        return self
 
 
 class CustomerResponse(PaddleResponse):
@@ -70,8 +71,7 @@ class CustomerBalancesQueryParams(BaseModel):
     # Return entities that match the currency code. Use a comma separated list to specify multiple currency codes.
     currency_code: Optional[str] = None
 
-    class Config:
-        extra = Extra.forbid
+    model_config = ConfigDict(extra="forbid")
 
 
 class Balance(BaseModel):

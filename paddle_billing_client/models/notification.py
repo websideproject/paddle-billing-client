@@ -1,10 +1,10 @@
 from __future__ import annotations
 
-from typing import List, Literal, Optional
+from typing import Literal
 
 from datetime import datetime
 
-from pydantic import Extra, Field, root_validator, validator
+from pydantic import ConfigDict, Field, model_validator
 
 from paddle_billing_client.models import LazyBaseModel as BaseModel
 from paddle_billing_client.models import PaddleResponse
@@ -19,13 +19,13 @@ class NotificationPayload(BaseModel):
     notification_id: str
     event_id: str
     event_type: str
-    data: dict
+    data: dict | BaseModel
     occurred_at: datetime
 
-    @root_validator(pre=False, allow_reuse=True)
-    def select_data(cls, values):  # pragma: no cover
-        values["data"] = parse_event_to_model(values["event_type"], values["data"])
-        return values
+    @model_validator(mode="after")
+    def check_status(self):
+        self.data = parse_event_to_model(self.event_type, self.data)
+        return self
 
 
 class Notification(BaseModel):
@@ -34,11 +34,11 @@ class Notification(BaseModel):
     status: str
     payload: NotificationPayload
     occurred_at: datetime
-    delivered_at: datetime | None
-    replayed_at: str | None
+    delivered_at: datetime | None = None
+    replayed_at: str | None = None
     origin: str
-    last_attempt_at: datetime | None
-    retry_at: str | None
+    last_attempt_at: datetime | None = None
+    retry_at: str | None = None
     times_attempted: int
     notification_setting_id: str
 
@@ -64,17 +64,18 @@ class NotificationQueryParams(BaseModel):
     # Return entities from a specific time.
     from_field: str | None = Field(None, alias="from")
 
-    class Config:
-        extra = Extra.forbid
+    model_config = ConfigDict(extra="forbid")
 
-    @validator("status", allow_reuse=True)
-    def check_status(cls, v: str) -> str:  # pragma: no cover
+    @model_validator(mode="after")
+    def check_status(self):
         valid_statuses = ["delivered", "failed", "needs_retry", "not_attempted"]
-        if not all([s in valid_statuses for s in v.split(",")]):
+        if self.status and not all(
+            [s in valid_statuses for s in self.status.split(",")]
+        ):
             raise ValueError(
-                f"Query param invalid status: {v}, allowed values: {valid_statuses}"
+                f"Query param invalid status: {self.status}, allowed values: {valid_statuses}"
             )
-        return v
+        return self
 
 
 class NotificationResponse(PaddleResponse):
@@ -86,7 +87,7 @@ class NotificationsResponse(PaddleResponse):
 
 
 class NotificationReplay(BaseModel):
-    event_id: str | None
+    event_id: str | None = None
 
 
 class NotificationReplayResponse(PaddleResponse):

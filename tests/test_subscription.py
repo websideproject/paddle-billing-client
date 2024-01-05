@@ -119,6 +119,7 @@ class TestSubscription:
                 subscription,
                 expected_subscription,
                 ignore_order=True,
+                exclude_regex_paths=r".+\.model_fields_set",
             )
             == {}
         )
@@ -212,6 +213,7 @@ class TestSubscription:
                 subscriptions,
                 expected_subscriptions,
                 ignore_order=True,
+                exclude_regex_paths=r".+\.model_fields_set",
             )
             == {}
         )
@@ -506,6 +508,7 @@ class TestSubscription:
                 subscription,
                 expected_subscription,
                 ignore_order=True,
+                exclude_regex_paths=r".+\.model_fields_set",
             )
             == {}
         )
@@ -592,6 +595,7 @@ class TestSubscription:
                 subscription,
                 expected_subscription,
                 ignore_order=True,
+                exclude_regex_paths=r".+\.model_fields_set",
             )
             == {}
         )
@@ -765,6 +769,7 @@ class TestSubscription:
                 transaction,
                 expected_transaction,
                 ignore_order=True,
+                exclude_regex_paths=r".+\.model_fields_set",
             )
             == {}
         )
@@ -1106,18 +1111,18 @@ class TestSubscription:
             meta=dict(request_id="93b5164c-50c9-41f6-99fe-9a17c88a71cf"),
         )
 
+        assert isinstance(subscription.data, Subscription)
+        assert isinstance(subscription.data.next_transaction, Transaction)
+        assert isinstance(subscription.data.immediate_transaction, Transaction)
         assert (
             deepdiff.DeepDiff(
                 subscription,
                 expected_subscription,
                 ignore_order=True,
+                exclude_regex_paths=r".+\.model_fields_set",
             )
             == {}
         )
-
-        assert isinstance(subscription.data, Subscription)
-        assert isinstance(subscription.data.next_transaction, Transaction)
-        assert isinstance(subscription.data.immediate_transaction, Transaction)
 
     @pytest.mark.vcr
     def test_create_one_time_charge(self):
@@ -1197,6 +1202,7 @@ class TestSubscription:
                 subscription,
                 expected_subscription,
                 ignore_order=True,
+                exclude_regex_paths=r".+\.model_fields_set",
             )
             == {}
         )
@@ -1282,6 +1288,7 @@ class TestSubscription:
                 subscription,
                 expected_subscription,
                 ignore_order=True,
+                exclude_regex_paths=r".+\.model_fields_set",
             )
             == {}
         )
@@ -1386,6 +1393,7 @@ class TestSubscription:
                 subscription,
                 expected_subscription,
                 ignore_order=True,
+                exclude_regex_paths=r".+\.model_fields_set",
             )
             == {}
         )

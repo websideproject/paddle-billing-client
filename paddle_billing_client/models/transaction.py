@@ -1,10 +1,10 @@
 from __future__ import annotations
 
-from typing import Dict, List, Literal, Optional
+from typing import Literal
 
 from datetime import datetime
 
-from pydantic import Extra, validator
+from pydantic import ConfigDict, model_validator
 
 from paddle_billing_client.models import LazyBaseModel as BaseModel
 from paddle_billing_client.models import PaddleResponse
@@ -36,8 +36,8 @@ class Totals(BaseModel):
     credit: str
     balance: str
     grand_total: str
-    fee: str | None
-    earnings: str | None
+    fee: str | None = None
+    earnings: str | None = None
     currency_code: str
 
 
@@ -46,8 +46,8 @@ class AdjustedTotals(BaseModel):
     tax: str
     total: str
     grand_total: str
-    fee: str | None
-    earnings: str | None
+    fee: str | None = None
+    earnings: str | None = None
     currency_code: str
 
 
@@ -71,7 +71,7 @@ class ChargebackFeeOriginal(BaseModel):
 
 class ChargebackFee(BaseModel):
     amount: str
-    original: ChargebackFeeOriginal | None
+    original: ChargebackFeeOriginal | None = None
 
 
 class AdjustedPayoutTotals(BaseModel):
@@ -79,7 +79,7 @@ class AdjustedPayoutTotals(BaseModel):
     tax: str
     total: str
     fee: str
-    chargeback_fee: ChargebackFee | None
+    chargeback_fee: ChargebackFee | None = None
     earnings: str
     currency_code: str
 
@@ -104,10 +104,10 @@ class LineItemTotals(BaseModel):
 
 
 class LineItem(BaseModel):
-    id: str | None
-    price_id: str | None
+    id: str | None = None
+    price_id: str | None = None
     quantity: int
-    proration: LineItemProration | None
+    proration: LineItemProration | None = None
     tax_rate: str
     unit_totals: LineItemUnitTotals
     totals: LineItemTotals
@@ -115,57 +115,57 @@ class LineItem(BaseModel):
 
 
 class TransactionDetails(BaseModel):
-    tax_rates_used: list[TaxRatesUsed] | None
-    totals: Totals | None
-    adjusted_totals: AdjustedTotals | None
-    payout_totals: PayoutTotals | None
-    adjusted_payout_totals: AdjustedPayoutTotals | None
-    line_items: list[LineItem] | None
+    tax_rates_used: list[TaxRatesUsed] | None = None
+    totals: Totals | None = None
+    adjusted_totals: AdjustedTotals | None = None
+    payout_totals: PayoutTotals | None = None
+    adjusted_payout_totals: AdjustedPayoutTotals | None = None
+    line_items: list[LineItem] | None = None
 
 
 class BillingDetails(BaseModel):
-    enable_checkout: bool | None
-    payment_terms: dict | None
-    purchase_order_number: str | None
-    additional_information: str | None
+    enable_checkout: bool | None = None
+    payment_terms: dict | None = None
+    purchase_order_number: str | None = None
+    additional_information: str | None = None
 
 
 class TransactionBase(BaseModel):
-    items: list[dict] | None
+    items: list[dict] | None = None
     status: None | (
         Literal["draft", "ready", "billed", "paid", "completed", "canceled", "past_due"]
-    )
-    customer_id: str | None
-    address_id: str | None
-    business_id: str | None
-    discount_id: str | None
-    custom_data: dict | None
-    collection_mode: Literal["automatic", "manual"] | None
-    billing_details: BillingDetails | None
-    billing_period: BillingPeriod | None
-    currency_code: str | None
-    customer_ip_address: str | None
-    ignore_trials: bool | None
-    address: Address | None
+    ) = None
+    customer_id: str | None = None
+    address_id: str | None = None
+    business_id: str | None = None
+    discount_id: str | None = None
+    custom_data: dict | None = None
+    collection_mode: Literal["automatic", "manual"] | None = None
+    billing_details: BillingDetails | None = None
+    billing_period: BillingPeriod | None = None
+    currency_code: str | None = None
+    customer_ip_address: str | None = None
+    ignore_trials: bool | None = None
+    address: Address | None = None
 
 
 class Transaction(TransactionBase):
-    id: str | None
-    customer: Customer | None
-    business: Business | None
-    discount: Discount | None
-    seller: dict | None
-    adjustments_totals: dict | None
-    origin: str | None
-    subscription_id: str | None
-    invoice_id: str | None
-    invoice_number: str | None
-    created_at: datetime | None
-    updated_at: datetime | None
-    billed_at: str | None
+    id: str | None = None
+    customer: Customer | None = None
+    business: Business | None = None
+    discount: Discount | None = None
+    seller: dict | None = None
+    adjustments_totals: dict | None = None
+    origin: str | None = None
+    subscription_id: str | None = None
+    invoice_id: str | None = None
+    invoice_number: str | None = None
+    created_at: datetime | None = None
+    updated_at: datetime | None = None
+    billed_at: str | None = None
     details: TransactionDetails
-    payments: list[dict] | None
-    checkout: dict | None
+    payments: list[dict] | None = None
+    checkout: dict | None = None
 
 
 class TransactionPreview(TransactionBase):
@@ -189,7 +189,7 @@ class TransactionQueryParams(BaseModel):
     # For example, billed_at=2023-04-18T17:03:26 or billed_at[LT]=2023-04-18T17:03:26.
     created_at: datetime | str | None = None
     # Return entities related to the specified customer. Use a comma separated list to specify multiple customer IDs.
-    customer_id: str | None
+    customer_id: str | None = None
     # Return only the IDs specified. Use a comma separated list to get multiple entities.
     id: str | None = None
     # Include related entities in the response.
@@ -204,7 +204,7 @@ class TransactionQueryParams(BaseModel):
     status: str | None = None
     # Return entities related to the specified subscription.
     # Use a comma separated list to specify multiple subscription IDs.
-    subscription_id: str | None
+    subscription_id: str | None = None
     # Return entities updated at a specific time.
     # Pass an RFC 3339 datetime string,
     # or use [LT] (less than), [LTE] (less than or equal to),
@@ -212,11 +212,10 @@ class TransactionQueryParams(BaseModel):
     # For example, billed_at=2023-04-18T17:03:26 or billed_at[LT]=2023-04-18T17:03:26.
     updated_at: datetime | str | None = None
 
-    class Config:
-        extra = Extra.forbid
+    model_config = ConfigDict(extra="forbid")
 
-    @validator("status", allow_reuse=True)
-    def check_status(cls, v: str) -> str:  # pragma: no cover
+    @model_validator(mode="after")
+    def check_status(self):
         valid_statuses = [
             "draft",
             "ready",
@@ -226,11 +225,13 @@ class TransactionQueryParams(BaseModel):
             "canceled",
             "past_due",
         ]
-        if not all([s in valid_statuses for s in v.split(",")]):
+        if self.status and not all(
+            [s in valid_statuses for s in self.status.split(",")]
+        ):
             raise ValueError(
-                f"Query param invalid status: {v}, allowed values: {valid_statuses}"
+                f"Query param invalid status: {self.status}, allowed values: {valid_statuses}"
             )
-        return v
+        return self
 
 
 class TransactionResponse(PaddleResponse):

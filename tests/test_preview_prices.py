@@ -201,7 +201,12 @@ class TestPreviewPrices:
         )
 
         assert (
-            deepdiff.DeepDiff(transaction, expected_transaction, ignore_order=True)
+            deepdiff.DeepDiff(
+                transaction,
+                expected_transaction,
+                ignore_order=True,
+                exclude_regex_paths=r".+\.model_fields_set",
+            )
             == {}
         )
 
@@ -373,7 +378,12 @@ class TestPreviewPrices:
         )
 
         assert (
-            deepdiff.DeepDiff(transaction, expected_transaction, ignore_order=True)
+            deepdiff.DeepDiff(
+                transaction,
+                expected_transaction,
+                ignore_order=True,
+                exclude_regex_paths=r".+\.model_fields_set",
+            )
             == {}
         )
 
@@ -538,7 +548,12 @@ class TestPreviewPrices:
         )
 
         assert (
-            deepdiff.DeepDiff(transaction, expected_transaction, ignore_order=True)
+            deepdiff.DeepDiff(
+                transaction,
+                expected_transaction,
+                ignore_order=True,
+                exclude_regex_paths=r".+\.model_fields_set",
+            )
             == {}
         )
 
@@ -691,6 +706,11 @@ class TestPreviewPrices:
         )
 
         assert (
-            deepdiff.DeepDiff(transaction, expected_transaction, ignore_order=True)
+            deepdiff.DeepDiff(
+                transaction,
+                expected_transaction,
+                ignore_order=True,
+                exclude_regex_paths=r".+\.model_fields_set",
+            )
             == {}
         )

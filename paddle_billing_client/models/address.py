@@ -1,31 +1,31 @@
 from __future__ import annotations
 
-from typing import Dict, List, Literal, Optional
+from typing import Literal
 
 from datetime import datetime
 
-from pydantic import Extra, validator
+from pydantic import ConfigDict, model_validator
 
 from paddle_billing_client.models import LazyBaseModel as BaseModel
 from paddle_billing_client.models import PaddleResponse
 
 
 class AddressBase(BaseModel):
-    description: str | None
-    first_line: str | None
-    second_line: str | None
-    city: str | None
-    postal_code: str | None
-    region: str | None
-    country_code: str | None
-    status: Literal["active", "archived"] | None
-    custom_data: dict[str, str] | None
+    description: str | None = None
+    first_line: str | None = None
+    second_line: str | None = None
+    city: str | None = None
+    postal_code: str | None = None
+    region: str | None = None
+    country_code: str | None = None
+    status: Literal["active", "archived"] | None = None
+    custom_data: dict[str, str] | None = None
 
 
 class Address(AddressBase):
-    id: str | None
-    created_at: datetime | None
-    updated_at: datetime | None
+    id: str | None = None
+    created_at: datetime | None = None
+    updated_at: datetime | None = None
 
 
 class AddressQueryParams(BaseModel):
@@ -42,17 +42,18 @@ class AddressQueryParams(BaseModel):
     # Return entities that match the specified status. Use a comma separated list to specify multiple status values.
     status: str | None = None
 
-    class Config:
-        extra = Extra.forbid
+    model_config = ConfigDict(extra="forbid")
 
-    @validator("status", allow_reuse=True)
-    def check_status(cls, v: str) -> str:  # pragma: no cover
+    @model_validator(mode="after")
+    def check_status(self):
         valid_statuses = ["active", "archived"]
-        if not all([s in valid_statuses for s in v.split(",")]):
+        if self.status and not all(
+            [s in valid_statuses for s in self.status.split(",")]
+        ):
             raise ValueError(
-                f"Query param invalid status: {v}, allowed values: {valid_statuses}"
+                f"Query param invalid status: {self.status}, allowed values: {valid_statuses}"
             )
-        return v
+        return self
 
 
 class AddressResponse(PaddleResponse):

@@ -47,7 +47,15 @@ class TestProduct:
             ),
             meta=dict(request_id="492e8db0-d230-495d-86ae-ca74cf53a78e"),
         )
-        assert deepdiff.DeepDiff(product, expected_product, ignore_order=True) == {}
+        assert (
+            deepdiff.DeepDiff(
+                product,
+                expected_product,
+                ignore_order=True,
+                exclude_regex_paths=r".+\.model_fields_set",
+            )
+            == {}
+        )
 
         assert isinstance(product, ProductResponse)
         assert isinstance(product.data, Product)
@@ -86,7 +94,12 @@ class TestProduct:
             meta=dict(request_id="06710870-10ae-40d4-87a3-6dbd107ed1c2"),
         )
         assert (
-            deepdiff.DeepDiff(updated_product, expected_product, ignore_order=True)
+            deepdiff.DeepDiff(
+                updated_product,
+                expected_product,
+                ignore_order=True,
+                exclude_regex_paths=r".+\.model_fields_set",
+            )
             == {}
         )
 
@@ -107,7 +120,15 @@ class TestProduct:
             meta=dict(request_id="f3d5a132-493b-4111-9143-d600869121e7"),
         )
 
-        assert deepdiff.DeepDiff(product, expected_product, ignore_order=True) == {}
+        assert (
+            deepdiff.DeepDiff(
+                product,
+                expected_product,
+                ignore_order=True,
+                exclude_regex_paths=r".+\.model_fields_set",
+            )
+            == {}
+        )
 
     @pytest.mark.vcr
     def test_product_list(self):
@@ -146,4 +167,12 @@ class TestProduct:
             ),
         )
 
-        assert deepdiff.DeepDiff(products, expected_products, ignore_order=True) == {}
+        assert (
+            deepdiff.DeepDiff(
+                products,
+                expected_products,
+                ignore_order=True,
+                exclude_regex_paths=r".+\.model_fields_set",
+            )
+            == {}
+        )

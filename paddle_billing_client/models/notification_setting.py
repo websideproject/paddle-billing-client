@@ -15,7 +15,7 @@ class NotificationSettingBase(BaseModel):
     description: str
     destination: str
     subscribed_events: List[SubscribedEvent]
-    type: Optional[Literal["email", "url"]]
+    type: Optional[Literal["email", "url"]] = None
     active: bool
     api_version: int
     include_sensitive_fields: bool

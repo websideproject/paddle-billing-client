@@ -11,6 +11,8 @@ from paddle_billing_client.models.transaction import Transaction
 
 
 def parse_event_to_model(event_type: str, data):
+    if not isinstance(data, dict):
+        return data
     if event_type.startswith("subscription"):
         return Subscription(**data)
     elif event_type.startswith("transaction"):

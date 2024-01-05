@@ -2,7 +2,7 @@ from typing import Dict, List, Literal, Optional
 
 from datetime import datetime
 
-from pydantic import Extra, validator
+from pydantic import ConfigDict, model_validator
 
 from paddle_billing_client.models import LazyBaseModel as BaseModel
 from paddle_billing_client.models import PaddleResponse
@@ -14,22 +14,22 @@ class DiscountBase(BaseModel):
     type: Literal["flat", "flat_per_seat", "percentage"]
     enabled_for_checkout: bool
     code: str
-    currency_code: Optional[str]
+    currency_code: Optional[str] = None
     recur: bool
-    maximum_recurring_intervals: Optional[int]
-    usage_limit: Optional[int]
-    restrict_to: Optional[List[str]]
-    expires_at: Optional[datetime]
-    status: Optional[Literal["active", "archived", "expired", "used"]]
-    custom_data: Optional[Dict[str, str]]
+    maximum_recurring_intervals: Optional[int] = None
+    usage_limit: Optional[int] = None
+    restrict_to: Optional[List[str]] = None
+    expires_at: Optional[datetime] = None
+    status: Optional[Literal["active", "archived", "expired", "used"]] = None
+    custom_data: Optional[Dict[str, str]] = None
 
 
 class Discount(DiscountBase):
     id: str
     times_used: int
-    created_at: Optional[datetime]
-    updated_at: Optional[datetime]
-    external_id: Optional[str]
+    created_at: Optional[datetime] = None
+    updated_at: Optional[datetime] = None
+    external_id: Optional[str] = None
 
 
 class DiscountQueryParams(BaseModel):
@@ -46,17 +46,18 @@ class DiscountQueryParams(BaseModel):
     # Return entities that match the specified status. Use a comma separated list to specify multiple status values.
     status: Optional[str] = None
 
-    class Config:
-        extra = Extra.forbid
+    model_config = ConfigDict(extra="forbid")
 
-    @validator("status", allow_reuse=True)
-    def check_status(cls, v: str) -> str:  # pragma: no cover
+    @model_validator(mode="after")
+    def check_status(self):
         valid_statuses = ["active", "archived", "expired", "used"]
-        if not all([s in valid_statuses for s in v.split(",")]):
+        if self.status and not all(
+            [s in valid_statuses for s in self.status.split(",")]
+        ):
             raise ValueError(
-                f"Query param invalid status: {v}, allowed values: {valid_statuses}"
+                f"Query param invalid status: {self.status}, allowed values: {valid_statuses}"
             )
-        return v
+        return self
 
 
 class DiscountResponse(PaddleResponse):

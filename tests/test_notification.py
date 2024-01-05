@@ -196,7 +196,9 @@ class TestNotification:
 
         assert (
             deepdiff.DeepDiff(
-                notification.dict(), expected_notification.dict(), ignore_order=True
+                notification.model_dump(),
+                expected_notification.model_dump(),
+                ignore_order=True,
             )
             == {}
         )
@@ -754,7 +756,9 @@ class TestNotification:
 
         assert (
             deepdiff.DeepDiff(
-                replay_response.dict(), expected_response.dict(), ignore_order=True
+                replay_response.model_dump(),
+                expected_response.model_dump(),
+                ignore_order=True,
             )
             == {}
         )
