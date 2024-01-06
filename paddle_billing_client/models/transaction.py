@@ -10,7 +10,7 @@ from paddle_billing_client.models import LazyBaseModel as BaseModel
 from paddle_billing_client.models import PaddleResponse
 from paddle_billing_client.models.address import Address
 from paddle_billing_client.models.business import Business
-from paddle_billing_client.models.common import BillingPeriod
+from paddle_billing_client.models.common import BillingDetails, BillingPeriod
 from paddle_billing_client.models.customer import Customer
 from paddle_billing_client.models.discount import Discount
 from paddle_billing_client.models.product import Product
@@ -121,13 +121,6 @@ class TransactionDetails(BaseModel):
     payout_totals: PayoutTotals | None = None
     adjusted_payout_totals: AdjustedPayoutTotals | None = None
     line_items: list[LineItem] | None = None
-
-
-class BillingDetails(BaseModel):
-    enable_checkout: bool | None = None
-    payment_terms: dict | None = None
-    purchase_order_number: str | None = None
-    additional_information: str | None = None
 
 
 class TransactionBase(BaseModel):

@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 from typing import Dict, List, Literal, Optional
 
 from datetime import datetime
@@ -6,6 +8,7 @@ from pydantic import ConfigDict, model_validator
 
 from paddle_billing_client.models import LazyBaseModel as BaseModel
 from paddle_billing_client.models import PaddleResponse
+from paddle_billing_client.models.common import ImportMeta
 
 
 class DiscountBase(BaseModel):
@@ -14,37 +17,38 @@ class DiscountBase(BaseModel):
     type: Literal["flat", "flat_per_seat", "percentage"]
     enabled_for_checkout: bool
     code: str
-    currency_code: Optional[str] = None
+    currency_code: str | None = None
     recur: bool
-    maximum_recurring_intervals: Optional[int] = None
-    usage_limit: Optional[int] = None
-    restrict_to: Optional[List[str]] = None
-    expires_at: Optional[datetime] = None
-    status: Optional[Literal["active", "archived", "expired", "used"]] = None
-    custom_data: Optional[Dict[str, str]] = None
+    maximum_recurring_intervals: int | None = None
+    usage_limit: int | None = None
+    restrict_to: list[str] | None = None
+    expires_at: datetime | None = None
+    status: Literal["active", "archived", "expired", "used"] | None = None
+    custom_data: dict[str, str] | None = None
 
 
 class Discount(DiscountBase):
     id: str
     times_used: int
-    created_at: Optional[datetime] = None
-    updated_at: Optional[datetime] = None
-    external_id: Optional[str] = None
+    created_at: datetime | None = None
+    updated_at: datetime | None = None
+    external_id: str | None = None
+    import_meta: ImportMeta | None = None
 
 
 class DiscountQueryParams(BaseModel):
     # Return entities after the specified cursor. Used for working through paginated results.
-    after: Optional[str] = None
+    after: str | None = None
     # Return entities that match the discount code. Use a comma separated list to specify multiple discount codes.
-    code: Optional[str] = None
+    code: str | None = None
     # Return only the IDs specified. Use a comma separated list to get multiple entities.
-    id: Optional[str] = None
+    id: str | None = None
     # Order returned entities by the specified field and direction ([ASC] or [DESC]).
-    order_by: Optional[Literal["[ASC]", "[DESC]"]] = None
+    order_by: Literal["[ASC]", "[DESC]"] | None = None
     # Set how many entities are returned per page. Default: 50
-    per_page: Optional[int] = None
+    per_page: int | None = None
     # Return entities that match the specified status. Use a comma separated list to specify multiple status values.
-    status: Optional[str] = None
+    status: str | None = None
 
     model_config = ConfigDict(extra="forbid")
 
@@ -65,7 +69,7 @@ class DiscountResponse(PaddleResponse):
 
 
 class DiscountsResponse(PaddleResponse):
-    data: List[Discount]
+    data: list[Discount]
 
 
 class DiscountRequest(DiscountBase):

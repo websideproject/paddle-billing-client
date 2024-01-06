@@ -1,4 +1,4 @@
-API reference
+API Reference
 
 Subscriptions
 
@@ -309,7 +309,7 @@ Customer purchase order number. Appears on invoice documents.
 
 additional_information
 
-string
+string or null
 
 Notes or other information to include on this invoice. Appears on invoice documents.
 
@@ -494,6 +494,28 @@ custom_data
 object or null
 
 Your own structured key-value data.
+
+import_meta
+
+object or null
+
+Import information for this entity.
+
+null
+
+if this entity is not imported.
+
+external_id
+
+string or null
+
+Reference or identifier for this entity from the solution where it was imported from.
+
+imported_from
+
+string
+
+Name of the platform where this entity was imported from.
 
 List subscriptions
 

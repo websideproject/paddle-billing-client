@@ -1,4 +1,4 @@
-API reference
+API Reference
 
 Transactions
 
@@ -60,7 +60,7 @@ calculate and captures revenue, ready for payment
 
 Payments
 
-are attempts to collect for the amount against a transaction – both online and offline
+are attempts to collect for the amount against a transaction — both online and offline
 
 Transactions may have more than one payment against them. For example, customers paying for larger value deals by invoice might make multiple payments, and automatically collected payments might fail.
 
@@ -206,7 +206,7 @@ Paddle ID of the invoice that this transaction is related to, prefixed with
 
 inv_
 
-. Used for compatibility with the initial version of the Paddle Invoice API.
+. Used for compatibility with the Paddle Invoice API, which is now deprecated. This field is scheduled to be removed in the next version of the Paddle API.
 
 invoice_number
 
@@ -282,7 +282,7 @@ Customer purchase order number. Appears on invoice documents.
 
 additional_information
 
-string
+string or null
 
 Notes or other information to include on this invoice. Appears on invoice documents.
 
@@ -296,7 +296,7 @@ billing_period
 
 object or null
 
-Time period that this transaction is for. Set automatically by Paddle for recurring subscriptions to describe the period that charges are for.
+Time period that this transaction is for. Set automatically by Paddle for subscription renewals to describe the period that charges are for.
 
 starts_at
 
@@ -376,7 +376,7 @@ totals
 
 object
 
-Breakdown of the total for a transaction.
+Breakdown of the total for a transaction. These numbers can become negative when dealing with subscription updates that result in credit.
 
 adjusted_totals
 
@@ -533,9 +533,9 @@ otherwise.
 
 url
 
-string
+string or null
 
-Paddle Checkout URL for this transaction, composed of your default payment URL +
+Paddle Checkout URL for this transaction, composed of the URL passed in the request or your default payment URL +
 
 _?txn=
 

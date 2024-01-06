@@ -8,6 +8,7 @@ from pydantic import ConfigDict, model_validator
 
 from paddle_billing_client.models import LazyBaseModel as BaseModel
 from paddle_billing_client.models import PaddleResponse
+from paddle_billing_client.models.common import ImportMeta
 from paddle_billing_client.models.price import Price
 
 
@@ -28,12 +29,14 @@ class ProductBase(BaseModel):
     image_url: str | None = None
     custom_data: dict[str, str] | None = None
     status: Literal["active", "archived"] | None = None
+    type: Literal["custom", "standard"] | None = None
 
 
 class Product(ProductBase):
     id: str
     created_at: datetime | None = None
     prices: list[Price] | None = None
+    import_meta: ImportMeta | None = None
 
 
 class ProductQueryParams(BaseModel):

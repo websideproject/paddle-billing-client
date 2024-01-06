@@ -1,4 +1,4 @@
-API reference
+API Reference
 
 Discounts
 
@@ -230,6 +230,28 @@ updated_at
 string
 
 RFC 3339 datetime string of when this entity was updated. Set automatically by Paddle.
+
+import_meta
+
+object or null
+
+Import information for this entity.
+
+null
+
+if this entity is not imported.
+
+external_id
+
+string or null
+
+Reference or identifier for this entity from the solution where it was imported from.
+
+imported_from
+
+string
+
+Name of the platform where this entity was imported from.
 
 List discounts
 

@@ -6,6 +6,7 @@ from pydantic import ConfigDict, model_validator
 
 from paddle_billing_client.models import LazyBaseModel as BaseModel
 from paddle_billing_client.models import PaddleResponse
+from paddle_billing_client.models.common import ImportMeta
 
 
 class UnitPrice(BaseModel):
@@ -42,12 +43,15 @@ class PriceBase(BaseModel):
     unit_price_overrides: list[UnitPriceOverride] | None = None
     quantity: Quantity | None = None
     custom_data: dict[str, str] | None = None
+    type: Literal["custom", "standard"] | None = None
+    name: str | None = None
 
 
 class Price(PriceBase):
     id: str
     unit_price: UnitPrice
     status: str | None = None
+    import_meta: ImportMeta | None = None
 
 
 class PriceQueryParams(BaseModel):

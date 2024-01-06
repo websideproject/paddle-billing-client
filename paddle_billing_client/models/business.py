@@ -8,6 +8,7 @@ from pydantic import ConfigDict, model_validator
 
 from paddle_billing_client.models import LazyBaseModel as BaseModel
 from paddle_billing_client.models import PaddleResponse
+from paddle_billing_client.models.common import ImportMeta
 
 
 class Contact(BaseModel):
@@ -26,6 +27,7 @@ class BusinessBase(BaseModel):
 
 class Business(BusinessBase):
     id: str
+    import_meta: ImportMeta | None = None
     created_at: datetime | None = None
     updated_at: datetime | None = None
 

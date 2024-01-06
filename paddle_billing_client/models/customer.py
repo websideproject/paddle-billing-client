@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 from typing import Dict, List, Literal, Optional
 
 from datetime import datetime
@@ -6,40 +8,42 @@ from pydantic import ConfigDict, model_validator
 
 from paddle_billing_client.models import LazyBaseModel as BaseModel
 from paddle_billing_client.models import PaddleResponse
+from paddle_billing_client.models.common import ImportMeta
 
 
 class CustomerBase(BaseModel):
     email: str
-    name: Optional[str] = None
-    locale: Optional[str] = None
-    custom_data: Optional[Dict[str, str]] = None
+    name: str | None = None
+    locale: str | None = None
+    custom_data: dict[str, str] | None = None
 
 
 class Customer(CustomerBase):
     id: str
     marketing_consent: bool
-    created_at: Optional[datetime] = None
-    updated_at: Optional[datetime] = None
-    imported_at: Optional[datetime] = None
-    source: Optional[str] = None
-    status: Optional[Literal["active", "archived"]] = None
-    is_sanctioned: Optional[bool] = None
-    tax_exemptions: Optional[List[str]] = None
+    created_at: datetime | None = None
+    updated_at: datetime | None = None
+    imported_at: datetime | None = None
+    source: str | None = None
+    status: Literal["active", "archived"] | None = None
+    is_sanctioned: bool | None = None
+    tax_exemptions: list[str] | None = None
+    import_meta: ImportMeta | None = None
 
 
 class CustomerQueryParams(BaseModel):
     # Return entities after the specified cursor. Used for working through paginated results.
-    after: Optional[str] = None
+    after: str | None = None
     # Return only the IDs specified. Use a comma separated list to get multiple entities.
-    id: Optional[str] = None
+    id: str | None = None
     # Order returned entities by the specified field and direction ([ASC] or [DESC]).
-    order_by: Optional[Literal["[ASC]", "[DESC]"]] = None
+    order_by: Literal["[ASC]", "[DESC]"] | None = None
     # Set how many entities are returned per page. Default: 50
-    per_page: Optional[int] = None
+    per_page: int | None = None
     # Return entities that match a search query. Searches id and type fields.
-    search: Optional[str] = None
+    search: str | None = None
     # Return entities that match the specified status. Use a comma separated list to specify multiple status values.
-    status: Optional[str] = None
+    status: str | None = None
 
     model_config = ConfigDict(extra="forbid")
 
@@ -60,7 +64,7 @@ class CustomerResponse(PaddleResponse):
 
 
 class CustomersResponse(PaddleResponse):
-    data: List[Customer]
+    data: list[Customer]
 
 
 class CustomerRequest(CustomerBase):
@@ -69,7 +73,7 @@ class CustomerRequest(CustomerBase):
 
 class CustomerBalancesQueryParams(BaseModel):
     # Return entities that match the currency code. Use a comma separated list to specify multiple currency codes.
-    currency_code: Optional[str] = None
+    currency_code: str | None = None
 
     model_config = ConfigDict(extra="forbid")
 
@@ -87,4 +91,4 @@ class CustomerBalance(BaseModel):
 
 
 class CustomerBalancesResponse(PaddleResponse):
-    data: List[CustomerBalance]
+    data: list[CustomerBalance]

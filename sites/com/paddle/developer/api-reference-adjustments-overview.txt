@@ -1,4 +1,4 @@
-API reference
+API Reference
 
 Adjustments
 
@@ -188,11 +188,9 @@ or
 
 rejected
 
-on review.
+on review. Other kinds of adjustment do not need approval,
 
-credit
-
-adjustments are created with the status
+so are created with the status
 
 approved
 

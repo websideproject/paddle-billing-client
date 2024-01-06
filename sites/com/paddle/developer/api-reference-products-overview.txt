@@ -1,4 +1,4 @@
-API reference
+API Reference
 
 Products
 
@@ -6,7 +6,7 @@ Product object
 
 Product entities describe the items that you sell. They hold high-level product attributes.
 
-Products are the items in your catalog that you sell to your customers. For simplicity and flexibility, there's no categories or hierarchies of product – everything you sell starts with a product entity.
+Products are the items in your catalog that you sell to your customers. For simplicity and flexibility, there's no categories or hierarchies of product — everything you sell starts with a product entity.
 
 Products work with
 
@@ -58,6 +58,16 @@ string or null
 
 Short description for this product.
 
+type
+
+string
+
+Type of product. Standard products are considered part of your product catalog and are shown on the Paddle web app.
+
+Show
+
+allowed values
+
 tax_category
 
 string
@@ -95,6 +105,28 @@ created_at
 string
 
 RFC 3339 datetime string of when this entity was created. Set automatically by Paddle.
+
+import_meta
+
+object or null
+
+Import information for this entity.
+
+null
+
+if this entity is not imported.
+
+external_id
+
+string or null
+
+Reference or identifier for this entity from the solution where it was imported from.
+
+imported_from
+
+string
+
+Name of the platform where this entity was imported from.
 
 List products
 
