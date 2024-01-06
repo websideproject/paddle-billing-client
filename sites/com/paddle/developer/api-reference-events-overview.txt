@@ -1,4 +1,4 @@
-API reference
+API Reference
 
 Events
 
@@ -59,16 +59,6 @@ occurred_at
 string
 
 RFC 3339 datetime string of when this event occurred.
-
-notification_id
-
-string
-
-Unique Paddle ID for this notification, prefixed with
-
-ntf_
-
-.
 
 data
 
