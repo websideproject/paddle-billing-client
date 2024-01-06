@@ -8,6 +8,7 @@ from pydantic import ConfigDict, model_validator
 
 from paddle_billing_client.models import LazyBaseModel as BaseModel
 from paddle_billing_client.models import PaddleResponse
+from paddle_billing_client.models.common import ImportMeta
 
 
 class AddressBase(BaseModel):
@@ -24,6 +25,7 @@ class AddressBase(BaseModel):
 
 class Address(AddressBase):
     id: str | None = None
+    import_meta: ImportMeta | None = None
     created_at: datetime | None = None
     updated_at: datetime | None = None
 

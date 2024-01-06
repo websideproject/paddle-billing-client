@@ -36,6 +36,7 @@ Python wrapper around the new Paddle Billing API
 - Tests with [`pytest`](https://docs.pytest.org/en/latest/) and [`VCR.py`](https://vcrpy.readthedocs.io/en/latest/) for mocking HTTP requests
 - [`Website stalker`](https://github.com/EdJoPaTo/website-stalker) Github Action to monitor any API changes
 - Pagination support with generator to process pages one by one
+- Helper function for signature validation for webhooks
 
 ### Tests
 
@@ -47,8 +48,8 @@ Python wrapper around the new Paddle Billing API
 - [x] Addresses
 - [x] Businesses
 - [x] Transactions
-- [x] Subscriptions (except resume and activate)
-   - [ ] Subscription Resume
+- [x] Subscriptions (except activate)
+   - [x] Subscription Resume
    - [ ] Subscription Activate Trialing
 - [x] Adjustments
 - [x] Pricing Previews
@@ -118,6 +119,19 @@ for notification in paginate(client.list_notifications, query_params=Notificatio
 - Live API url: `https://api.paddle.com/`
 
 More usage examples can be found in **tests**.
+
+### Helper functions
+
+```python
+from paddle_billing_client.helpers import validate_webhook_signature
+
+# Validate webhook signature
+is_valid = validate_webhook_signature(
+    signature_header=request.headers.get("HTTP_PADDLE_SIGNATURE"),
+    raw_body=request.data,
+    secret_key="your-paddle-secret-key",
+)
+```
 
 ### Makefile usage
 

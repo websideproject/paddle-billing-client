@@ -18,6 +18,10 @@ HTML data attribute when working with Paddle.js to hide the option to add a disc
 
 Sep 28, 2023
 
+Platform
+
+Subscriptions
+
 Let customers pay for subscriptions using Apple Pay and Google Pay, with no engineering effort required on your part. You may see
 
 apple_pay
@@ -34,6 +38,10 @@ when working with subscription-related transactions.
 
 Sep 27, 2023
 
+Paddle.js
+
+Checkout
+
 Listen to the new
 
 checkout.warning
@@ -41,6 +49,8 @@ checkout.warning
 event to get details about invalid or missing information passed to a checkout when opening, so you can handle problems in your frontend.
 
 Sep 22, 2023
+
+Platform
 
 Create prices, discounts, transactions, and subscriptions in Colombian Peso.
 
@@ -54,6 +64,10 @@ for payments.
 
 Sep 21, 2023
 
+API
+
+Customers
+
 Include an object of
 
 custom_data
@@ -61,6 +75,12 @@ custom_data
 with requests when creating or updating customers, addresses, and businesses to store your own arbitrary key-value data.
 
 Sep 20, 2023
+
+API
+
+Transactions
+
+Notifications
 
 Subscribe to the new
 
@@ -74,6 +94,12 @@ now include details of the related subscription and invoice number.
 
 Sep 15, 2023
 
+API
+
+Adjustments
+
+Customers
+
 List credit balances for a customer using the new
 
 /customers/{customer_id}/credit-balances
@@ -81,6 +107,10 @@ List credit balances for a customer using the new
 endpoint to see how much credit a customer has to use, and how much credit they've previously used.
 
 Sep 13, 2023
+
+API
+
+Subscriptions
 
 Send a request to the
 
@@ -90,9 +120,17 @@ endpoint to immediately activate a trialing subscription.
 
 Sep 13, 2023
 
+Platform
+
+Subscriptions
+
 Add or remove recurring items, change quantities, bill for one-time charges, and change the next billing date for subscriptions in trial.
 
 Sep 8, 2023
+
+API
+
+Notifications
 
 Subscribe to notifications for payouts for Paddle to get notified when payouts are initiated (
 
@@ -106,6 +144,10 @@ payout.paid
 
 Sep 8, 2023
 
+API
+
+Notifications
+
 Subscribe to notifications for discount events to get notified when discounts are created (
 
 discount.created
@@ -116,7 +158,13 @@ discount.updated
 
 .)
 
+August 2023
+
 Aug 22, 2023
+
+API
+
+Subscriptions
 
 Check the new
 
@@ -124,7 +172,19 @@ update_summary
 
 object returned when previewing an update to a subscription or billing for a one-time charge to get an overview of any prorated credits and charges created as a result of the change.
 
+Aug 9, 2023
+
+Platform
+
+Paddle Classic customers can now opt in to Paddle Billing to try the latest features. Paddle Billing shares some settings with Classic, but has its own data and API so your existing subscriptions and integration aren't impacted.
+
+July 2023
+
 Jul 20, 2023
+
+API
+
+Subscriptions
 
 Present charge totals to a customer before billing a one-time charge to a subscription using the new
 
@@ -134,6 +194,10 @@ endpoint.
 
 Jul 18, 2023
 
+API
+
+Catalog
+
 Get localized prices for a country, including taxes and discount calculation using the new
 
 /price-preview
@@ -141,6 +205,10 @@ Get localized prices for a country, including taxes and discount calculation usi
 endpoint. Paddle returns formatted prices, including currency symbol, so you can pass straight to your frontend.
 
 Jul 10, 2023
+
+API
+
+Transactions
 
 Use the new
 
@@ -152,7 +220,27 @@ origin
 
 field against a transaction to more easily determine why a transaction was created for a subscription.
 
+Jul 6, 2023
+
+API
+
+Catalog
+
+Include an object of
+
+custom_data
+
+with requests when creating or updating products and prices to store your own arbitrary key-value data.
+
+June 2023
+
 Jun 29, 2023
+
+API
+
+Subscriptions
+
+Transactions
 
 Use the new
 
@@ -162,6 +250,10 @@ endpoint to get a transaction that you can pass to Paddle.js to let customers up
 
 Jun 28, 2023
 
+API
+
+Catalog
+
 Filter to see recurring or one-time prices when using the list prices operation with the
 
 recurring
@@ -169,6 +261,10 @@ recurring
 query parameter.
 
 Jun 23, 2023
+
+API
+
+Transactions
 
 See how transaction totals and payout totals look after adjustments using the
 
@@ -182,6 +278,12 @@ transaction.details.adjusted_payout_totals
 
 Jun 23, 2023
 
+API
+
+Transactions
+
+Adjustments
+
 Use the
 
 adjustments_totals
@@ -189,6 +291,10 @@ adjustments_totals
 include parameter to return a total for all the adjustments against a transaction, including a breakdown by adjustment action.
 
 Jun 20, 2023
+
+API
+
+Notifications
 
 Resend a notification that's
 
@@ -206,6 +312,10 @@ endpoint.
 
 Jun 15, 2023
 
+API
+
+Notifications
+
 Find all notifications that relate to a customer, subscription, or transaction entity using the new
 
 filter
@@ -222,6 +332,12 @@ parameters.
 
 Jun 13, 2023
 
+Paddle.js
+
+Catalog
+
+Checkout
+
 We added a new
 
 discountCode
@@ -233,6 +349,10 @@ data-discount-code
 HTML data attribute to Paddle.js to let you pass a discount code when opening a checkout.
 
 Jun 5, 2023
+
+API
+
+Transactions
 
 Get the amount that a customer has to pay more easily using the new
 

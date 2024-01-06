@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 from typing import List, Literal, Optional
 
 from paddle_billing_client.models import LazyBaseModel as BaseModel
@@ -8,14 +10,14 @@ class SubscribedEvent(BaseModel):
     name: str
     description: str
     group: str
-    available_versions: List[int]
+    available_versions: list[int]
 
 
 class NotificationSettingBase(BaseModel):
     description: str
     destination: str
-    subscribed_events: List[SubscribedEvent]
-    type: Optional[Literal["email", "url"]] = None
+    subscribed_events: list[SubscribedEvent]
+    type: Literal["email", "url"] | None = None
     active: bool
     api_version: int
     include_sensitive_fields: bool
@@ -31,8 +33,8 @@ class NotificationSettingResponse(PaddleResponse):
 
 
 class NotificationSettingsResponse(PaddleResponse):
-    data: List[NotificationSetting]
+    data: list[NotificationSetting]
 
 
 class NotificationSettingRequest(NotificationSettingBase):
-    subscribed_events: List[str]
+    subscribed_events: list[str]
