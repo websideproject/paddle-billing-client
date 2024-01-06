@@ -8,7 +8,7 @@ from pydantic import ConfigDict, model_validator
 
 from paddle_billing_client.models.base import LazyBaseModel as BaseModel
 from paddle_billing_client.models.base import PaddleResponse
-from paddle_billing_client.models.common import BillingPeriod
+from paddle_billing_client.models.common import BillingPeriod, ImportMeta
 from paddle_billing_client.models.price import BillingCycle, Price
 from paddle_billing_client.models.transaction import Transaction
 
@@ -66,6 +66,7 @@ class Subscription(SubscriptionBase):
     id: str | None = None
     next_transaction: Transaction | None = None
     immediate_transaction: Transaction | None = None
+    import_meta: ImportMeta | None = None
 
 
 class SubscriptionQueryParams(BaseModel):

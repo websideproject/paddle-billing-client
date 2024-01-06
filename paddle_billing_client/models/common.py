@@ -12,3 +12,8 @@ class Paginate(BaseModel):
     next: str | None = None
 
     model_config = ConfigDict(extra="forbid")
+
+
+class ImportMeta(BaseModel):
+    external_id: str | None = None
+    imported_from: str

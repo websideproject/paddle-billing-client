@@ -601,6 +601,87 @@ class TestSubscription:
         )
 
     @pytest.mark.vcr
+    def test_resume_subscription(self):
+        subscription = self.client.resume_subscription(
+            subscription_id="sub_01h7n3a88jwktex2tfjzahmn57",
+            data=SubscriptionRequest(
+                effective_from="immediately",
+            ),
+        )
+
+        expected_subscription = SubscriptionResponse(
+            data=Subscription(
+                id="sub_01h7n3a88jwktex2tfjzahmn57",
+                status="active",
+                customer_id="ctm_01h7mrr5j8rnawwzh9nschgp1v",
+                address_id="add_01h7mrzwtwthvqqy7vq90f0kd7",
+                business_id=None,
+                currency_code="USD",
+                created_at="2023-08-12T14:44:57.746086Z",
+                updated_at="2023-12-29T07:21:22.563Z",
+                started_at="2023-08-12T14:44:57.746081Z",
+                first_billed_at="2023-08-12T14:44:57.746081Z",
+                next_billed_at="2024-01-29T07:21:22.558Z",
+                paused_at=None,
+                canceled_at=None,
+                collection_mode="manual",
+                billing_details=dict(
+                    enable_checkout=True,
+                    purchase_order_number="",
+                    additional_information="",
+                    payment_terms=dict(frequency=2, interval="week"),
+                ),
+                current_billing_period=dict(
+                    starts_at="2023-12-29T07:21:22.558Z",
+                    ends_at="2024-01-29T07:21:22.558Z",
+                ),
+                billing_cycle=dict(frequency=1, interval="month"),
+                recurring_transaction_details=None,
+                next_transaction=None,
+                immediate_transaction=None,
+                scheduled_change=None,
+                items=[
+                    {
+                        "status": "active",
+                        "quantity": 2,
+                        "recurring": True,
+                        "created_at": "2023-08-12T14:44:57.746087Z",
+                        "updated_at": "2023-12-29T07:21:22.564Z",
+                        "previously_billed_at": "2023-12-29T07:21:22.558Z",
+                        "next_billed_at": "2024-01-29T07:21:22.558Z",
+                        "trial_dates": None,
+                        "price": {
+                            "id": "pri_01h7mrnc315chey77qhrd32vfs",
+                            "product_id": "pro_01h7mrm9f0xvrvvwvkg1b7q8e3",
+                            "description": "asd",
+                            "tax_mode": "account_setting",
+                            "billing_cycle": {"frequency": 1, "interval": "month"},
+                            "trial_period": None,
+                            "unit_price": {"amount": "1270", "currency_code": "USD"},
+                        },
+                    }
+                ],
+                custom_data=dict(user_id="123"),
+                management_urls={
+                    "update_payment_method": None,
+                    "cancel": "https://sandbox-buyer-portal.paddle.com/subscriptions/sub_01h7n3a88jwktex2tfjzahmn57/cancel?token=pga_eyJhbGciOiJFZERTQSIsImtpZCI6Imp3a18wMWhkazBuOHF3OG55NTJ5cGNocGNhazA1ayIsInR5cCI6IkpXVCJ9.eyJpZCI6InBnYV8wMWhqdDc1eTRoZWVyNWQ5eDV3cGp3OWF4MyIsInNlbGxlci1pZCI6Ijg5MzkiLCJ0eXBlIjoic3RhbmRhcmQiLCJ2ZXJzaW9uIjoiMSIsInVzYWdlIjoibWFuYWdlbWVudF91cmwiLCJzY29wZSI6ImN1c3RvbWVyLnN1YnNjcmlwdGlvbi1wYXltZW50LnVwZGF0ZSBjdXN0b21lci5zdWJzY3JpcHRpb24tcGF5bWVudC5yZWFkIGN1c3RvbWVyLnN1YnNjcmlwdGlvbi1jYW5jZWwuY3JlYXRlIGN1c3RvbWVyLnN1YnNjcmlwdGlvbi5yZWFkIiwiaXNzIjoiZ3Vlc3RhY2Nlc3Mtc2VydmljZSIsInN1YiI6ImN0bV8wMWg3bXJyNWo4cm5hd3d6aDluc2NoZ3AxdiIsImV4cCI6MTczNTQ1Njg4MiwiaWF0IjoxNzAzODM0NDgyfQ.5rvpe2Q6dirTdY6CYHvxCpvAcvsbhRGF0C5CluQe5YPzCbelkiMr0p8It-spkwOPWvnJ86MYshR2AZa75mHvBg",
+                },
+                discount=None,
+            ),
+            meta=dict(request_id="2302d1eb-7ee9-45b2-8158-68d0ac1a1d6f"),
+        )
+
+        assert (
+            deepdiff.DeepDiff(
+                subscription,
+                expected_subscription,
+                ignore_order=True,
+                exclude_regex_paths=r".+\.model_fields_set",
+            )
+            == {}
+        )
+
+    @pytest.mark.vcr
     def test_get_transaction_to_update_payment_method(self):
         transaction = self.client.get_transaction_to_update_payment_method(
             subscription_id="sub_01h9fs0mgwkhtdan4qd4r7qq77",
