@@ -34,6 +34,10 @@ class Customer(CustomerBase):
 class CustomerQueryParams(BaseModel):
     # Return entities after the specified cursor. Used for working through paginated results.
     after: str | None = None
+    # Return entities that exactly match the specified email address.
+    # Use a comma separated list to specify multiple email addresses.
+    # Recommended for precise matching of email addresses.
+    email: str | None = None
     # Return only the IDs specified. Use a comma separated list to get multiple entities.
     id: str | None = None
     # Order returned entities by the specified field and direction ([ASC] or [DESC]).
