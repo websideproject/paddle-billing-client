@@ -115,6 +115,23 @@ for notification in paginate(client.list_notifications, query_params=Notificatio
         print(len(notification.data))
         print(notification.data[-1].id)
 ```
+
+### Debugging
+
+To print the raw exception response, you can use the `VerboseErrorHandler`:
+
+  ```python
+  from paddle_billing_client.client import PaddleApiClient
+  from apiclient import HeaderAuthentication
+  from paddle_billing_client.errors import VerboseErrorHandler
+  
+  client = PaddleApiClient(
+      base_url="https://sandbox-api.paddle.com", 
+      authentication_method=HeaderAuthentication(token="your-paddle-token"),
+      error_handler=VerboseErrorHandler
+  )
+  ```
+
 - Sandbox API url: `https://sandbox-api.paddle.com/`
 - Live API url: `https://api.paddle.com/`
 
