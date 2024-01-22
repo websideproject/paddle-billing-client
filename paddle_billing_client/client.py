@@ -455,10 +455,10 @@ class PaddleApiClient(APIClient):
             data.model_dump(exclude_none=True),
         )
 
-    def unschedule_pause_from_subscription(
+    def unschedule_scheduled_action_from_subscription(
         self, subscription_id: str
     ) -> SubscriptionResponse:
-        """Remove a scheduled pause from a subscription"""
+        """Remove a scheduled action from a subscription"""
         return self.patch(
             self.endpoints.update_subscription.format(subscription_id=subscription_id),
             {"scheduled_change": None},
