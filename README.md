@@ -28,7 +28,7 @@ Python wrapper around the new Paddle Billing API
 
 ### Django Integration
 - For Paddle Classic, there is a Django integration available at [`dj-paddle`](https://github.com/paddle-python/dj-paddle) and [`django-paddle`](https://github.com/kennell/django-paddle)
-- For Paddle Billing, there is a Work In Progress Django integration available at (TBD)
+- For Paddle Billing, there is a Work In Progress Django integration available at [`django-paddle-billing`](https://github.com/websideproject/django-paddle-billing)
 ---
 ## 📦 Features
 
