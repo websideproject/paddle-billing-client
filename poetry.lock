@@ -921,13 +921,13 @@ virtualenv = ">=20.10.0"
 
 [[package]]
 name = "pydantic"
-version = "2.6.0b1"
+version = "2.6.0"
 description = "Data validation using Python type hints"
 optional = false
 python-versions = ">=3.8"
 files = [
-    {file = "pydantic-2.6.0b1-py3-none-any.whl", hash = "sha256:a9560d042a8113eec5acd0474067f4edf493e7b9bb03d8f83e342dfb4b0dcf84"},
-    {file = "pydantic-2.6.0b1.tar.gz", hash = "sha256:c12831f560ec778224367351b94c1f9a2628c4f5fb74ed258ef70918d330b812"},
+    {file = "pydantic-2.6.0-py3-none-any.whl", hash = "sha256:1440966574e1b5b99cf75a13bec7b20e3512e8a61b894ae252f56275e2c465ae"},
+    {file = "pydantic-2.6.0.tar.gz", hash = "sha256:ae887bd94eb404b09d86e4d12f93893bdca79d766e738528c6fa1c849f3c6bcf"},
 ]
 
 [package.dependencies]
