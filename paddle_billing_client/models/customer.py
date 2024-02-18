@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from typing import Dict, List, Literal, Optional
+from typing import Dict, List, Literal, Optional, Union
 
 from datetime import datetime
 
@@ -15,7 +15,7 @@ class CustomerBase(BaseModel):
     email: str
     name: str | None = None
     locale: str | None = None
-    custom_data: dict[str, str] | None = None
+    custom_data: dict[str, Union[int, str]] | None = None
 
 
 class Customer(CustomerBase):
