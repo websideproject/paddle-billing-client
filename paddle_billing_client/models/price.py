@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from typing import Dict, List, Literal, Optional
+from typing import Dict, List, Literal, Optional, Union
 
 from pydantic import ConfigDict, model_validator
 
@@ -42,7 +42,7 @@ class PriceBase(BaseModel):
     tax_mode: str
     unit_price_overrides: list[UnitPriceOverride] | None = None
     quantity: Quantity | None = None
-    custom_data: dict[str, str] | None = None
+    custom_data: dict[str, int | str] | None = None
     type: Literal["custom", "standard"] | None = None
     name: str | None = None
 

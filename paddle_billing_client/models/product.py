@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from typing import Dict, List, Literal, Optional
+from typing import Dict, List, Literal, Optional, Union
 
 from datetime import datetime
 
@@ -27,7 +27,7 @@ class ProductBase(BaseModel):
     ]
     description: str | None = None
     image_url: str | None = None
-    custom_data: dict[str, str] | None = None
+    custom_data: dict[str, int | str] | None = None
     status: Literal["active", "archived"] | None = None
     type: Literal["custom", "standard"] | None = None
 

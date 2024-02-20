@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from typing import Literal
+from typing import Literal, Union
 
 from datetime import datetime
 
@@ -61,7 +61,7 @@ class SubscriptionBase(BaseModel):
     recurring_transaction_details: dict | None = None
     scheduled_change: ScheduledChange | None = None
     items: list[Item] | None = None
-    custom_data: dict | None = None
+    custom_data: dict[str, int | str] | None = None
     management_urls: dict | None = None
     discount: SubscriptionDiscount | None = None
 
