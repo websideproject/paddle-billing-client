@@ -20,7 +20,7 @@ class AddressBase(BaseModel):
     region: str | None = None
     country_code: str | None = None
     status: Literal["active", "archived"] | None = None
-    custom_data: dict[str, str] | None = None
+    custom_data: dict[str, int | str] | None = None
 
 
 class Address(AddressBase):

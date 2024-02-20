@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from typing import Dict, List, Literal, Optional
+from typing import Literal
 
 from datetime import datetime
 
@@ -24,7 +24,7 @@ class DiscountBase(BaseModel):
     restrict_to: list[str] | None = None
     expires_at: datetime | None = None
     status: Literal["active", "archived", "expired", "used"] | None = None
-    custom_data: dict[str, str] | None = None
+    custom_data: dict[str, int | str] | None = None
 
 
 class Discount(DiscountBase):

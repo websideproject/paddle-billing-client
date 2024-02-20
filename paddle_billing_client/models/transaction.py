@@ -132,7 +132,7 @@ class TransactionBase(BaseModel):
     address_id: str | None = None
     business_id: str | None = None
     discount_id: str | None = None
-    custom_data: dict | None = None
+    custom_data: dict[str, int | str] | None = None
     collection_mode: Literal["automatic", "manual"] | None = None
     billing_details: BillingDetails | None = None
     billing_period: BillingPeriod | None = None
