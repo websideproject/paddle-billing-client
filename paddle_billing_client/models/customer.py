@@ -72,7 +72,7 @@ class CustomersResponse(PaddleResponse):
 
 
 class CustomerRequest(CustomerBase):
-    pass
+    email: str | None = None
 
 
 class CustomerBalancesQueryParams(BaseModel):
