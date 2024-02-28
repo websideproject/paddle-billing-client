@@ -35,7 +35,9 @@ class Event(BaseModel):
     notification_id: str | None = None
     event_id: str
     event_type: str
-    data: dict | BaseModel  # | Subscription | Transaction | Customer | Product | Price | Address | Business | Adjustment
+    data: (
+        dict | BaseModel
+    )  # | Subscription | Transaction | Customer | Product | Price | Address | Business | Adjustment
     occurred_at: datetime
 
     @model_validator(mode="after")
