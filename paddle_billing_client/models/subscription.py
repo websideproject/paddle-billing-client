@@ -116,8 +116,8 @@ class SubscriptionDiscountRequest(BaseModel):
 
 
 class SubscriptionRequest(SubscriptionBase):
-    effective_from: datetime | Literal[
-        "next_billing_period", "immediately"
-    ] | None = None
+    effective_from: datetime | Literal["next_billing_period", "immediately"] | None = (
+        None
+    )
     resume_at: datetime | None = None
     discount: SubscriptionDiscountRequest | None = None

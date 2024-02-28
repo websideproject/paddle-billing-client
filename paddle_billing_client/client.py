@@ -269,10 +269,12 @@ class PaddleApiClient(APIClient):
     ) -> AddressesResponse:
         """List all addresses for a customer"""
         return self.get(
-            dict(paginate)["next"]
-            if paginate
-            else self.endpoints.list_addresses_for_customer.format(
-                customer_id=customer_id
+            (
+                dict(paginate)["next"]
+                if paginate
+                else self.endpoints.list_addresses_for_customer.format(
+                    customer_id=customer_id
+                )
             ),
             params=query_params.model_dump(exclude_none=True),
         )
@@ -319,10 +321,12 @@ class PaddleApiClient(APIClient):
     ) -> BusinessesResponse:
         """List all businesses for a customer"""
         return self.get(
-            dict(paginate)["next"]
-            if paginate
-            else self.endpoints.list_businesses_for_customer.format(
-                customer_id=customer_id
+            (
+                dict(paginate)["next"]
+                if paginate
+                else self.endpoints.list_businesses_for_customer.format(
+                    customer_id=customer_id
+                )
             ),
             params=query_params.model_dump(exclude_none=True),
         )
