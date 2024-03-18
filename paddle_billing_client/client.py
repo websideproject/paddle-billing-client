@@ -230,11 +230,15 @@ class PaddleApiClient(APIClient):
         )
 
     def list_customer_credit_balances(
-        self, query_params: CustomerBalancesQueryParams = CustomerBalancesQueryParams()
+        self,
+        customer_id: str,
+        query_params: CustomerBalancesQueryParams = CustomerBalancesQueryParams(),
     ) -> CustomerBalancesResponse:
         """List credit balances for a customer"""
         return self.get(
-            self.endpoints.list_customer_credit_balances,
+            self.endpoints.list_customer_credit_balances.format(
+                customer_id=customer_id
+            ),
             params=query_params.model_dump(exclude_none=True),
         )
 
