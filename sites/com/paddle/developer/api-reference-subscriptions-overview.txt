@@ -252,6 +252,7 @@ RFC 3339 datetime string of when this discount was first applied.
 ends_at
 
 string
+or null
 
 RFC 3339 datetime string of when this discount no longer applies. Where a discount has
 
@@ -318,6 +319,22 @@ payment_terms
 object
 
 How long a customer has to pay this invoice once issued.
+
+interval
+
+string
+
+Unit of time.
+
+Show
+
+allowed values
+
+frequency
+
+integer
+
+Amount of time.
 
 current_billing_period
 
@@ -487,7 +504,7 @@ price
 
 object
 
-Price object for this item.
+Related price entity for this item. This reflects the price entity at the time it was added to the subscription.
 
 custom_data
 

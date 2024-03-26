@@ -112,7 +112,7 @@ Why this adjustment was created. Appears in the Paddle Dashboard. Retained for r
 
 credit_applied_to_balance
 
-boolean
+boolean or null
 
 Whether this adjustment was applied to the related customer's credit balance. Only returned for
 
@@ -382,11 +382,27 @@ chargeback_warning
 
 .
 
+amount
+
+string
+
+Chargeback fee converted into the payout currency.
+
+original
+
+object or null
+
+Chargeback fee before conversion to the payout currency.
+
+null
+
+when the chargeback fee is the same as the payout currency.
+
 earnings
 
 string
 
-Adjusted payout earnings. This is the adjustment total plus adjusted Paddle fees, minus chargeback fees.
+Adjusted payout earnings. This is the adjustment total plus adjusted Paddle fees, excluding chargeback fees.
 
 currency_code
 

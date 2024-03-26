@@ -48,7 +48,7 @@ description
 
 string
 
-Short description for this notification destination. Shown in the Paddle Dashboard.
+Short description for this notification destination. Shown in the Paddle web app.
 
 type
 

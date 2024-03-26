@@ -80,7 +80,8 @@ allowed values
 
 image_url
 
-null or string
+string
+or null
 
 Image for this product. Included in the checkout and on some customer documents.
 
@@ -99,12 +100,6 @@ Whether this entity can be used in Paddle.
 Show
 
 allowed values
-
-created_at
-
-string
-
-RFC 3339 datetime string of when this entity was created. Set automatically by Paddle.
 
 import_meta
 
@@ -127,6 +122,18 @@ imported_from
 string
 
 Name of the platform where this entity was imported from.
+
+created_at
+
+string
+
+RFC 3339 datetime string of when this entity was created. Set automatically by Paddle.
+
+updated_at
+
+string
+
+RFC 3339 datetime string of when this entity was updated. Set automatically by Paddle.
 
 List products
 

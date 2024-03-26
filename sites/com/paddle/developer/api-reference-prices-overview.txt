@@ -220,7 +220,7 @@ Maximum quantity of the product related to this price that can be bought. Requir
 
 minimum
 
-set. Must be greater than the
+set. Must be greater than or equal to the
 
 minimum
 
@@ -263,6 +263,18 @@ imported_from
 string
 
 Name of the platform where this entity was imported from.
+
+created_at
+
+string
+
+RFC 3339 datetime string of when this entity was created. Set automatically by Paddle.
+
+updated_at
+
+string
+
+RFC 3339 datetime string of when this entity was updated. Set automatically by Paddle.
 
 List prices
 

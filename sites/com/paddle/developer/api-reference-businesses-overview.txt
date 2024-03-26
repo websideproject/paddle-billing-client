@@ -52,6 +52,16 @@ biz_
 
 .
 
+customer_id
+
+string
+
+Paddle ID for the customer related to this business, prefixed with
+
+cus_
+
+.
+
 name
 
 string
