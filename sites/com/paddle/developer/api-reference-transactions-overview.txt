@@ -292,6 +292,22 @@ object
 
 How long a customer has to pay this invoice once issued.
 
+interval
+
+string
+
+Unit of time.
+
+Show
+
+allowed values
+
+frequency
+
+integer
+
+Amount of time.
+
 billing_period
 
 object or null
@@ -450,7 +466,21 @@ stored_payment_method_id
 
 string
 
-UUID for the stored payment method used for this payment attempt.
+UUID for the stored payment method used for this payment attempt. Deprecated - use
+
+payment_method_id
+
+instead.
+
+payment_method_id
+
+string
+
+Paddle ID of the payment method used for this payment attempt, prefixed with
+
+paymtd_
+
+.
 
 amount
 

@@ -1,4 +1,4 @@
-API reference
+API Reference
 
 Pricing preview
 
@@ -165,6 +165,16 @@ line_items
 array[object]
 
 Information about line items for this preview. Includes totals calculated by Paddle. Considered the source of truth for line item totals.
+
+available_payment_methods
+
+array[string]
+
+List of available payment methods for Paddle Checkout given the price and location information passed.
+
+Show
+
+allowed values
 
 Preview prices
 

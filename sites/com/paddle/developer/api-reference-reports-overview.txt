@@ -1,0 +1,172 @@
+API Reference
+
+Reports
+
+Report object
+
+Report entities describe a report that was generated in your Paddle system.
+
+Reports are a way of exporting data from your Paddle system for further analysis or manipulation. You can choose from a selection of reports, and filter the data that's included on them.
+
+Report entities hold information like:
+
+What kind of report it is
+
+How the data on the report was filtered
+
+How many records are on the report
+
+Whether the report is ready to download, or if it's still processing
+
+Report entities do not hold report data themselves. They describe the criteria used to generate a report.
+
+After Paddle has finished generating a report, you can use the Paddle ID of a report to get a download link for a CSV file that includes your report data.
+
+Learn how to create and download reports, and what kind of data you can expect to see on each kind of report. See:
+
+id
+
+string
+
+Unique Paddle ID for this report, prefixed with
+
+rep_
+
+status
+
+string
+
+Status of this report. Set automatically by Paddle.
+
+Reports are created as
+
+pending
+
+initially, then move to
+
+ready
+
+when they're available to download.
+
+Show
+
+allowed values
+
+rows
+
+integer or null
+
+Number of records in this report.
+
+null
+
+if the report is
+
+pending
+
+.
+
+type
+
+string
+
+Type of report.
+
+Show
+
+allowed values
+
+filters
+
+array[object]
+
+List of filters applied to this report.
+
+name
+
+string
+
+Field name to filter by.
+
+Show
+
+allowed values
+
+operator
+
+string or null
+
+Operator to use when filtering. Valid when filtering by
+
+updated_at
+
+,
+
+null
+
+otherwise.
+
+Show
+
+allowed values
+
+value
+
+array or string
+
+Value to filter by. Check the allowed values descriptions for the
+
+name
+
+field to see valid values for a field.
+
+expires_at
+
+string
+or null
+
+RFC 3339 datetime string of when this report expires. The report is no longer available to download after this date.
+
+updated_at
+
+string
+
+RFC 3339 datetime string of when this report was last updated.
+
+created_at
+
+string
+
+RFC 3339 datetime string of when this report was created.
+
+List reports
+
+get
+
+https://api.paddle.com
+
+/reports
+
+Create a report
+
+post
+
+https://api.paddle.com
+
+/reports
+
+Get a report
+
+get
+
+https://api.paddle.com
+
+/reports/{report_id}
+
+Get a CSV file for a report
+
+get
+
+https://api.paddle.com
+
+/reports/{report_id}/download-url

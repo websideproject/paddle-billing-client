@@ -32,7 +32,7 @@ Discounts work with
 
 By default, discounts apply to the entire value of a transaction. You can link discounts to price entities to limit them to certain prices. For example, you can create a discount for subscription plans that won't work on other items.
 
-Use discount codes to let your customers apply discounts themselves at checkout, or pass a discount to checkout to apply it automatically.
+Use discount codes to let your customers apply discounts themselves at checkout, or pass a discount to a checkout to apply it automatically.
 
 Discounts don't have to have codes. They can be applied manually to transactions as part of the sales process.
 
@@ -69,12 +69,6 @@ are set automatically by Paddle.
 Show
 
 allowed values
-
-external_id
-
-string
-
-An optional reference ID from the originating system. Used when an discount is imported. Can contain any number of characters excluding white space.
 
 description
 

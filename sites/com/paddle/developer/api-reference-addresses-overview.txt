@@ -56,6 +56,16 @@ add_
 
 .
 
+customer_id
+
+string
+
+Paddle ID for the customer related to this address, prefixed with
+
+cus_
+
+.
+
 description
 
 string or null
