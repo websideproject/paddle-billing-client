@@ -1,28 +1,17 @@
-notification_template: |
-  {{#sites}}
-  - {{.}}
-  {{/sites}}
-
-  {{#commit}}
-  https://github.com/EdJoPaTo/website-stalker-example/commit/{{.}}
-  {{/commit}}
-
 sites:
   - url:
       - "https://developer.paddle.com/api-reference/overview"
     editors:
       - html_prettify
       - css_select: .markdown-content-root
-      - css_remove: svg
-      - css_remove: a
+      - css_remove: a, svg
       - html_textify
   - url:
       - "https://developer.paddle.com/changelog/overview"
     editors:
       - html_prettify
       - css_select: .dev-docs-changelog-overview-root
-      - css_remove: svg
-      - css_remove: a
+      - css_remove: a, svg
       - html_textify
   - url:
       - "https://developer.paddle.com/api-reference/products/overview"
@@ -42,6 +31,5 @@ sites:
     editors:
       - html_prettify
       - css_select: div .api-overview-root
-      - css_remove: svg
-      - css_remove: a
+      - css_remove: a, svg
       - html_textify

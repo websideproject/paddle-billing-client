@@ -18,16 +18,13 @@ jobs:
 
       - uses: actions/checkout@v4
 
-      - name: Check website-stalker config
-        working-directory: sites
-        run: website-stalker check
-
       - name: Run website-stalker
+        id: website-stalker
         working-directory: sites
         run: website-stalker run --all
 
       - name: Create Pull Request
-        id: cpr
+        if: success() || steps.website-stalker.outcome == 'failure'
         uses: peter-evans/create-pull-request@v6
         with:
           token: ${{ secrets.PAT }}
@@ -38,6 +35,3 @@ jobs:
           title: 'Update API Reference'
           assignees: bgervan
           draft: false
-
-      - if: always()
-        run: git push
