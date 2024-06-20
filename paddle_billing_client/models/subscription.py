@@ -37,7 +37,7 @@ class ScheduledChange(BaseModel):
 
 class SubscriptionDiscount(BaseModel):
     id: str
-    starts_at: datetime
+    starts_at: datetime | None = None
     ends_at: datetime | None = None
 
 
