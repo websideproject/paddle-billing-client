@@ -27,7 +27,7 @@ class ProductBase(BaseModel):
     ]
     description: str | None = None
     image_url: str | None = None
-    custom_data: dict[str, int | str] | None = None
+    custom_data: dict[str, int | str | None] | None = None
     status: Literal["active", "archived"] | None = None
     type: Literal["custom", "standard"] | None = None
 
