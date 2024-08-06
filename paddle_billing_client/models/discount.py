@@ -29,7 +29,7 @@ class DiscountBase(BaseModel):
 
 class Discount(DiscountBase):
     id: str
-    times_used: int
+    times_used: int | None = None
     created_at: datetime | None = None
     updated_at: datetime | None = None
     external_id: str | None = None
