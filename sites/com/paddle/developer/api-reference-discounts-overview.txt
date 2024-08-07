@@ -10,15 +10,15 @@ Discounts let you reduce a transaction total by a percentage, a flat amount per 
 
 Discount entities hold information like:
 
-How the discount reduces the total of the transaction
+How the discount reduces the total of the transaction.
 
-Whether the discount is one-time or recurring
+Whether the discount is one-time or recurring.
 
-When the discount is valid to
+When the discount is valid to.
 
-Which items in your catalog the discount applies to
+Which items in your catalog the discount applies to.
 
-Whether this discount can be applied by customers using a code
+Whether this discount can be applied by customers using a code.
 
 Discounts work with
 
@@ -32,7 +32,7 @@ Discounts work with
 
 By default, discounts apply to the entire value of a transaction. You can link discounts to price entities to limit them to certain prices. For example, you can create a discount for subscription plans that won't work on other items.
 
-Use discount codes to let your customers apply discounts themselves at checkout, or pass a discount to checkout to apply it automatically.
+Use discount codes to let customers apply discounts themselves at checkout, or pass a discount to a checkout to apply it automatically.
 
 Discounts don't have to have codes. They can be applied manually to transactions as part of the sales process.
 
@@ -70,12 +70,6 @@ Show
 
 allowed values
 
-external_id
-
-string
-
-An optional reference ID from the originating system. Used when an discount is imported. Can contain any number of characters excluding white space.
-
 description
 
 string
@@ -86,27 +80,19 @@ enabled_for_checkout
 
 boolean
 
-Whether this discount can be applied by a customer at checkout.
+Whether this discount can be applied by customers at checkout.
 
 code
 
 string or null
 
-Unique code that customers can use to apply this discount at checkout. Use letters and numbers only, up to 16 characters. Paddle generates a random 10-character code if a code is not provided and
-
-enabled_for_checkout
-
-is
-
-true
-
-.
+Unique code that customers can use to apply this discount at checkout.
 
 type
 
 string
 
-Type of discount.
+Type of discount. Determines how this discount impacts the transaction total.
 
 Show
 
@@ -160,7 +146,7 @@ recur
 
 boolean
 
-Whether this discount applies for multiple billing periods.
+Whether this discount applies for multiple subscription billing periods.
 
 maximum_recurring_intervals
 
@@ -241,17 +227,17 @@ null
 
 if this entity is not imported.
 
-external_id
-
-string or null
-
-Reference or identifier for this entity from the solution where it was imported from.
-
 imported_from
 
 string
 
 Name of the platform where this entity was imported from.
+
+external_id
+
+string or null
+
+Reference or identifier for this entity from the solution where it was imported from.
 
 List discounts
 
