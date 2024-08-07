@@ -24,21 +24,19 @@ Paddle automatically creates transactions when customers sign up using the check
 
 happen.
 
-You can also create a transaction through the Dashboard or API. You may
+You can also create a transaction through the Paddle dashboard or the API. You may
 
 , or collect automatically using a card on file or by presenting a checkout.
 
 Transactions hold information like:
 
-Who you're billing
+Who the customer is.
 
-Which prices you're billing for
+Which items they're purchasing.
 
-Whether you'd like to generate an invoice number
+Calculated totals for the customer and items.
 
-Calculated totals for the customer and items
-
-Any payment attempts
+Any payment attempts.
 
 Transactions handle all parts of revenue calculation, including complex
 
@@ -268,11 +266,37 @@ manual
 
 .
 
+payment_terms
+
+object
+
+How long a customer has to pay this invoice once issued.
+
+interval
+
+string
+
+Unit of time.
+
+Show
+
+allowed values
+
+frequency
+
+integer
+
+Amount of time.
+
 enable_checkout
 
 boolean
 
-Whether the related transaction may be paid using a Paddle Checkout.
+Whether the related transaction may be paid using a Paddle Checkout. If omitted when creating a transaction, defaults to
+
+false
+
+.
 
 purchase_order_number
 
@@ -286,29 +310,23 @@ string or null
 
 Notes or other information to include on this invoice. Appears on invoice documents.
 
-payment_terms
-
-object
-
-How long a customer has to pay this invoice once issued.
-
 billing_period
 
 object or null
 
 Time period that this transaction is for. Set automatically by Paddle for subscription renewals to describe the period that charges are for.
 
-starts_at
-
-string
-
-RFC 3339 datetime string of when this period starts.
-
 ends_at
 
 string
 
 RFC 3339 datetime string of when this period ends.
+
+starts_at
+
+string
+
+RFC 3339 datetime string of when this period starts.
 
 items
 
@@ -450,7 +468,21 @@ stored_payment_method_id
 
 string
 
-UUID for the stored payment method used for this payment attempt.
+UUID for the stored payment method used for this payment attempt. Deprecated - use
+
+payment_method_id
+
+instead.
+
+payment_method_id
+
+string
+
+Paddle ID of the payment method used for this payment attempt, prefixed with
+
+paymtd_
+
+.
 
 amount
 

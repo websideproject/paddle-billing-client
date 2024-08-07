@@ -4,9 +4,9 @@ Products
 
 Product object
 
-Product entities describe the items that you sell. They hold high-level product attributes.
+Product entities describe the items that customers can purchase. They hold high-level product attributes.
 
-Products are the items in your catalog that you sell to your customers. For simplicity and flexibility, there's no categories or hierarchies of product — everything you sell starts with a product entity.
+Products are the items in your catalog sold to customers. For simplicity and flexibility, there's no categories or hierarchies of product — everything purchased starts with a product entity.
 
 Products work with
 
@@ -14,13 +14,13 @@ Products work with
 
 Product entities hold information like:
 
-What the product is called
+What the product is called.
 
-How it should be taxed
+How it should be taxed.
 
-A description of the product
+A description of the product.
 
-An image to show at checkout and on invoices
+An image to show at checkout and on invoices.
 
 Once you've created a product, you can link a price to it. You can add prices to
 
@@ -62,7 +62,7 @@ type
 
 string
 
-Type of product. Standard products are considered part of your product catalog and are shown on the Paddle web app.
+Type of item. Standard items are considered part of your catalog and are shown on the Paddle web app.
 
 Show
 
@@ -80,7 +80,8 @@ allowed values
 
 image_url
 
-null or string
+string
+or null
 
 Image for this product. Included in the checkout and on some customer documents.
 
@@ -100,12 +101,6 @@ Show
 
 allowed values
 
-created_at
-
-string
-
-RFC 3339 datetime string of when this entity was created. Set automatically by Paddle.
-
 import_meta
 
 object or null
@@ -116,17 +111,29 @@ null
 
 if this entity is not imported.
 
+imported_from
+
+string
+
+Name of the platform where this entity was imported from.
+
 external_id
 
 string or null
 
 Reference or identifier for this entity from the solution where it was imported from.
 
-imported_from
+created_at
 
 string
 
-Name of the platform where this entity was imported from.
+RFC 3339 datetime string of when this entity was created. Set automatically by Paddle.
+
+updated_at
+
+string
+
+RFC 3339 datetime string of when this entity was updated. Set automatically by Paddle.
 
 List products
 
