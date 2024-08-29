@@ -1720,13 +1720,13 @@ pbr = ">=2.0.0"
 
 [[package]]
 name = "tenacity"
-version = "8.4.2"
+version = "9.0.0"
 description = "Retry code until it succeeds"
 optional = false
 python-versions = ">=3.8"
 files = [
-    {file = "tenacity-8.4.2-py3-none-any.whl", hash = "sha256:9e6f7cf7da729125c7437222f8a522279751cdfbe6b67bfe64f75d3a348661b2"},
-    {file = "tenacity-8.4.2.tar.gz", hash = "sha256:cd80a53a79336edba8489e767f729e4f391c896956b57140b5d7511a64bbd3ef"},
+    {file = "tenacity-9.0.0-py3-none-any.whl", hash = "sha256:93de0c98785b27fcf659856aa9f54bfbd399e29969b0621bc7f762bd441b4539"},
+    {file = "tenacity-9.0.0.tar.gz", hash = "sha256:807f37ca97d62aa361264d497b0e31e92b8027044942bfa756160d908320d73b"},
 ]
 
 [package.extras]
