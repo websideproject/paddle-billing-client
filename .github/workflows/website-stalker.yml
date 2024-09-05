@@ -25,7 +25,7 @@ jobs:
 
       - name: Create Pull Request
         if: success() || steps.website-stalker.outcome == 'failure'
-        uses: peter-evans/create-pull-request@v6
+        uses: peter-evans/create-pull-request@v7
         with:
           token: ${{ secrets.PAT }}
           branch: paddle-website-stalker
