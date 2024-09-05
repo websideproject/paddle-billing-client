@@ -24,7 +24,7 @@ class DiscountBase(BaseModel):
     restrict_to: list[str] | None = None
     expires_at: datetime | None = None
     status: Literal["active", "archived", "expired", "used"] | None = None
-    custom_data: dict[str, int | str | None] | None = None
+    custom_data: dict[str, int | str | None | dict | list] | None = None
 
 
 class Discount(DiscountBase):
