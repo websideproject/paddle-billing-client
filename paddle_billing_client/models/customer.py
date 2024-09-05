@@ -15,7 +15,7 @@ class CustomerBase(BaseModel):
     email: str
     name: str | None = None
     locale: str | None = None
-    custom_data: dict[str, int | str | None] | None = None
+    custom_data: dict[str, int | str | None | dict | list] | None = None
 
 
 class Customer(CustomerBase):
