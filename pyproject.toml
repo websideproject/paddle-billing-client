@@ -37,20 +37,20 @@ importlib_metadata = {version = "^4.5.0", python = "<3.8"}
 api-client-pydantic = "^3.0.0"
 pydantic = ">=2.0,<2.8.2"
 [tool.poetry.dev-dependencies]
-bandit = "^1.7.8"
-black = {version = "^24.2.0", allow-prereleases = true}
+bandit = "^1.7.9"
+black = {version = "^24.4.2", allow-prereleases = true}
 darglint = "^1.8.1"
 isort = {extras = ["colors"], version = "^5.13.2"}
-mypy = "^1.9.0"
+mypy = "^1.11.2"
 mypy-extensions = "^1.0.0"
 pre-commit = "^3.5.0"
 pydocstyle = "^6.1.1"
-pylint = "^3.1.0"
-pytest = "^8.1.1"
-pyupgrade = "^3.15.1"
-safety = "^2.4.0b2"
-coverage = "^7.4.3"
-coverage-badge = "^1.1.0"
+pylint = "^3.2.7"
+pytest = "^8.2.2"
+pyupgrade = "^3.16.0"
+safety = "^3.2.7"
+coverage = "^7.6.1"
+coverage-badge = "^1.1.1"
 pytest-html = "^4.1.1"
 pytest-cov = "^4.1.0"
 
@@ -58,7 +58,7 @@ pytest-cov = "^4.1.0"
 pytest = ">=7.4.2,<9.0.0"
 vcrpy = ">=5.1,<7.0"
 pytest-recording = "^0.13.0"
-deepdiff = "^6.3.1"
+deepdiff = ">=6.3.1,<8.0.0"
 
 [tool.black]
 # https://github.com/psf/black
