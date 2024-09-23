@@ -37,6 +37,7 @@ class TrialPeriod(BaseModel):
 class PriceBase(BaseModel):
     description: str
     product_id: str | None = None
+    unit_price: UnitPrice
     billing_cycle: BillingCycle | None = None
     trial_period: TrialPeriod | None = None
     tax_mode: str
@@ -49,7 +50,6 @@ class PriceBase(BaseModel):
 
 class Price(PriceBase):
     id: str
-    unit_price: UnitPrice
     status: str | None = None
     import_meta: ImportMeta | None = None
 
