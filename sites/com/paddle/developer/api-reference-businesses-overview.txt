@@ -14,11 +14,11 @@ You can create as many addresses as you like against a customer — useful for b
 
 Businesses hold information like:
 
-What the company is called
+What the company is called.
 
-Company number and tax number
+Company number and tax number.
 
-Who should be contacted at the company
+Who should be contacted at the company.
 
 Customers,
 
@@ -49,6 +49,16 @@ string
 Unique Paddle ID for this business entity, prefixed with
 
 biz_
+
+.
+
+customer_id
+
+string
+
+Paddle ID for the customer related to this business, prefixed with
+
+cus_
 
 .
 
@@ -126,17 +136,17 @@ null
 
 if this entity is not imported.
 
-external_id
-
-string or null
-
-Reference or identifier for this entity from the solution where it was imported from.
-
 imported_from
 
 string
 
 Name of the platform where this entity was imported from.
+
+external_id
+
+string or null
+
+Reference or identifier for this entity from the solution where it was imported from.
 
 List businesses for a customer
 
