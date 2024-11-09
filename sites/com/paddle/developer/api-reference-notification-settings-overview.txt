@@ -48,7 +48,7 @@ description
 
 string
 
-Short description for this notification destination. Shown in the Paddle Dashboard.
+Short description for this notification destination. Shown in the Paddle web app.
 
 type
 
@@ -76,7 +76,7 @@ api_version
 
 integer
 
-API version that returned objects for events should conform to. Must be a valid version of the Paddle API. Cannot be a version older than your account default. Defaults to your account default if not included.
+API version that returned objects for events should conform to. Must be a valid version of the Paddle API. Cannot be a version older than your account default.
 
 include_sensitive_fields
 
@@ -99,6 +99,10 @@ Type of event sent by Paddle, in the format
 entity.event_type
 
 .
+
+Show
+
+allowed values
 
 description
 
@@ -127,6 +131,16 @@ Webhook destination secret key, prefixed with
 pdl_ntfset_
 
 . Used for signature verification.
+
+traffic_source
+
+string
+
+Whether Paddle should deliver real platform events, simulation events or both to this notification destination.
+
+Show
+
+allowed values
 
 List notification settings
 

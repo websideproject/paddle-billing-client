@@ -14,13 +14,13 @@ You can create as many addresses as you like against a customer — useful for b
 
 Address entities hold address components like:
 
-Country
+Country.
 
-ZIP/postal code
+ZIP/postal code.
 
-State (region)
+State (region).
 
-A short, internal description for this address
+A short, internal description for this address.
 
 Customers, addresses, and
 
@@ -53,6 +53,16 @@ string
 Unique Paddle ID for this address entity, prefixed with
 
 add_
+
+.
+
+customer_id
+
+string
+
+Paddle ID for the customer related to this address, prefixed with
+
+cus_
 
 .
 
@@ -140,17 +150,17 @@ null
 
 if this entity is not imported.
 
-external_id
-
-string or null
-
-Reference or identifier for this entity from the solution where it was imported from.
-
 imported_from
 
 string
 
 Name of the platform where this entity was imported from.
+
+external_id
+
+string or null
+
+Reference or identifier for this entity from the solution where it was imported from.
 
 List addresses for a customer
 
