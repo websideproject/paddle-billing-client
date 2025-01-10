@@ -35,7 +35,7 @@ classifiers = [  #! Update me
 python = "^3.8.4"
 importlib_metadata = {version = "^4.5.0", python = "<3.8"}
 api-client-pydantic = "^3.0.0"
-pydantic = ">=2.0,<=2.9.2"
+pydantic = ">=2.0,<=2.10.5"
 [tool.poetry.dev-dependencies]
 bandit = "^1.7.9"
 black = {version = "^24.4.2", allow-prereleases = true}
