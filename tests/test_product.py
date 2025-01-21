@@ -3,7 +3,7 @@ from datetime import datetime
 
 import deepdiff
 import pytest
-from apiclient import HeaderAuthentication
+from apiclient.authentication_methods import HeaderAuthentication
 
 from paddle_billing_client.models.product import (
     Product,
