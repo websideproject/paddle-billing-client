@@ -50,7 +50,7 @@ pytest = "^8.3.4"
 pyupgrade = "^3.16.0"
 safety = "^3.2.14"
 coverage = "^7.6.1"
-coverage-badge = "^1.1.1"
+coverage-badge = "^1.1.2"
 pytest-html = "^4.1.1"
 pytest-cov = "^4.1.0"
 
