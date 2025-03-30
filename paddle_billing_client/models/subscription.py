@@ -27,6 +27,8 @@ class Item(BaseModel):
     updated_at: datetime | None = None
     next_billed_at: datetime | None = None
     previously_billed_at: datetime | None = None
+    trial_dates: dict | None = None
+    product: dict | None = None
 
 
 class ScheduledChange(BaseModel):
