@@ -32,10 +32,10 @@ classifiers = [  #! Update me
 
 
 [tool.poetry.dependencies]
-python = "^3.8.4"
+python = "^3.9"
 importlib_metadata = {version = "^4.5.0", python = "<3.8"}
-api-client-pydantic = "^3.0.0"
-pydantic = ">=2.0,<=2.9.2"
+pydantic = ">=2.0,<=2.10.6"
+api-client-pydantic = "^3.1.0"
 [tool.poetry.dev-dependencies]
 bandit = "^1.7.10"
 black = {version = "^24.4.2", allow-prereleases = true}
@@ -48,7 +48,7 @@ pydocstyle = "^6.1.1"
 pylint = "^3.2.7"
 pytest = "^8.3.4"
 pyupgrade = "^3.16.0"
-safety = "^3.2.14"
+#safety = "^3.3.1"  # Until supports pydantic 2.10+
 coverage = "^7.6.1"
 coverage-badge = "^1.1.1"
 pytest-html = "^4.1.1"
@@ -57,6 +57,7 @@ pytest-cov = "^4.1.0"
 [tool.poetry.group.dev.dependencies]
 pytest = ">=7.4.2,<9.0.0"
 vcrpy = ">=6.0,<8.0"
+urllib3= "<2.3.0"
 pytest-recording = "^0.13.0"
 deepdiff = ">=6.3.1,<9.0.0"
 
