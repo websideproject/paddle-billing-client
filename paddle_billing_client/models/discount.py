@@ -16,7 +16,7 @@ class DiscountBase(BaseModel):
     description: str
     type: Literal["flat", "flat_per_seat", "percentage"]
     enabled_for_checkout: bool
-    code: str
+    code: str | None = None
     currency_code: str | None = None
     recur: bool
     maximum_recurring_intervals: int | None = None
@@ -24,7 +24,7 @@ class DiscountBase(BaseModel):
     restrict_to: list[str] | None = None
     expires_at: datetime | None = None
     status: Literal["active", "archived", "expired", "used"] | None = None
-    custom_data: dict[str, int | str | None] | None = None
+    custom_data: dict[str, int | str | None | dict | list] | None = None
 
 
 class Discount(DiscountBase):

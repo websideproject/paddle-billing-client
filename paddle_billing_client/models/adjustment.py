@@ -17,12 +17,15 @@ class AdjustmentAction(str, Enum):
     credit = "credit"
     chargeback = "chargeback"
     chargeback_warning = "chargeback_warning"
+    chargeback_reverse = "chargeback_reverse"
+    credit_reverse = "credit_reverse"
 
 
 class AdjustmentStatus(str, Enum):
     pending_approval = "pending_approval"
     approved = "approved"
     rejected = "rejected"
+    reversed = "reversed"
 
 
 class AdjustmentItemProration(BaseModel):
@@ -61,6 +64,7 @@ class Adjustment(AdjustmentBase):
     status: AdjustmentStatus
     totals: dict
     payout_totals: dict | None = None
+    tax_rates_used: list[dict] | None = None
     created_at: datetime
     updated_at: datetime
 
