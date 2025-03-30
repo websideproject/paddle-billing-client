@@ -2,7 +2,7 @@ import os
 
 import deepdiff
 import pytest
-from apiclient import HeaderAuthentication
+from apiclient.authentication_methods import HeaderAuthentication
 
 from paddle_billing_client.models.notification_setting import (
     NotificationSetting,

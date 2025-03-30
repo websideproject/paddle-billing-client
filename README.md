@@ -76,7 +76,7 @@ poetry add paddle-billing-client
 
 ```python
 from paddle_billing_client.client import PaddleApiClient
-from apiclient import HeaderAuthentication
+from apiclient.authentication_methods import HeaderAuthentication
 
 
 client = PaddleApiClient(
@@ -122,7 +122,7 @@ To print the raw exception response, you can use the `VerboseErrorHandler`:
 
   ```python
   from paddle_billing_client.client import PaddleApiClient
-  from apiclient import HeaderAuthentication
+  from apiclient.authentication_methods import HeaderAuthentication
   from paddle_billing_client.errors import VerboseErrorHandler
   
   client = PaddleApiClient(

@@ -1,9 +1,9 @@
 import os
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, timezone
 
 import deepdiff
 import pytest
-from apiclient import HeaderAuthentication
+from apiclient.authentication_methods import HeaderAuthentication
 
 from paddle_billing_client.models.discount import (
     Discount,
@@ -38,7 +38,9 @@ class TestDiscount:
                 maximum_recurring_intervals=12,
                 usage_limit=100,
                 restrict_to=["pro_01h89b2j66qq82x6vn5d39c4av"],
-                expires_at=(datetime.utcnow() + timedelta(days=30)).isoformat(),
+                expires_at=(
+                    datetime.now(timezone.utc) + timedelta(days=30)
+                ).isoformat(),
             ),
         )
         expected_discount = DiscountResponse(

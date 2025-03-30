@@ -1,7 +1,7 @@
 import datetime
 import json
 
-from apiclient import JsonRequestFormatter
+from apiclient.request_formatters import JsonRequestFormatter
 from apiclient.utils.typing import OptionalJsonType, OptionalStr
 
 
