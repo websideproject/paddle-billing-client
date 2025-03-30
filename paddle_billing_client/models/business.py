@@ -22,7 +22,7 @@ class BusinessBase(BaseModel):
     tax_identifier: str | None = None
     contacts: list[Contact]
     status: Literal["active", "archived"] | None = None
-    custom_data: dict[str, int | str | None] | None = None
+    custom_data: dict[str, int | str | None | dict | list] | None = None
 
 
 class Business(BusinessBase):

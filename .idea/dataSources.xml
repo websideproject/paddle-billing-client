@@ -2,7 +2,7 @@
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
     <data-source source="LOCAL" name=".coverage" uuid="00a01242-fbb6-4fa0-b8ed-61cae828e74a">
-      <driver-ref>sqlite.xerial</driver-ref>
+      <driver-ref>1590fc3e-b9bb-486a-83b5-3353e257ff1e</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
       <jdbc-url>jdbc:sqlite:$PROJECT_DIR$/.coverage</jdbc-url>

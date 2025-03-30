@@ -37,19 +37,19 @@ class TrialPeriod(BaseModel):
 class PriceBase(BaseModel):
     description: str
     product_id: str | None = None
+    unit_price: UnitPrice
     billing_cycle: BillingCycle | None = None
     trial_period: TrialPeriod | None = None
     tax_mode: str
     unit_price_overrides: list[UnitPriceOverride] | None = None
     quantity: Quantity | None = None
-    custom_data: dict[str, int | str | None] | None = None
+    custom_data: dict[str, int | str | None | dict | list] | None = None
     type: Literal["custom", "standard"] | None = None
     name: str | None = None
 
 
 class Price(PriceBase):
     id: str
-    unit_price: UnitPrice
     status: str | None = None
     import_meta: ImportMeta | None = None
 
