@@ -1,7 +1,7 @@
 from __future__ import annotations
 
-from apiclient.response_handlers import JsonResponseHandler
 from apiclient.client import APIClient
+from apiclient.response_handlers import JsonResponseHandler
 from apiclient_pydantic import serialize_all_methods
 
 from paddle_billing_client.endpoints import Endpoints
