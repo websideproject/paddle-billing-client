@@ -10,15 +10,15 @@ Discounts let you reduce a transaction total by a percentage, a flat amount per 
 
 Discount entities hold information like:
 
-How the discount reduces the total of the transaction
+How the discount reduces the total of the transaction.
 
-Whether the discount is one-time or recurring
+Whether the discount is one-time or recurring.
 
-When the discount is valid to
+When the discount is valid to.
 
-Which items in your catalog the discount applies to
+Which items in your catalog the discount applies to.
 
-Whether this discount can be applied by customers using a code
+Whether this discount can be applied by customers using a code.
 
 Discounts work with
 
@@ -32,15 +32,17 @@ Discounts work with
 
 By default, discounts apply to the entire value of a transaction. You can link discounts to price entities to limit them to certain prices. For example, you can create a discount for subscription plans that won't work on other items.
 
-Use discount codes to let your customers apply discounts themselves at checkout, or pass a discount to checkout to apply it automatically.
+Use discount codes to let customers apply discounts themselves at checkout, or pass a discount to a checkout to apply it automatically.
 
 Discounts don't have to have codes. They can be applied manually to transactions as part of the sales process.
 
-Learn how to create different kinds of discount and pre-fill them on a checkout. See:
-
 There's no delete operation for discounts. Use the
 
-to archive discounts when you no longer need them. See:
+to archive discounts when you no longer need them. To learn more, see
+
+Create or a update a discount
+
+Create a transaction
 
 id
 
@@ -106,7 +108,7 @@ type
 
 string
 
-Type of discount.
+Type of discount. Determines how this discount impacts the checkout or transaction total.
 
 Show
 

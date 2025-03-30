@@ -4,23 +4,23 @@ Customers
 
 Customer object
 
-Customer entities hold information about the people and businesses that you sell to. They're related to addresses and businesses.
+Customer entities hold information about the people and businesses that make purchases. They're related to addresses and businesses.
 
-Customers are the people and businesses that you sell products in your catalog to.
+Customers are the people and businesses that buy the products listed in your catalog.
 
 Paddle automatically creates customers for you as part of
 
-, or you can create and manage them using the Dashboard or API.
+, or you can create and manage them using the Paddle dashboard or API.
 
 Customer entities hold information like:
 
-Who you're billing
+Who's being billed.
 
-What their email address is
+What their email address is.
 
-Whether they've opted-in to marketing from you
+Whether they've opted-in to marketing.
 
-Customers have two sub-entities:
+Customers have two subentities:
 
 , which hold information about customer billing addresses
 
@@ -32,17 +32,19 @@ Customers, addresses, and businesses work with
 
 , and
 
-to bill for
+to let customers purchase
 
 and
 
 .
 
-Learn how to create a complete customer with a related address and business. See:
-
 There's no delete operation for customers. Use the
 
-to archive customers when you no longer need them. See:
+to archive customers when you no longer need them. To learn more, see
+
+Create or update a customer
+
+Supported countries
 
 id
 
@@ -80,15 +82,11 @@ boolean
 
 Whether this customer opted into marketing from you.
 
-Set to
-
-true
-
-by Paddle where a customer checks the marketing consent box when using Paddle Checkout;
-
 false
 
-otherwise.
+unless customers check the marketing consent box
+
+when using Paddle Checkout. Set automatically by Paddle.
 
 status
 
@@ -138,17 +136,21 @@ null
 
 if this entity is not imported.
 
-external_id
-
-string or null
-
-Reference or identifier for this entity from the solution where it was imported from.
-
 imported_from
 
 string
 
-Name of the platform where this entity was imported from.
+Name of the platform or provider where this entity was imported from.
+
+Show
+
+allowed values
+
+external_id
+
+string or null
+
+Reference or identifier for this entity from the provider where it was imported from.
 
 List customers
 
@@ -189,3 +191,11 @@ get
 https://api.paddle.com
 
 /customers/{customer_id}/credit-balances
+
+Generate an authentication token for a customer
+
+post
+
+https://api.paddle.com
+
+/customers/{customer_id}/auth-token

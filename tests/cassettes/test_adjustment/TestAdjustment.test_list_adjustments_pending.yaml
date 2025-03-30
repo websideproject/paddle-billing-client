@@ -18,7 +18,7 @@ interactions:
     uri: https://sandbox-api.paddle.com/adjustments?status=pending_approval
   response:
     body:
-      string: '{"data":[{"id":"adj_01h9fk7y5yj1m9bcn270a6rs81","action":"refund","transaction_id":"txn_01h7n3a7g7h0qr49zt9ckgketd","subscription_id":"sub_01h7n3a88jwktex2tfjzahmn57","customer_id":"ctm_01h7mrr5j8rnawwzh9nschgp1v","reason":"Test
+      string: '{"data":[{"id":"adj_01h9fk7y5yj1m9bcn270a6rs81","action":"refund","type":"partial","transaction_id":"txn_01h7n3a7g7h0qr49zt9ckgketd","subscription_id":"sub_01h7n3a88jwktex2tfjzahmn57","customer_id":"ctm_01h7mrr5j8rnawwzh9nschgp1v","reason":"Test
         Adjustment Reason","currency_code":"USD","status":"pending_approval","items":[{"id":"adjitm_01h9fk7y5yj1m9bcn2726rdepp","item_id":"txnitm_01h7n3a7jefxzqhpaw6hdc523q","type":"partial","amount":"100","proration":null,"totals":{"subtotal":"79","tax":"21","total":"100"}}],"totals":{"subtotal":"79","tax":"21","total":"100","fee":"3","earnings":"76","currency_code":"USD"},"payout_totals":{"subtotal":"79","tax":"21","total":"100","fee":"3","earnings":"76","currency_code":"USD"},"created_at":"2023-09-04T07:59:16.172081Z","updated_at":"2023-09-04T07:59:16.172081Z"}],"meta":{"request_id":"3e3cc0b8-ac0a-49a2-bec4-a2a322e5147c","pagination":{"per_page":10,"next":"https://sandbox-api.paddle.com/adjustments?after=adj_01h9fk7y5yj1m9bcn270a6rs81\u0026status=pending_approval","has_more":false,"estimated_total":1}}}'
     headers:
       CF-Cache-Status:

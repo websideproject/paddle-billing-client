@@ -6,7 +6,7 @@ import pytest
 from apiclient.authentication_methods import HeaderAuthentication
 
 from paddle_billing_client.models.address import Address
-from paddle_billing_client.models.adjustment import Adjustment, AdjustmentItem
+from paddle_billing_client.models.adjustment import Adjustment, AdjustmentItem, AdjustmentType
 from paddle_billing_client.models.business import Business, Contact
 from paddle_billing_client.models.common import BillingPeriod
 from paddle_billing_client.models.customer import Customer
@@ -2750,6 +2750,7 @@ class TestEvents:
                         action="refund",
                         transaction_id="txn_01h7n3a7g7h0qr49zt9ckgketd",
                         reason="Test Adjustment Reason",
+                        type=AdjustmentType.partial,
                         items=[
                             AdjustmentItem(
                                 id="adjitm_01h9fk7y5yj1m9bcn2726rdepp",
@@ -3867,6 +3868,7 @@ class TestEvents:
                         contacts=[],
                         status="active",
                         id="biz_01h9e61yyv66813j7x1v4d2hgt",
+                        customer_id="ctm_01h8w66qa8djqjhmdkth2fnebk",
                         created_at=datetime.datetime(
                             2023, 9, 3, 18, 49, 34, 427000, tzinfo=datetime.timezone.utc
                         ),
@@ -4742,6 +4744,7 @@ class TestEvents:
                         contacts=[Contact(name="Test Contact", email="asd@asd.com")],
                         status="active",
                         id="biz_01h8xg9dgqkehwp72x067vems9",
+                        customer_id="ctm_01h8w66qa8djqjhmdkth2fnebk",
                         created_at=datetime.datetime(
                             2023, 8, 28, 7, 21, 19, 127000, tzinfo=datetime.timezone.utc
                         ),
@@ -4764,6 +4767,7 @@ class TestEvents:
                         contacts=[Contact(name="Test Contact", email="asd@asd.com")],
                         status="active",
                         id="biz_01h8xg9dgqkehwp72x067vems9",
+                        customer_id="ctm_01h8w66qa8djqjhmdkth2fnebk",
                         created_at=datetime.datetime(
                             2023, 8, 28, 7, 21, 19, 127000, tzinfo=datetime.timezone.utc
                         ),

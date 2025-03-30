@@ -20,6 +20,10 @@ class AdjustmentAction(str, Enum):
     chargeback_reverse = "chargeback_reverse"
     credit_reverse = "credit_reverse"
 
+class AdjustmentType(str, Enum):
+    full = "full"
+    partial = "partial"
+
 
 class AdjustmentStatus(str, Enum):
     pending_approval = "pending_approval"
@@ -47,6 +51,8 @@ class AdjustmentBase(BaseModel):
     # 'refund' adjustments must be approved by Paddle, and are created with the status 'pending_approval'.
     # 'chargeback' and 'chargeback_warning' adjustments are created automatically by Paddle.
     action: AdjustmentAction
+    # The type of adjustment.
+    type: AdjustmentType
     transaction_id: str
     reason: str | None = None
     items: list[AdjustmentItem]
@@ -62,6 +68,7 @@ class Adjustment(AdjustmentBase):
     # and are created with the status 'pending_approval' until they move to 'approved' or 'rejected' on review.
     # 'credit' adjustments are created with the status 'approved'.
     status: AdjustmentStatus
+    credit_applied_to_balance: bool | None = None
     totals: dict
     payout_totals: dict | None = None
     tax_rates_used: list[dict] | None = None

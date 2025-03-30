@@ -18,7 +18,7 @@ interactions:
     uri: https://sandbox-api.paddle.com/customers/ctm_01h8w66qa8djqjhmdkth2fnebk/businesses?status=active
   response:
     body:
-      string: '{"data":[{"id":"biz_01h8xg9dgqkehwp72x067vems9","status":"active","name":"Test
+      string: '{"data":[{"id":"biz_01h8xg9dgqkehwp72x067vems9","customer_id":"ctm_01h8w66qa8djqjhmdkth2fnebk","status":"active","name":"Test
         Business 2","company_number":"123456789","tax_identifier":"123456789","contacts":[{"name":"Test
         Contact","email":"asd@asd.com"}],"created_at":"2023-08-28T07:21:19.127Z","updated_at":"2023-08-28T07:26:54.983533Z"}],"meta":{"request_id":"880590b7-599e-49f3-b883-df5444fb8c5e","pagination":{"per_page":50,"next":"https://sandbox-api.paddle.com/customers/ctm_01h8w66qa8djqjhmdkth2fnebk/businesses?after=biz_01h8xg9dgqkehwp72x067vems9\u0026status=active","has_more":false,"estimated_total":1}}}'
     headers:

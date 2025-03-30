@@ -8,19 +8,23 @@ Adjustment entities describe a post-billing adjustment to a billed or completed 
 
 Billed transactions are considered financial records for tax and legal purposes, so they can't be changed. Adjustments let you record actions that impact revenue for a transaction after it's been billed.
 
-You can create adjustments for billed or completed transactions to refund or credit all or part of a transaction. Refunds must be approved by Paddle.
+You can create adjustments for billed or completed transactions to refund or credit all or part of a transaction.
 
-Paddle creates adjustments automatically for successful customer chargebacks, as well as subscription lifecycle events depending on the proration options chosen.
+Most refunds for live accounts must be approved by Paddle, but
+
+. For sandbox accounts, Paddle automatically approves all refunds every ten minutes.
+
+Where customers raise a chargeback with their payment method issuer, Paddle automatically creates an adjustment to refund the disputed amount.
 
 Adjustment entities hold information like:
 
-What kind of adjustment it is
+What kind of adjustment it is.
 
-Why the adjustment was created
+Why the adjustment was created.
 
-Which transaction and items an adjustment is for
+Which transaction and items an adjustment is for.
 
-Calculated totals for an adjustment
+Calculated totals for an adjustment.
 
 Adjustments work with
 
@@ -33,6 +37,10 @@ Adjustments work with
 Adjustments are financial records. They can't be deleted or changed once they've been created.
 
 if you need help with an adjustment.
+
+Refund or credit a transaction
+
+Cancel an invoice
 
 id
 
@@ -50,11 +58,29 @@ string
 
 How this adjustment impacts the related transaction.
 
-refund
+Show
 
-adjustments must be approved by Paddle, and are created with the status
+allowed values
 
-pending_approval
+type
+
+string
+
+Type of adjustment. Use
+
+full
+
+to adjust the grand total for the related transaction. Include an
+
+items
+
+array when creating a
+
+partial
+
+adjustment. If omitted, defaults to
+
+partial
 
 .
 
@@ -66,7 +92,7 @@ transaction_id
 
 string
 
-Paddle ID for the transaction related to this adjustment, prefixed with
+Paddle ID of the transaction that this adjustment is for, prefixed with
 
 txn_
 
@@ -108,51 +134,17 @@ reason
 
 string
 
-Why this adjustment was created. Appears in the Paddle Dashboard. Retained for record-keeping purposes.
+Why this adjustment was created. Appears in the Paddle dashboard. Retained for record-keeping purposes.
 
 credit_applied_to_balance
 
-boolean
+boolean or null
 
 Whether this adjustment was applied to the related customer's credit balance. Only returned for
 
 credit
 
 adjustments.
-
-false
-
-when the related transaction
-
-collection_mode
-
-is
-
-manual
-
-and its
-
-status
-
-is
-
-billed
-
-. The adjustment is used
-
-to reduce the
-
-balance
-
-due on the transaction.
-
-true
-
-for automatically-collected transactions and
-
-completed
-
-manually-collected transactions.
 
 currency_code
 
@@ -174,23 +166,13 @@ string
 
 Status of this adjustment. Set automatically by Paddle.
 
-refund
-
-adjustments must be approved by Paddle, and are created with the status
+Most refunds for live accounts are created with the status of
 
 pending_approval
 
-until they move to
+until reviewed by Paddle, but some are automatically approved. For sandbox accounts, Paddle automatically approves refunds every ten minutes.
 
-approved
-
-or
-
-rejected
-
-on review. Other kinds of adjustment do not need approval,
-
-so are created with the status
+Credit adjustments don't require approval from Paddle, so they're created as
 
 approved
 
@@ -204,7 +186,15 @@ items
 
 array[object]
 
-List of items on this adjustment.
+List of items on this adjustment. Required if
+
+type
+
+is not populated or set to
+
+partial
+
+.
 
 id
 
@@ -234,11 +224,7 @@ Type of adjustment for this transaction item.
 
 tax
 
-and
-
-proration
-
-are automatically created by Paddle.
+adjustments are automatically created by Paddle.
 
 Include
 
@@ -258,7 +244,11 @@ amount
 
 string or null
 
-Amount adjusted for this transaction item. Required when adjustment type is
+Amount adjusted for this transaction item. Required when item
+
+type
+
+is
 
 partial
 
@@ -268,13 +258,7 @@ proration
 
 object or null
 
-How proration was calculated for this adjustment item. Populated when an adjustment type is
-
-proration
-
-.
-
-Set automatically by Paddle.
+How proration was calculated for this adjustment item.
 
 totals
 
@@ -382,11 +366,27 @@ chargeback_warning
 
 .
 
+amount
+
+string
+
+Chargeback fee converted into the payout currency.
+
+original
+
+object or null
+
+Chargeback fee before conversion to the payout currency.
+
+null
+
+when the chargeback fee is the same as the payout currency.
+
 earnings
 
 string
 
-Adjusted payout earnings. This is the adjustment total plus adjusted Paddle fees, minus chargeback fees.
+Adjusted payout earnings. This is the adjustment total plus adjusted Paddle fees, excluding chargeback fees.
 
 currency_code
 
@@ -397,6 +397,24 @@ Three-letter ISO 4217 currency code used for the payout for this transaction. If
 Show
 
 allowed values
+
+tax_rates_used
+
+array[object]
+
+List of tax rates applied for this adjustment.
+
+tax_rate
+
+string
+
+Rate used to calculate tax for this adjustment.
+
+totals
+
+object
+
+Calculated totals for the tax applied to this adjustment.
 
 created_at
 
@@ -425,3 +443,11 @@ post
 https://api.paddle.com
 
 /adjustments
+
+Get a PDF credit note for an adjustment
+
+get
+
+https://api.paddle.com
+
+/adjustments/{adjustment_id}/credit-note
