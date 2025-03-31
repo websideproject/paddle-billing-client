@@ -40,6 +40,7 @@ class TestAddress:
         expected_address = AddressResponse(
             data=Address(
                 id="add_01h8w4y9qfknzaq05xsd8eptjj",
+                customer_id="ctm_01h7n2fwfhctkfja2dwq2cmx8v",
                 description="Head Office",
                 first_line="4050 Jefferson Plaza, 41st Floor",
                 second_line=None,
@@ -86,6 +87,7 @@ class TestAddress:
         expected_address = AddressResponse(
             data=Address(
                 id="add_01h8w4y9qfknzaq05xsd8eptjj",
+                customer_id="ctm_01h7n2fwfhctkfja2dwq2cmx8v",
                 description="Head Office Updated",
                 first_line="4050 Jefferson Plaza, 41st Floor",
                 second_line=None,
@@ -124,6 +126,7 @@ class TestAddress:
         expected_address = AddressResponse(
             data=Address(
                 id="add_01h8w4y9qfknzaq05xsd8eptjj",
+                customer_id="ctm_01h7n2fwfhctkfja2dwq2cmx8v",
                 description="Head Office Updated",
                 first_line="4050 Jefferson Plaza, 41st Floor",
                 second_line=None,
@@ -165,6 +168,7 @@ class TestAddress:
             data=[
                 Address(
                     id="add_01h8w4y9qfknzaq05xsd8eptjj",
+                    customer_id="ctm_01h7n2fwfhctkfja2dwq2cmx8v",
                     description="Head Office Updated",
                     first_line="4050 Jefferson Plaza, 41st Floor",
                     second_line=None,

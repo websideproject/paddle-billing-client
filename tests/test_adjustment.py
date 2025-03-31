@@ -7,10 +7,13 @@ from apiclient.authentication_methods import HeaderAuthentication
 
 from paddle_billing_client.models.adjustment import (
     Adjustment,
+    AdjustmentAction,
     AdjustmentQueryParams,
     AdjustmentRequest,
     AdjustmentResponse,
     AdjustmentsResponse,
+    AdjustmentStatus,
+    AdjustmentType,
 )
 
 
@@ -30,7 +33,8 @@ class TestAdjustment:
             data=AdjustmentRequest(
                 transaction_id="txn_01h7n3a7g7h0qr49zt9ckgketd",
                 reason="Test Adjustment Reason",
-                action="refund",
+                action=AdjustmentAction.refund,
+                type=AdjustmentType.partial,
                 items=[
                     dict(
                         item_id="txnitm_01h7n3a7jefxzqhpaw6hdc523q",
@@ -43,13 +47,14 @@ class TestAdjustment:
         expected_adjustment = AdjustmentResponse(
             data=Adjustment(
                 id="adj_01h9fk7y5yj1m9bcn270a6rs81",
-                status="pending_approval",
+                status=AdjustmentStatus.pending_approval,
                 transaction_id="txn_01h7n3a7g7h0qr49zt9ckgketd",
                 subscription_id="sub_01h7n3a88jwktex2tfjzahmn57",
                 customer_id="ctm_01h7mrr5j8rnawwzh9nschgp1v",
                 reason="Test Adjustment Reason",
-                action="refund",
+                action=AdjustmentAction.refund,
                 currency_code="USD",
+                type=AdjustmentType.partial,
                 items=[
                     {
                         "id": "adjitm_01h9fk7y5yj1m9bcn2726rdepp",
@@ -101,13 +106,14 @@ class TestAdjustment:
             data=[
                 Adjustment(
                     id="adj_01h9fk7y5yj1m9bcn270a6rs81",
-                    status="pending_approval",
+                    status=AdjustmentStatus.pending_approval,
                     transaction_id="txn_01h7n3a7g7h0qr49zt9ckgketd",
                     subscription_id="sub_01h7n3a88jwktex2tfjzahmn57",
                     customer_id="ctm_01h7mrr5j8rnawwzh9nschgp1v",
                     reason="Test Adjustment Reason",
-                    action="refund",
+                    action=AdjustmentAction.refund,
                     currency_code="USD",
+                    type=AdjustmentType.partial,
                     items=[
                         {
                             "id": "adjitm_01h9fk7y5yj1m9bcn2726rdepp",

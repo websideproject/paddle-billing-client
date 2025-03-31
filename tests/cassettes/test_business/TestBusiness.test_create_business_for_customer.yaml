@@ -21,7 +21,7 @@ interactions:
     uri: https://sandbox-api.paddle.com/customers/ctm_01h8w66qa8djqjhmdkth2fnebk/businesses
   response:
     body:
-      string: '{"data":{"id":"biz_01h8xg9dgqkehwp72x067vems9","status":"active","name":"Test
+      string: '{"data":{"id":"biz_01h8xg9dgqkehwp72x067vems9","customer_id":"ctm_01h8w66qa8djqjhmdkth2fnebk","status":"active","name":"Test
         Business","company_number":"123456789","tax_identifier":"123456789","contacts":[{"name":"Test
         Contact","email":"asd@asd.com"}],"created_at":"2023-08-28T07:21:19.127Z","updated_at":"2023-08-28T07:21:19.127Z"},"meta":{"request_id":"9719e336-ffbe-443c-9dad-0ab57f21946c"}}'
     headers:

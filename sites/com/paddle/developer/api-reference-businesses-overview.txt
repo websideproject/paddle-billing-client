@@ -4,7 +4,7 @@ Businesses
 
 Business object
 
-Business entities hold information about customer businesses. They're sub-entities of customers.
+Business entities hold information about customer businesses. They're subentities of customers.
 
 Businesses store information that you need when working with a business rather than an individual. They're always created against a
 
@@ -14,11 +14,11 @@ You can create as many addresses as you like against a customer — useful for b
 
 Businesses hold information like:
 
-What the company is called
+What the company is called.
 
-Company number and tax number
+Company number and tax number.
 
-Who should be contacted at the company
+Who should receive invoices at the company.
 
 Customers,
 
@@ -28,19 +28,21 @@ Customers,
 
 , and
 
-to bill for
+to let customers purchase
 
 and
 
 .
 
-You don't need to create a business to bill a customer. You only need one when working with a business.
-
-Learn how to create a complete customer with a related address and business. See:
+Customers don't need a business to make a purchase. You only need one when working with a business.
 
 There's no delete operation for businesses. Use the
 
-to archive businesses when you no longer need them. See:
+to archive businesses when you no longer need them. To learn more, see
+
+Create or update a customer
+
+Supported countries
 
 id
 
@@ -49,6 +51,16 @@ string
 Unique Paddle ID for this business entity, prefixed with
 
 biz_
+
+.
+
+customer_id
+
+string
+
+Paddle ID for the customer related to this business, prefixed with
+
+cus_
 
 .
 
@@ -126,17 +138,21 @@ null
 
 if this entity is not imported.
 
-external_id
-
-string or null
-
-Reference or identifier for this entity from the solution where it was imported from.
-
 imported_from
 
 string
 
-Name of the platform where this entity was imported from.
+Name of the platform or provider where this entity was imported from.
+
+Show
+
+allowed values
+
+external_id
+
+string or null
+
+Reference or identifier for this entity from the provider where it was imported from.
 
 List businesses for a customer
 

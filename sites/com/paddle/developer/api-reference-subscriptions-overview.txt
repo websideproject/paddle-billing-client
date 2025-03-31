@@ -6,27 +6,21 @@ Subscription object
 
 Subscription entities describe a recurring billing relationship with a customer. They're closely related to transactions.
 
-Subscriptions let you charge a customer on a recurring basis. They hold information about what Paddle should charge a customer for and how often.
-
-Paddle automatically creates subscriptions for you when customers pay for recurring items using
-
-, or when you
-
-using a manually-collected transaction.
+Subscriptions let customers pay for products on a recurring schedule. They hold information about what Paddle should charge a customer for and how often.
 
 Subscription entities hold information like:
 
-Who you're billing
+Who the customer is.
 
-Which prices a customer has subscribed to
+Which prices a customer has subscribed to.
 
-How often you charge your customer
+How often a subscription renews.
 
-Details about trial periods
+Details about trial periods.
 
-Any upcoming scheduled changes
+Any upcoming scheduled changes.
 
-Subscriptions work
+Subscriptions work with
 
 ,
 
@@ -38,7 +32,15 @@ to say what a customer has subscribed to, and
 
 , and
 
-to say who you're billing.
+to say who the customer is.
+
+You can't create a subscription directly.
+
+Paddle automatically creates subscriptions for you when customers pay for recurring items using
+
+, or when you
+
+using a manually-collected transaction.
 
 Billing for subscriptions is powered by
 
@@ -60,7 +62,7 @@ scheduled_change
 
 object.
 
-Proration is how Paddle calculates what a customer should be billed for, based on changes made in the current billing cycle.
+is how Paddle calculates what a customer should be billed for, based on changes made in the current billing cycle.
 
 When updating subscription items, you must include the
 
@@ -68,21 +70,15 @@ proration_billing_mode
 
 field to tell Paddle how to handle proration for the items you're adding or removing.
 
-See:
-
-Follow our step-by-step guides to learn how to
-
-,
-
-, or
-
-or
-
-.
-
 Subscriptions describe an ongoing financial relationship with a customer, so they can't be deleted. Use the
 
 to cancel a subscription.
+
+Add or remove items
+
+Upgrade or downgrade
+
+Proration
 
 id
 
@@ -233,6 +229,21 @@ object or null
 
 Details of the discount applied to this subscription.
 
+ends_at
+
+string
+or null
+
+RFC 3339 datetime string of when this discount no longer applies. Where a discount has
+
+maximum_recurring_intervals
+
+, this is the date of the last billing period where this discount applies.
+
+null
+
+where a discount recurs forever.
+
 id
 
 string
@@ -246,22 +257,13 @@ dsc_
 starts_at
 
 string
+or null
 
 RFC 3339 datetime string of when this discount was first applied.
 
-ends_at
-
-string
-
-RFC 3339 datetime string of when this discount no longer applies. Where a discount has
-
-maximum_recurring_intervals
-
-, this is the date of the last billing period where this discount applies.
-
 null
 
-where a discount recurs forever.
+for canceled subscriptions where a discount was redeemed but never applied to a transaction.
 
 collection_mode
 
@@ -295,11 +297,37 @@ manual
 
 .
 
+payment_terms
+
+object
+
+How long a customer has to pay this invoice once issued.
+
+interval
+
+string
+
+Unit of time.
+
+Show
+
+allowed values
+
+frequency
+
+integer
+
+Amount of time.
+
 enable_checkout
 
 boolean
 
-Whether the related transaction may be paid using a Paddle Checkout.
+Whether the related transaction may be paid using Paddle Checkout. If omitted when creating a transaction, defaults to
+
+false
+
+.
 
 purchase_order_number
 
@@ -313,29 +341,35 @@ string or null
 
 Notes or other information to include on this invoice. Appears on invoice documents.
 
-payment_terms
-
-object
-
-How long a customer has to pay this invoice once issued.
-
 current_billing_period
 
 object or null
 
 Current billing period for this subscription. Set automatically by Paddle based on the billing cycle.
 
-starts_at
+null
 
-string
+for
 
-RFC 3339 datetime string of when this period starts.
+paused
+
+and
+
+canceled
+
+subscriptions.
 
 ends_at
 
 string
 
 RFC 3339 datetime string of when this period ends.
+
+starts_at
+
+string
+
+RFC 3339 datetime string of when this period starts.
 
 billing_cycle
 
@@ -400,7 +434,7 @@ management_urls
 
 object
 
-Public URLs that customers can use to make changes to this subscription. For security, the
+Authenticated customer portal deep links for this subscription. For security, the
 
 token
 
@@ -411,19 +445,23 @@ update_payment_method
 string
 or null
 
-Public URL that lets customers update the payment method for this subscription. Creates or gets a transaction that can be used to update a payment method, then passes it to your default checkout page.
+Link to the page for this subscription in the customer portal with the payment method update form pre-opened. Use as part of workflows to let customers update their payment details.
+
+null
+
+for manually-collected subscriptions.
 
 cancel
 
 string
 
-Public URL that lets customers cancel this subscription. Takes customers to a Paddle page that lets them cancel their subscription.
+Link to the page for this subscription in the customer portal with the subscription cancellation form pre-opened. Use as part of cancel subscription workflows.
 
 items
 
 array[object]
 
-Represents a subscription item.
+List of items on this subscription. Only recurring items are returned.
 
 status
 
@@ -487,7 +525,13 @@ price
 
 object
 
-Price object for this item.
+Related price entity for this item. This reflects the price entity at the time it was added to the subscription.
+
+product
+
+object
+
+Related product entity for this item. This reflects the product entity at the time it was added to the subscription.
 
 custom_data
 
@@ -505,17 +549,21 @@ null
 
 if this entity is not imported.
 
-external_id
-
-string or null
-
-Reference or identifier for this entity from the solution where it was imported from.
-
 imported_from
 
 string
 
-Name of the platform where this entity was imported from.
+Name of the platform or provider where this entity was imported from.
+
+Show
+
+allowed values
+
+external_id
+
+string or null
+
+Reference or identifier for this entity from the provider where it was imported from.
 
 List subscriptions
 

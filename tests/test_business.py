@@ -51,6 +51,7 @@ class TestBusiness:
         expected_business = BusinessResponse(
             data=Business(
                 id="biz_01h8xg9dgqkehwp72x067vems9",
+                customer_id="ctm_01h8w66qa8djqjhmdkth2fnebk",
                 name="Test Business",
                 company_number="123456789",
                 tax_identifier="123456789",
@@ -105,6 +106,7 @@ class TestBusiness:
         expected_business = BusinessResponse(
             data=Business(
                 id="biz_01h8xg9dgqkehwp72x067vems9",
+                customer_id="ctm_01h8w66qa8djqjhmdkth2fnebk",
                 name="Test Business 2",
                 company_number="123456789",
                 tax_identifier="123456789",
@@ -148,6 +150,7 @@ class TestBusiness:
         expected_business = BusinessResponse(
             data=Business(
                 id="biz_01h8xg9dgqkehwp72x067vems9",
+                customer_id="ctm_01h8w66qa8djqjhmdkth2fnebk",
                 name="Test Business 2",
                 company_number="123456789",
                 tax_identifier="123456789",
@@ -194,6 +197,7 @@ class TestBusiness:
             data=[
                 Business(
                     id="biz_01h8xg9dgqkehwp72x067vems9",
+                    customer_id="ctm_01h8w66qa8djqjhmdkth2fnebk",
                     name="Test Business 2",
                     company_number="123456789",
                     tax_identifier="123456789",

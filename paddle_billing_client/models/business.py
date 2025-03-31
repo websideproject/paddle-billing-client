@@ -27,6 +27,7 @@ class BusinessBase(BaseModel):
 
 class Business(BusinessBase):
     id: str
+    customer_id: str
     import_meta: ImportMeta | None = None
     created_at: datetime | None = None
     updated_at: datetime | None = None

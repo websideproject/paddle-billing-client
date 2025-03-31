@@ -4,7 +4,7 @@ Addresses
 
 Address object
 
-Address entities hold billing address information for a customer. They're sub-entities of customers.
+Address entities hold billing address information for a customer. They're subentities of customers.
 
 Addresses store components of a customer billing address. They're always created against a
 
@@ -14,13 +14,13 @@ You can create as many addresses as you like against a customer — useful for b
 
 Address entities hold address components like:
 
-Country
+Country.
 
-ZIP/postal code
+ZIP/postal code.
 
-State (region)
+State or region.
 
-A short, internal description for this address
+A short, internal description for this address.
 
 Customers, addresses, and
 
@@ -30,21 +30,23 @@ work with
 
 , and
 
-to bill for
+to let customers purchase
 
 and
 
 .
 
-You can't bill a customer without an address. To make buying as frictionless as possible, Paddle only requires a country
+Customers require an address to make a purchase. To make buying as frictionless as possible, Paddle only requires a country
 
 where a ZIP or postal code is also required.
 
-Learn how to create a complete customer with a related address and business. See:
-
 There's no delete operation for addresses. Use the
 
-to archive addresses when you no longer need them. See:
+to archive addresses when you no longer need them. To learn more, see
+
+Create or update a customer
+
+Supported countries
 
 id
 
@@ -53,6 +55,16 @@ string
 Unique Paddle ID for this address entity, prefixed with
 
 add_
+
+.
+
+customer_id
+
+string
+
+Paddle ID for the customer related to this address, prefixed with
+
+cus_
 
 .
 
@@ -140,17 +152,21 @@ null
 
 if this entity is not imported.
 
-external_id
-
-string or null
-
-Reference or identifier for this entity from the solution where it was imported from.
-
 imported_from
 
 string
 
-Name of the platform where this entity was imported from.
+Name of the platform or provider where this entity was imported from.
+
+Show
+
+allowed values
+
+external_id
+
+string or null
+
+Reference or identifier for this entity from the provider where it was imported from.
 
 List addresses for a customer
 
