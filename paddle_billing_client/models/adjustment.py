@@ -20,6 +20,7 @@ class AdjustmentAction(str, Enum):
     chargeback_reverse = "chargeback_reverse"
     credit_reverse = "credit_reverse"
 
+
 class AdjustmentType(str, Enum):
     full = "full"
     partial = "partial"

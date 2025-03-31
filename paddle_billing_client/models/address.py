@@ -25,7 +25,7 @@ class AddressBase(BaseModel):
 
 class Address(AddressBase):
     id: str | None = None
-    customer_id : str | None = None
+    customer_id: str | None = None
     import_meta: ImportMeta | None = None
     created_at: datetime | None = None
     updated_at: datetime | None = None

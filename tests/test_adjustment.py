@@ -7,10 +7,13 @@ from apiclient.authentication_methods import HeaderAuthentication
 
 from paddle_billing_client.models.adjustment import (
     Adjustment,
+    AdjustmentAction,
     AdjustmentQueryParams,
     AdjustmentRequest,
     AdjustmentResponse,
-    AdjustmentsResponse, AdjustmentType, AdjustmentAction, AdjustmentStatus,
+    AdjustmentsResponse,
+    AdjustmentStatus,
+    AdjustmentType,
 )
 
 

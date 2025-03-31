@@ -6,7 +6,11 @@ import pytest
 from apiclient.authentication_methods import HeaderAuthentication
 
 from paddle_billing_client.models.address import Address
-from paddle_billing_client.models.adjustment import Adjustment, AdjustmentItem, AdjustmentType
+from paddle_billing_client.models.adjustment import (
+    Adjustment,
+    AdjustmentItem,
+    AdjustmentType,
+)
 from paddle_billing_client.models.business import Business, Contact
 from paddle_billing_client.models.common import BillingPeriod
 from paddle_billing_client.models.customer import Customer
