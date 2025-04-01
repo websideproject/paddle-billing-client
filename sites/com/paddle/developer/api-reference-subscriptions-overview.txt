@@ -652,3 +652,11 @@ post
 https://api.paddle.com
 
 /subscriptions/{subscription_id}/cancel
+
+Retry payment for a subscription transaction
+
+post
+
+https://api.paddle.com
+
+/subscriptions/{subscription_id}/transactions/{transaction_id}/retry

@@ -1,4 +1,4 @@
-API reference
+API Reference
 
 Events
 
@@ -16,11 +16,11 @@ to see what kind of things Paddle creates events for.
 
 Event entities hold information like:
 
-What kind of event happened
+What kind of event happened.
 
-When it happened
+When it happened.
 
-The new or changed entity
+The new or changed entity.
 
 Keep in mind that some actions might create multiple events. For example, resuming a subscription typically results in a
 
@@ -32,7 +32,9 @@ tranasction.created
 
 , and other transaction events being created.
 
-Events are related to notifications. You can create notification destinations to get notifications when events happen. See:
+Webhooks overview
+
+Create or update a notification destination
 
 event_id
 
@@ -54,21 +56,15 @@ entity.event_type
 
 .
 
+Show
+
+allowed values
+
 occurred_at
 
 string
 
 RFC 3339 datetime string of when this event occurred.
-
-notification_id
-
-string
-
-Unique Paddle ID for this notification, prefixed with
-
-ntf_
-
-.
 
 data
 
