@@ -12,7 +12,7 @@ that happen in your Paddle system by creating
 
 .
 
-Notification destinations tell Paddle which events that you'd like to get notifications for and where to deliver those notifications.
+Notification destinations tell Paddle which events that you want to get notifications for and where to deliver those notifications.
 
 Notification destination entities hold information like:
 
@@ -24,15 +24,17 @@ The API version used for data payloads.
 
 Which
 
-you'd like to get notifications for.
+you want to get notifications for.
 
 They also include a secret key that you can use to make sure that webhooks came from Paddle. Paddle generates this for you when you
 
 .
 
-You can add as many destinations as you like, but only 10 may be active at once.
+You can add as many destinations as you like, but only 10 can be active at once.
 
-Get a step-by-step overview of how to create a notification destination using the API or the dashboard. See:
+Webhooks overview
+
+Create or update a notification destination
 
 id
 
@@ -48,7 +50,7 @@ description
 
 string
 
-Short description for this notification destination. Shown in the Paddle Dashboard.
+Short description for this notification destination. Shown in the Paddle dashboard.
 
 type
 
@@ -76,7 +78,7 @@ api_version
 
 integer
 
-API version that returned objects for events should conform to. Must be a valid version of the Paddle API. Cannot be a version older than your account default. Defaults to your account default if not included.
+API version that returned objects for events should conform to. Must be a valid version of the Paddle API. Can't be a version older than your account default.
 
 include_sensitive_fields
 
@@ -88,7 +90,7 @@ subscribed_events
 
 array[object]
 
-Represents an event type.
+Subscribed events for this notification destination.
 
 name
 
@@ -99,6 +101,10 @@ Type of event sent by Paddle, in the format
 entity.event_type
 
 .
+
+Show
+
+allowed values
 
 description
 
@@ -127,6 +133,16 @@ Webhook destination secret key, prefixed with
 pdl_ntfset_
 
 . Used for signature verification.
+
+traffic_source
+
+string
+
+Whether Paddle should deliver real platform events, simulation events or both to this notification destination.
+
+Show
+
+allowed values
 
 List notification settings
 

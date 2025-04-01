@@ -14,19 +14,13 @@ Integrate Paddle with your app to build signup and other subscription management
 
 Plug Paddle into other systems that your business uses, like CRM, ERP, or accounting solutions.
 
+Postman is a platform for working with APIs. Fork our curated Postman collection to explore the Paddle Billing API and understand how it works.
+
 The base URLs for the Paddle API are the same for all endpoints. The
 
 is specified a header in your API request rather than in the path.
 
-There are different URLs for
-
-sandbox
-
-and
-
-live
-
-accounts:
+Use different URLs for sandbox and live accounts:
 
 Your sandbox account is for evaluation and testing. All transactions are tests, meaning transactions are simulated and any money isn't real.
 
@@ -36,7 +30,7 @@ Your sandbox account is for evaluation and testing. All transactions are tests, 
 
 https://sandbox-api.paddle.com/
 
-Your live account is where you sell with Paddle. Transactions are real, meaning payment methods are charged and you earn real money.
+Your live account is where customers can make purchases. Transactions are real, meaning payment methods are charged and you earn real money.
 
 1
 
@@ -52,7 +46,7 @@ HTTPS
 
 HTTP
 
-request will be automatically redirected.
+request is automatically redirected.
 
 Make your first request, set your version, and learn how success responses look.
 
@@ -87,5 +81,17 @@ Events
 Notification settings
 
 Notifications
+
+We offer
+
+that you can use to work with the Paddle API in your app.
+
+Postman is a platform for working with APIs. Fork
+
+to explore the Paddle Billing API and understand how it works.
+
+OpenAPI is a standardized way of describing APIs.
+
+to work with the Paddle Billing API programmatically as part of testing and integration.
 
 On this page
