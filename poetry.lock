@@ -860,14 +860,14 @@ files = [
 
 [[package]]
 name = "orderly-set"
-version = "5.3.0"
+version = "5.3.2"
 description = "Orderly set"
 optional = false
 python-versions = ">=3.8"
 groups = ["dev"]
 files = [
-    {file = "orderly_set-5.3.0-py3-none-any.whl", hash = "sha256:c2c0bfe604f5d3d9b24e8262a06feb612594f37aa3845650548befd7772945d1"},
-    {file = "orderly_set-5.3.0.tar.gz", hash = "sha256:80b3d8fdd3d39004d9aad389eaa0eab02c71f0a0511ba3a6d54a935a6c6a0acc"},
+    {file = "orderly_set-5.3.2-py3-none-any.whl", hash = "sha256:81250ce092333db454a70e5d7ef1409ec4d3002e0d2c7546d710f4639f20f19d"},
+    {file = "orderly_set-5.3.2.tar.gz", hash = "sha256:5fd6d917788d0e2196582f38a1c4b74591963d4df9be24ae5a51ba4cea2c987f"},
 ]
 
 [[package]]
