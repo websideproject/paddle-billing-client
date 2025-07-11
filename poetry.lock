@@ -860,15 +860,22 @@ files = [
 
 [[package]]
 name = "orderly-set"
-version = "5.3.0"
+version = "5.5.0"
 description = "Orderly set"
 optional = false
 python-versions = ">=3.8"
 groups = ["dev"]
 files = [
-    {file = "orderly_set-5.3.0-py3-none-any.whl", hash = "sha256:c2c0bfe604f5d3d9b24e8262a06feb612594f37aa3845650548befd7772945d1"},
-    {file = "orderly_set-5.3.0.tar.gz", hash = "sha256:80b3d8fdd3d39004d9aad389eaa0eab02c71f0a0511ba3a6d54a935a6c6a0acc"},
+    {file = "orderly_set-5.5.0-py3-none-any.whl", hash = "sha256:46f0b801948e98f427b412fcabb831677194c05c3b699b80de260374baa0b1e7"},
+    {file = "orderly_set-5.5.0.tar.gz", hash = "sha256:e87185c8e4d8afa64e7f8160ee2c542a475b738bc891dc3f58102e654125e6ce"},
 ]
+
+[package.extras]
+coverage = ["coverage (>=7.6.0,<7.7.0)"]
+dev = ["bump2version (>=1.0.0,<1.1.0)", "ipdb (>=0.13.0,<0.14.0)"]
+optimize = ["orjson"]
+static = ["flake8 (>=7.1.0,<7.2.0)", "flake8-pyproject (>=1.2.3,<1.3.0)"]
+test = ["pytest (>=8.3.0,<8.4.0)", "pytest-benchmark (>=5.1.0,<5.2.0)", "pytest-cov (>=6.0.0,<6.1.0)", "python-dotenv (>=1.0.0,<1.1.0)"]
 
 [[package]]
 name = "packaging"
