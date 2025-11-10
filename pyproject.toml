@@ -38,7 +38,7 @@ pydantic = ">=2.0,<=2.11.1"
 api-client-pydantic = "^3.1.0"
 [tool.poetry.dev-dependencies]
 bandit = "^1.7.10"
-black = {version = "^24.8.0", allow-prereleases = true}
+black = {version = "^25.11.0", allow-prereleases = true}
 darglint = "^1.8.1"
 isort = {extras = ["colors"], version = "^5.13.2"}
 mypy = "^1.14.1"
