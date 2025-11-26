@@ -1,0 +1,198 @@
+API Reference
+
+Reports
+
+Report object
+
+Report entities describe a report that was generated in your Paddle system.
+
+Reports are a way of exporting data from your Paddle system for further analysis or manipulation. They let you work with a snapshot of your entities and data at a historical point in time.
+
+You can choose from a selection of reports, and filter the data that's included on them. To work with the most up-to-date entity data, fetch or list the entity directly instead of using a report.
+
+Report entities hold information like:
+
+What kind of report it is.
+
+How the data on the report was filtered.
+
+How many records are on the report.
+
+Whether the report is ready to download, or if it's still processing.
+
+Report entities don't hold report data themselves. They describe the criteria used to generate a report.
+
+After Paddle has finished generating a report, you can use the Paddle ID of a report to get a download link for a CSV file that includes your report data.
+
+Generate reports
+
+Create a transaction
+
+One of:
+
+Adjustments reports
+
+Transactions reports
+
+Products and prices report
+
+Discounts report
+
+Balance report
+
+Payout reconciliation report
+
+type
+
+string
+
+Type of report to create.
+
+Show
+
+allowed values
+
+id
+
+string
+
+Unique Paddle ID for this report, prefixed with
+
+rep_
+
+status
+
+string
+
+Status of this report. Set automatically by Paddle.
+
+Reports are created as
+
+pending
+
+initially, then move to
+
+ready
+
+when they're available to download.
+
+Show
+
+allowed values
+
+rows
+
+integer or null
+
+Number of records in this report.
+
+null
+
+if the report is
+
+pending
+
+.
+
+expires_at
+
+string
+or null
+
+RFC 3339 datetime string of when this report expires. The report is no longer available to download after this date.
+
+updated_at
+
+string
+
+RFC 3339 datetime string of when this report was last updated.
+
+created_at
+
+string
+
+RFC 3339 datetime string of when this report was created.
+
+filters
+
+array[object]
+
+Filter criteria for this report. If omitted, reports are filtered to include data updated in the last 30 days. This means
+
+updated_at
+
+is greater than or equal to (
+
+gte
+
+) the date 30 days ago from the time the report was generated.
+
+name
+
+string
+
+Field name to filter by.
+
+Show
+
+allowed values
+
+operator
+
+string or null
+
+Operator to use when filtering. Valid when filtering by
+
+updated_at
+
+,
+
+null
+
+otherwise.
+
+Show
+
+allowed values
+
+value
+
+array or string
+
+Value to filter by. Check the allowed values descriptions for the
+
+name
+
+field to see valid values for a field.
+
+List reports
+
+get
+
+https://api.paddle.com
+
+/reports
+
+Create a report
+
+post
+
+https://api.paddle.com
+
+/reports
+
+Get a report
+
+get
+
+https://api.paddle.com
+
+/reports/{report_id}
+
+Get a CSV file for a report
+
+get
+
+https://api.paddle.com
+
+/reports/{report_id}/download-url

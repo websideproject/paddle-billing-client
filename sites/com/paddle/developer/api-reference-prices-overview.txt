@@ -4,23 +4,23 @@ Prices
 
 Price object
 
-Price entities describe how much and how often you charge for your products. They hold charging information.
+Price entities describe what customers pay for products and how often they're billed. They hold charging information.
 
-Prices describe the way that you charge for products in your catalog. They're linked to your products using product IDs.
+Price entities describe what customers pay for products and how often they're billed. They're linked to products using product IDs.
 
 Price entities hold information like:
 
-How much it costs
+How much it costs.
 
-What currency it's billed in
+What currency it's billed in.
 
-Whether it's one-time or recurring
+Whether it's one-time or recurring.
 
-How often it's billed, if recurring
+How often it's billed, if recurring.
 
-How long a trial period is, if any
+How long a trial period is, if any.
 
-You can add as many prices as you like against a product — especially useful for subscription plans. For example, a "Premium plan" product might have an annual price and a monthly price.
+You can add as many prices as you like against a product — especially useful for subscription plans. For example, a "premium plan" product might have an annual price and a monthly price.
 
 For country-specific pricing,
 
@@ -32,13 +32,15 @@ Add prices to
 
 , and
 
-to bill for your products.
-
-Get a step-by-step overview of how to create a product that's ready-to-sell, including prices and price overrides. See:
+to let customers purchase products.
 
 There's no delete operation for prices. Use the
 
-to archive prices when you no longer need them. See:
+to archive prices when you no longer need them. To learn more, see
+
+Create products and prices
+
+Localize prices
 
 id
 
@@ -70,7 +72,7 @@ type
 
 string
 
-Type of price. Standard prices are considered part of your product catalog and are shown on the Paddle web app.
+Type of item. Standard items are considered part of your catalog and are shown in the Paddle dashboard.
 
 Show
 
@@ -92,6 +94,12 @@ null
 
 if price is non-recurring (one-time).
 
+frequency
+
+integer
+
+Amount of time.
+
 interval
 
 string
@@ -101,12 +109,6 @@ Unit of time.
 Show
 
 allowed values
-
-frequency
-
-integer
-
-Amount of time.
 
 trial_period
 
@@ -122,6 +124,12 @@ billing_cycle
 
 .
 
+frequency
+
+integer
+
+Amount of time.
+
 interval
 
 string
@@ -132,11 +140,23 @@ Show
 
 allowed values
 
-frequency
+requires_payment_method
 
-integer
+boolean
 
-Amount of time.
+Whether this price requires a payment method (
+
+true
+
+) or not (
+
+false
+
+) when trialing. If
+
+false
+
+, customers can sign up for subscription without entering their payment details, often referred to as a "cardless trial."
 
 tax_mode
 
@@ -162,7 +182,7 @@ amount
 
 string
 
-Amount in the lowest denomination for the currency, e.g. 10 USD = 1000 (cents).
+Amount in the lowest denomination for the currency, e.g. 10 USD = 1000 (cents). Although represented as a string, this value must be a valid integer.
 
 currency_code
 
@@ -184,7 +204,7 @@ country_codes
 
 array[string]
 
-Supported two-letter ISO 3166-1 alpha-2 country code.
+Supported two-letter ISO 3166-1 alpha-2 country code. Customers located in the listed countries are charged the override price.
 
 Show
 
@@ -220,7 +240,7 @@ Maximum quantity of the product related to this price that can be bought. Requir
 
 minimum
 
-set. Must be greater than the
+set. Must be greater than or equal to the
 
 minimum
 
@@ -252,17 +272,29 @@ null
 
 if this entity is not imported.
 
-external_id
-
-string or null
-
-Reference or identifier for this entity from the solution where it was imported from.
-
 imported_from
 
 string
 
-Name of the platform where this entity was imported from.
+Name of the platform or provider where this entity was imported from.
+
+external_id
+
+string or null
+
+Reference or identifier for this entity from the provider where it was imported from.
+
+created_at
+
+string
+
+RFC 3339 datetime string of when this entity was created. Set automatically by Paddle.
+
+updated_at
+
+string
+
+RFC 3339 datetime string of when this entity was updated. Set automatically by Paddle.
 
 List prices
 

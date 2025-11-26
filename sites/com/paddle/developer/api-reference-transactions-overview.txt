@@ -4,7 +4,7 @@ Transactions
 
 Transaction object
 
-Transaction entities calculate and capture revenue. They hold information about an amount that you're billing for.
+Transaction entities calculate and capture revenue. They hold information about a customer purchase.
 
 Transactions are at the heart of Paddle. They tie together
 
@@ -24,21 +24,19 @@ Paddle automatically creates transactions when customers sign up using the check
 
 happen.
 
-You can also create a transaction through the Dashboard or API. You may
+You can also create a transaction through the Paddle dashboard or the API. You can
 
 , or collect automatically using a card on file or by presenting a checkout.
 
 Transactions hold information like:
 
-Who you're billing
+Who the customer is.
 
-Which prices you're billing for
+Which items they're purchasing.
 
-Whether you'd like to generate an invoice number
+Calculated totals for the customer and items.
 
-Calculated totals for the customer and items
-
-Any payment attempts
+Any payment attempts.
 
 Transactions handle all parts of revenue calculation, including complex
 
@@ -50,7 +48,7 @@ Paddle returns calculated totals for a transaction in the
 
 details
 
-object. Details are the single source for totals on a transaction. Ultimately, they're used for collecting payment from a customer and revenue recognition.
+object. Details are the single source for totals on a transaction. They're used for collecting payment from a customer and revenue recognition.
 
 Though the terms "transaction" and "payment" are sometimes used interchangeably, they're distinct entities in Paddle:
 
@@ -62,19 +60,25 @@ Payments
 
 are attempts to collect for the amount against a transaction — both online and offline
 
-Transactions may have more than one payment against them. For example, customers paying for larger value deals by invoice might make multiple payments, and automatically collected payments might fail.
+Transactions can have more than one payment against them. For example, customers paying for larger value deals by invoice might make multiple payments, and automatically collected payments might fail.
 
-For pricing pages and other screens that let customers preview changes to their subscription, you can preview a transaction rather than creating it.
+For pricing pages and other screens that let customers preview changes to their subscription, you can
+
+rather than creating it.
 
 When previewing a transaction, you don't need to send the same information as you would if you were creating it.
-
-See:
 
 Transactions are financial records. They can't be deleted, and they can't be changed once they've been billed.
 
 , or
 
 to record post-billing actions that impact a transaction.
+
+Create a transaction
+
+Create and issue an invoice
+
+Build an overlay checkout
 
 id
 
@@ -202,6 +206,8 @@ invoice_id
 
 string or null
 
+Deprecated
+
 Paddle ID of the invoice that this transaction is related to, prefixed with
 
 inv_
@@ -268,11 +274,37 @@ manual
 
 .
 
+payment_terms
+
+object
+
+How long a customer has to pay this invoice once issued.
+
+interval
+
+string
+
+Unit of time.
+
+Show
+
+allowed values
+
+frequency
+
+integer
+
+Amount of time.
+
 enable_checkout
 
 boolean
 
-Whether the related transaction may be paid using a Paddle Checkout.
+Whether the related transaction may be paid using Paddle Checkout. If omitted when creating a transaction, defaults to
+
+false
+
+.
 
 purchase_order_number
 
@@ -286,29 +318,23 @@ string or null
 
 Notes or other information to include on this invoice. Appears on invoice documents.
 
-payment_terms
-
-object
-
-How long a customer has to pay this invoice once issued.
-
 billing_period
 
 object or null
 
 Time period that this transaction is for. Set automatically by Paddle for subscription renewals to describe the period that charges are for.
 
-starts_at
-
-string
-
-RFC 3339 datetime string of when this period starts.
-
 ends_at
 
 string
 
 RFC 3339 datetime string of when this period ends.
+
+starts_at
+
+string
+
+RFC 3339 datetime string of when this period starts.
 
 items
 
@@ -376,21 +402,13 @@ totals
 
 object
 
-Breakdown of the total for a transaction. These numbers can become negative when dealing with subscription updates that result in credit.
+Breakdown of the total for a transaction. These numbers can be negative when dealing with subscription updates that result in credit.
 
 adjusted_totals
 
 object
 
-Breakdown of the payout totals for a transaction after adjustments.
-
-null
-
-until the transaction is
-
-completed
-
-.
+Breakdown of the totals for a transaction after adjustments.
 
 payout_totals
 
@@ -450,7 +468,23 @@ stored_payment_method_id
 
 string
 
-UUID for the stored payment method used for this payment attempt.
+Deprecated
+
+UUID for the stored payment method used for this payment attempt. Deprecated - use
+
+payment_method_id
+
+instead.
+
+payment_method_id
+
+string or null
+
+Paddle ID of the payment method used for this payment attempt, prefixed with
+
+paymtd_
+
+.
 
 amount
 
@@ -537,7 +571,7 @@ string or null
 
 Paddle Checkout URL for this transaction, composed of the URL passed in the request or your default payment URL +
 
-_?txn=
+?_ptxn=
 
 and the Paddle ID for this transaction.
 
@@ -566,7 +600,7 @@ billed
 
 null
 
-for transactions that are not
+for transactions that aren't
 
 billed
 
@@ -575,6 +609,17 @@ or
 completed
 
 . Set automatically by Paddle.
+
+revised_at
+
+string
+or null
+
+RFC 3339 datetime string of when a transaction was revised. Revisions describe an update to customer information for a billed or completed transaction.
+
+null
+
+if not revised. Set automatically by Paddle.
 
 List transactions
 
@@ -623,3 +668,11 @@ get
 https://api.paddle.com
 
 /transactions/{transaction_id}/invoice
+
+Revise a billed or completed transaction
+
+post
+
+https://api.paddle.com
+
+/transactions/{transaction_id}/revise
