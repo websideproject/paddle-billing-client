@@ -1,4 +1,4 @@
-API reference
+API Reference
 
 Pricing preview
 
@@ -17,6 +17,10 @@ or other page in your app.
 Paddle responds with a pricing preview object. This holds calculated totals for prices, including discounts, taxes, and currency conversion.
 
 As well as returning totals in the lowest denomination for a currency, pricing previews contain formatted totals that include the currency symbol and decimal separator.
+
+Build a pricing page
+
+Build and deploy a Next.js app
 
 customer_id
 
@@ -62,7 +66,7 @@ biz_
 
 currency_code
 
-string
+string or null
 
 Supported three-letter ISO 4217 currency code.
 
@@ -98,12 +102,6 @@ address
 
 object when previewing.
 
-postal_code
-
-string or null
-
-ZIP or postal code of this address. Include for more accurate tax calculations.
-
 country_code
 
 string
@@ -113,6 +111,12 @@ Supported two-letter ISO 3166-1 alpha-2 country code for this address.
 Show
 
 allowed values
+
+postal_code
+
+string or null
+
+ZIP or postal code of this address. Include for more accurate tax calculations.
 
 customer_ip_address
 
@@ -132,28 +136,6 @@ address
 
 object when previewing.
 
-items
-
-array[object]
-
-List of items to preview price calculations for.
-
-price_id
-
-string
-
-Paddle ID for the price to add to this transaction, prefixed with
-
-pri_
-
-.
-
-quantity
-
-integer
-
-Quantity of the item to preview.
-
 details
 
 object
@@ -165,6 +147,16 @@ line_items
 array[object]
 
 Information about line items for this preview. Includes totals calculated by Paddle. Considered the source of truth for line item totals.
+
+available_payment_methods
+
+array[string]
+
+List of available payment methods for Paddle Checkout given the price and location information passed.
+
+Show
+
+allowed values
 
 Preview prices
 

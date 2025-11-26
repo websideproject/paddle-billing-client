@@ -296,11 +296,17 @@ string
 
 Total fee taken by Paddle for this adjustment.
 
+retained_fee
+
+string
+
+Paddle fees retained for this adjustment.
+
 earnings
 
 string
 
-Total earnings. This is the subtotal minus the Paddle fee.
+Total earnings. This is the subtotal minus the fee.
 
 For tax adjustments, this value is negative, which means a positive effect in the transaction earnings.
 
@@ -348,6 +354,12 @@ string
 
 Adjusted Paddle fee.
 
+retained_fee
+
+string
+
+Paddle fees retained for this adjustment.
+
 chargeback_fee
 
 object
@@ -386,7 +398,7 @@ earnings
 
 string
 
-Adjusted payout earnings. This is the adjustment total plus adjusted Paddle fees, excluding chargeback fees.
+Adjusted payout earnings. This is the adjustment total plus adjusted fees.
 
 currency_code
 

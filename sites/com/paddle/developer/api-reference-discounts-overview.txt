@@ -36,11 +36,15 @@ Use discount codes to let customers apply discounts themselves at checkout, or p
 
 Discounts don't have to have codes. They can be applied manually to transactions as part of the sales process.
 
+Discounts can be added to a
+
+to organize them. You can only add a discount to one discount group at a time. You can list discounts by discount groups to see which discounts are in which groups.
+
 There's no delete operation for discounts. Use the
 
 to archive discounts when you no longer need them. To learn more, see
 
-Create or a update a discount
+Create or update a discount
 
 Create a transaction
 
@@ -60,23 +64,9 @@ string
 
 Whether this entity can be used in Paddle.
 
-expired
-
-and
-
-used
-
-are set automatically by Paddle.
-
 Show
 
 allowed values
-
-external_id
-
-string
-
-An optional reference ID from the originating system. Used when an discount is imported. Can contain any number of characters excluding white space.
 
 description
 
@@ -88,27 +78,37 @@ enabled_for_checkout
 
 boolean
 
-Whether this discount can be applied by a customer at checkout.
+Whether this discount can be redeemed by customers at checkout (
+
+true
+
+) or not (
+
+false
+
+).
 
 code
 
 string or null
 
-Unique code that customers can use to apply this discount at checkout. Use letters and numbers only, up to 16 characters. Paddle generates a random 10-character code if a code is not provided and
-
-enabled_for_checkout
-
-is
-
-true
-
-.
+Unique code that customers can use to redeem this discount at checkout. Not case-sensitive.
 
 type
 
 string
 
 Type of discount. Determines how this discount impacts the checkout or transaction total.
+
+Show
+
+allowed values
+
+mode
+
+string
+
+Discount mode. Standard discounts are considered part of your catalog and are shown in the Paddle dashboard.
 
 Show
 
@@ -162,13 +162,21 @@ recur
 
 boolean
 
-Whether this discount applies for multiple billing periods.
+Whether this discount applies for multiple subscription billing periods (
+
+true
+
+) or not (
+
+false
+
+).
 
 maximum_recurring_intervals
 
 integer or null
 
-Amount of subscription billing periods that this discount recurs for. Requires
+Number of subscription billing periods that this discount recurs for. Requires
 
 recur
 
@@ -178,15 +186,23 @@ null
 
 if this discount recurs forever.
 
+Subscription renewals, midcycle changes, and one-time charges billed to a subscription aren't considered a redemption.
+
+times_used
+
+is not incremented in these cases.
+
 usage_limit
 
 integer or null
 
-Maximum amount of times this discount can be used. This is an overall limit, rather than a per-customer limit.
+Maximum number of times this discount can be redeemed. This is an overall limit for this discount, rather than a per-customer limit.
 
 null
 
-if this discount can be used an unlimited amount of times.
+if this discount can be redeemed an unlimited amount of times.
+
+Paddle counts a usage as a redemption on a checkout, transaction, or the initial application against a subscription. Transactions created for subscription renewals, midcycle changes, and one-time charges aren't considered a redemption.
 
 restrict_to
 
@@ -203,11 +219,13 @@ expires_at
 string
 or null
 
-RFC 3339 datetime string of when this discount expires. Discount can no longer be applied after this date has elapsed.
+RFC 3339 datetime string of when this discount expires. Discount can no longer be redeemed after this date has elapsed.
 
 null
 
-if this discount can be applied forever.
+if this discount can be redeemed forever.
+
+Expired discounts can't be redeemed against transactions or checkouts, but can be applied when updating subscriptions.
 
 custom_data
 
@@ -219,7 +237,23 @@ times_used
 
 integer
 
-How many times this discount has been redeemed. Automatically incremented by Paddle when an order completes.
+How many times this discount has been redeemed. Automatically incremented by Paddle.
+
+Paddle counts a usage as a redemption on a checkout, transaction, or subscription. Transactions created for subscription renewals, midcycle changes, and one-time charges aren't considered a redemption.
+
+discount_group_id
+
+string or null
+
+Paddle ID for the discount group related to this discount, prefixed with
+
+dsg_
+
+.
+
+null
+
+if not in a discount group.
 
 created_at
 
@@ -243,17 +277,17 @@ null
 
 if this entity is not imported.
 
-external_id
-
-string or null
-
-Reference or identifier for this entity from the solution where it was imported from.
-
 imported_from
 
 string
 
-Name of the platform where this entity was imported from.
+Name of the platform or provider where this entity was imported from.
+
+external_id
+
+string or null
+
+Reference or identifier for this entity from the provider where it was imported from.
 
 List discounts
 
