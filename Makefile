@@ -30,7 +30,7 @@ pre-commit-install:
 #* Formatters
 .PHONY: codestyle
 codestyle:
-	poetry run pyupgrade --exit-zero-even-if-changed --py37-plus **/*.py
+	poetry run pyupgrade --exit-zero-even-if-changed --py310-plus **/*.py
 	poetry run isort --settings-path pyproject.toml ./
 	poetry run black --config pyproject.toml ./
 
@@ -40,8 +40,8 @@ formatting: codestyle
 #* Linting
 .PHONY: test
 test:
-	PYTHONPATH=$(PYTHONPATH) poetry run pytest -c pyproject.toml --cov-report=html --cov=paddle_billing_client tests/
-	poetry run coverage-badge -o assets/images/coverage.svg -f
+	PYTHONPATH=$(PYTHONPATH) poetry run pytest -c pyproject.toml --cov-report=html --cov-report=xml --cov=paddle_billing_client tests/
+	poetry run genbadge coverage -i coverage.xml -o assets/images/coverage.svg
 
 .PHONY: check-codestyle
 check-codestyle:
@@ -64,7 +64,7 @@ lint: test check-codestyle mypy check-safety
 
 .PHONY: update-dev-deps
 update-dev-deps:
-	poetry add -D bandit@latest darglint@latest "isort[colors]@latest" mypy@latest pre-commit@latest pydocstyle@latest pylint@latest pytest@latest pyupgrade@latest safety@latest coverage@latest coverage-badge@latest pytest-html@latest pytest-cov@latest
+	poetry add -D bandit@latest darglint@latest "isort[colors]@latest" mypy@latest pre-commit@latest pydocstyle@latest pylint@latest pytest@latest pyupgrade@latest safety@latest coverage@latest "genbadge[coverage]@latest" pytest-html@latest pytest-cov@latest
 	poetry add -D --allow-prereleases black@latest
 
 #* Docker
