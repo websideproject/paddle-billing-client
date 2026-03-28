@@ -1,14 +1,1454 @@
-changelog
+Developer Changelog
 
-Overview
+Sign up to get notified when our API evolves. Absolutely no marketing emails, we promise.
 
-Track changes to the Paddle platform, including the Paddle API and Paddle.js.
+Subscribe
 
-Sep 28, 2023
+Add over 20 Korean payment methods to your checkout in one click — no engineering effort required.
+
+Save on fees and go direct to customers by adding a checkout that's fully hosted by Paddle to your app.
+
+Interact with Paddle using natural language in AI assistants like Claude or in AI-powered IDEs like Cursor.
+
+Filters
+
+Type
+
+Product
+
+Importance
+
+Early access
+
+Nov 5, 2025
+
+API
+
+Subscriptions
+
+Create cardless trials that let customers try your product without entering payment details, lowering the barrier to entry and increasing trial signups.
+
+Nov 5, 2025
+
+Checkout
+
+Paddle.js
+
+Open a checkout designed to encourage customers to buy additional items after their initial purchase, with one-click payments and reduced friction that boosts conversion.
+
+Sep 1, 2025
+
+Platform
+
+Checkout
+
+Personalize your hosted checkout URLs using custom subdomains to create a seamless, branded experience that builds customer confidence and improves conversion rates.
+
+Apr 15, 2025
+
+Platform
+
+API
+
+Map your product catalog and port your subscription data from Paddle Classic to Paddle Billing using the Paddle dashboard.
+
+November 2025
+
+Nov 24, 2025
+
+API
+
+Platform
+
+Paddle continuously monitors public GitHub repositories for API key exposures, sending immediate alerts or taking preventative action upon detection to protect your account.
+
+Nov 19, 2025
+
+Platform
+
+Subscriptions
+
+Transactions
+
+Checkout
+
+Turn on KakaoPay and NaverPay as payment options for subscriptions, with no engineering effort required on your part.
+
+Nov 18, 2025
+
+Platform
+
+Checkout
+
+API
+
+Present Korean payment methods like KakaoPay and Naver Pay as individual options at checkout, providing a smoother payment experience for Korean customers. The existing Korean payment methods workflow is now deprecated.
+
+Nov 13, 2025
+
+Platform
+
+Checkout
+
+Customer portal
+
+Email
+
+Retain
+
+Paddle now supports Brazilian Portuguese as a locale for Paddle Checkout, the customer portal, customer emails, and Paddle Retain features.
+
+pt-BR
+
+is now an allowed value for
+
+locale
+
+.
+
+Nov 13, 2025
+
+Platform
+
+Checkout
+
+API
+
+Turn on WeChat Pay to unlock new revenue in China, with no configuration required. Available for one-time items.
+
+Nov 5, 2025
+
+Platform
+
+SDK
+
+Our Model Context Protocol (MCP) server has been updated with 80+ tools to enable powerful workflows covering catalog management, billing operations, customer provisioning, financial reporting, and integration testing.
+
+Nov 5, 2025
+
+Platform
+
+Checkout
+
+API
+
+Turn on Pix to unlock new revenue in Brazil, with no configuration required. Available for one-time items.
+
+October 2025
+
+Oct 29, 2025
+
+Platform
+
+Catalog
+
+Use a new setting in the dashboard to set automatic tax localization for prices as the default for new prices created on your account.
+
+Oct 27, 2025
+
+API
+
+Reporting
+
+Tie each payout to its underlying transaction‑linked movements to account for sales, taxes, fees, and FX, and then verify totals against your remittance advice.
+
+Oct 7, 2025
+
+Paddle.js
+
+Detect when no valid payment methods are available for a customer, so you can implement fallback flows.
+
+Oct 7, 2025
+
+API
+
+Catalog
+
+Checkout
+
+Increase conversion by automatically following local conventions for displaying prices as inclusive or exclusive of tax.
+
+September 2025
+
+Sep 22, 2025
+
+API
+
+Adjustments
+
+Transactions
+
+Transactions and adjustments now include a field for the fees that Paddle retains for chargebacks and refunds in payout totals.
+
+Sep 17, 2025
+
+API
+
+Catalog
+
+Transactions
+
+Pass a discount object when creating or updating a transaction to apply a one-off discount without adding it to your catalog.
+
+Sep 16, 2025
+
+Checkout
+
+Subscriptions
+
+Customers must now explicitly consent to save their payment method when completing checkout for a subscription.
+
+Sep 15, 2025
+
+Platform
+
+Checkout
+
+API
+
+Turn on BLIK and MB WAY to unlock new revenue in Poland and Portugal, with no configuration required. Available for one-time items.
+
+July 2025
+
+Jul 25, 2025
+
+API
+
+Notifications
 
 Use the new
 
-showAddDiscount
+event_type
+
+query parameter when listing events to filter by event type.
+
+Jul 24, 2025
+
+API
+
+Catalog
+
+Get discount groups by ID, and rename or archive them using new API operations, giving you more control over how you organize discounts.
+
+Jul 21, 2025
+
+API
+
+Transactions
+
+Transactions now include the exchange rate and Paddle fee rate for payout totals.
+
+Jul 13, 2025
+
+SDK
+
+Paddle.js
+
+Use our new Web Monetization Kit to build a website for your mobile app, including a pricing page, paywall, and integrated web checkout. Deploy to Vercel in a couple of clicks.
+
+Jul 11, 2025
+
+API
+
+SDK
+
+Our SDKs now support the latest API features, including webhook simulations, new Korean payment methods, and balance reports, unlocking more Paddle Billing workflows in your integrations.
+
+Jul 7, 2025
+
+API
+
+Paddle.js
+
+Use new client-side token API operations and webhooks to automate your frontend integrations with Paddle.
+
+Jul 1, 2025
+
+Checkout
+
+Subscriptions
+
+Customers in California are presented with a new checkbox at checkout to confirm subsequent charges for recurring subscriptions, so you remain compliant with California's Automatic Renewal Law (CARL) out-of-the-box.
+
+June 2025
+
+Jun 17, 2025
+
+API
+
+Catalog
+
+Manage your discounts more easily by creating discount groups and assigning them to discounts using the Paddle API.
+
+May 2025
+
+May 19, 2025
+
+API
+
+Reporting
+
+Export information about movements in and out of your account balance to track revenue flow, reconcile transactions, and optimize your financial operations using the new balance report.
+
+May 16, 2025
+
+Platform
+
+Checkout
+
+API
+
+Turn on Korean payment methods to let customers pay using Korean local cards, KakaoPay, Naver Pay, PayCo, and Samsung Pay. Available for items priced in Korean Won for customers in Korea, with no extra engineering effort required.
+
+May 12, 2025
+
+Platform
+
+Checkout
+
+Add external purchase flows to your iOS app to let customers make in-app purchases outside your app. Create hosted checkouts or deploy a checkout to Vercel in a couple of clicks, then use RevenueCat for fulfillment.
+
+May 6, 2025
+
+API
+
+API keys now have a new standardized format, improved security features, and better management options including permissions, expiry dates, and usage tracking.
+
+May 2, 2025
+
+Checkout
+
+Recover abandoned checkouts with automated emails and optional discounts to incentivize purchases and increase conversion rates.
+
+April 2025
+
+Apr 28, 2025
+
+Subscriptions
+
+Customer portal
+
+Subscription management links to update payment details and cancel subscriptions now return customer portal links. Links now use the domain
+
+sandbox-buyer-portal.paddle.com
+
+or
+
+buyer-portal.paddle.com
+
+.
+
+Apr 14, 2025
+
+Platform
+
+Subscriptions
+
+Update subscriptions where
+
+scheduled_change
+
+is not
+
+null
+
+, so you can continue realizing revenue from customers even when they're scheduled to pause or cancel.
+
+Apr 7, 2025
+
+Platform
+
+SDK
+
+Interact with the Paddle API using AI assistants like Claude or in AI-powered IDEs like Cursor. Manage product catalog, billing and subscriptions, and reports.
+
+March 2025
+
+Mar 24, 2025
+
+Adjustments
+
+API
+
+Use the new
+
+tax_mode
+
+field when creating an adjustment to specify that amounts for a partial refund are tax exclusive. Paddle calculates tax on the amounts for you.
+
+Mar 6, 2025
+
+API
+
+Notifications
+
+Gain deeper control when testing your integration flows by configuring webhook simulator scenarios. Use your own data in webhooks, and customise flows by providing specific options to more accurately test your integrations end-to-end.
+
+Mar 3, 2025
+
+Paddle.js
+
+When location information isn't supplied,
+
+Paddle.PricePreview()
+
+and
+
+Paddle.TransactionPreview()
+
+now automatically detect visitor location and returns localized prices.
+
+February 2025
+
+Feb 27, 2025
+
+Paddle.js
+
+Checkout
+
+Add or change custom data against a checkout that's already open by passing it to
+
+Paddle.Checkout.updateCheckout()
+
+.
+
+January 2025
+
+Jan 9, 2025
+
+Platform
+
+Retain
+
+Subscriptions
+
+When payment fails for automatically-collected subscriptions, Paddle Billing automatically retries the saved payment method — even if you haven't turned on Paddle Retain.
+
+Jan 6, 2025
+
+API
+
+Notifications
+
+Pass Paddle IDs as part of the payload for single simulation to use data for those entities as part of your simulation. Plus, you can supply partial payloads.
+
+December 2024
+
+Dec 19, 2024
+
+Transactions
+
+Customers
+
+API
+
+Add a tax or VAT number, supplement address information, and update customer and business names on PDFs sent for completed transactions.
+
+Dec 18, 2024
+
+API
+
+Platform
+
+Subscriptions
+
+Use the new
+
+on_resume
+
+field to choose whether Paddle should start a new billing period or continue the existing one when resuming a paused subscription.
+
+Dec 12, 2024
+
+Platform
+
+Email
+
+Checkout
+
+你好！Paddle now supports Traditional Chinese as a locale for Paddle Checkout.
+
+zh-TW
+
+is now an allowed value for the
+
+locale
+
+parameter when passing settings to a checkout.
+
+Dec 9, 2024
+
+Action Required
+
+Platform
+
+Subscriptions
+
+We've introduced hourly and daily limits to the number of immediate charges you can make per subscription. You can make up to 20 chargeable updates to a subscription per hour, with a maximum of 100 per day.
+
+Dec 5, 2024
+
+Adjustments
+
+API
+
+Refund or credit the grand total for a transaction by passing a new field when creating an adjustment. There's no need to extract items from the transaction list.
+
+Dec 4, 2024
+
+Platform
+
+Email
+
+Sandbox emails now come from the
+
+paddle.com
+
+domain, rather than
+
+withpaddle.com
+
+.
+
+November 2024
+
+Nov 25, 2024
+
+Platform
+
+Create prices, discounts, transactions, and subscriptions in Vietnamese Dong.
+
+VND
+
+is a new allowed value for
+
+currency_code
+
+for payments.
+
+Nov 22, 2024
+
+Transactions
+
+Turn on Alipay as a payment option for subscriptions, with no engineering effort required on your part.
+
+Nov 20, 2024
+
+Platform
+
+Transactions
+
+When you create and send invoices, Paddle now generates unique bank transfer account numbers for each customer. This means invoices can be reconciled more efficiently.
+
+Nov 19, 2024
+
+Paddle.js
+
+Checkout
+
+Transactions
+
+Let customers review their order details, enter their address and payment details, and complete purchase all on one page.
+
+Nov 13, 2024
+
+Customer portal
+
+Customers
+
+API
+
+Platform
+
+Generate links that preauthorize a customer to perform actions inside the Paddle customer portal with customer portal sessions.
+
+Nov 12, 2024
+
+Paddle.js
+
+Checkout
+
+For enhanced compliance, we've redesigned the Paddle.com footer and introduced clear wording about upfront and recurring charges.
+
+Nov 12, 2024
+
+SDK
+
+Action Required
+
+You can use our Python SDK to streamline integrating with Paddle Billing. We released major version 1, which means breaking changes result in a new version.
+
+Nov 11, 2024
+
+API
+
+Paddle.js
+
+Checkout
+
+Transactions
+
+Let customers save their payment details at checkout, then present customers with their saved payment details when they purchase in the future.
+
+October 2024
+
+Oct 21, 2024
+
+Platform
+
+Notifications
+
+The Paddle API no longer returns notifications or events older than 90 days.
+
+Oct 21, 2024
+
+Platform
+
+Checkout
+
+Extend your Apple Pay integration by letting customers launch the Apple Pay modal directly from your checkout. Verify your domain for Apple Pay to turn on.
+
+Oct 14, 2024
+
+Catalog
+
+API
+
+Paddle.js
+
+Platform
+
+Customers can now enter discount codes with any casing, for example
+
+blackfriday
+
+,
+
+BLACKFRIDAY
+
+, or
+
+blackFriday
+
+. The Paddle API no longer treats codes against the discount entity as case-sensitive.
+
+Oct 7, 2024
+
+API
+
+Subscriptions
+
+Pause subscriptions in trial at the end of the trial period. They move out of trial when they're resumed.
+
+September 2024
+
+Sep 18, 2024
+
+API
+
+Notifications
+
+Make testing and integration easier by using webhook simulator to simulate webhooks for single events or predefined scenarios, like a new subscription or successful renewal.
+
+Sep 18, 2024
+
+SDK
+
+Paddle.js
+
+Use our starter kit to build a Next.js app with Paddle Billing, including a localized pricing page, integrated inline checkout, and screens for customers to manage their payments. Deploy to Vercel in a couple of clicks.
+
+Sep 2, 2024
+
+Platform
+
+Adjustments
+
+For customer record keeping, Paddle automatically sends a credit note (sometimes called a credit memo) when you refund or credit a transaction. Use the new
+
+/adjustments/{adjustment_id}/credit-note
+
+endpoint to generate them using the API.
+
+Sep 1, 2024
+
+Customer portal
+
+Platform
+
+Let customers manage their own subscriptions, payments, and account information using the customer portal.
+
+August 2024
+
+Aug 29, 2024
+
+Transactions
+
+Use a new query parameter to determine whether generated URLs for PDFs should download the file as an attachment saved locally, or open it inline in the browser.
+
+Aug 15, 2024
+
+SDK
+
+Action Required
+
+You can use our Go SDK to streamline integrating with Paddle Billing. We released major version 1, which means breaking changes result in a new version.
+
+Aug 1, 2024
+
+Platform
+
+Subscriptions
+
+Add recurring items to a subscription without having to add them to your product catalog by passing price or product attributes when updating a subscription.
+
+July 2024
+
+Jul 31, 2024
+
+Platform
+
+Subscriptions
+
+When pausing subscriptions, past due renewal transactions are now automatically canceled. This means past due transactions for uncompleted billing periods are not automatically collected on resume.
+
+Jul 8, 2024
+
+API
+
+Subscriptions
+
+Subscription items now return the related product object, useful for showing product name, image, and other information your frontend. The returned product is a snapshot of the product at the time it was added to the subscription.
+
+Jul 1, 2024
+
+Platform
+
+Subscriptions
+
+Use
+
+do_not_bill
+
+as the proration billing mode when changing a subscription billing frequency, like when customers upgrade to an annual plan from a monthly plan.
+
+June 2024
+
+Jun 28, 2024
+
+Platform
+
+Adjustments
+
+Paddle now automatically approves refunds every ten minutes for sandbox accounts, making testing easier. For live accounts, Paddle automatically approves refunds in some cases.
+
+Jun 10, 2024
+
+Platform
+
+Paddle platform users in countries that use Australian or Canadian dollars can now hold their balance in their local currency, reducing FX fees for payouts.
+
+Jun 7, 2024
+
+Paddle.js
+
+Checkout
+
+Catalog
+
+Use the
+
+allowDiscountRemoval
+
+parameter or
+
+data-allow-discount-removal
+
+HTML data attribute when working with Paddle.js to hide the option to remove an applied discount at checkout.
+
+May 2024
+
+May 7, 2024
+
+SDK
+
+Use our Go SDK to streamline integrating with Paddle Billing. Core operations are available now — including products, customers, and subscription management — with full feature parity with the API coming soon. Available now on GitHub.
+
+April 2024
+
+Apr 29, 2024
+
+Retain
+
+Paddle.js
+
+Subscriptions
+
+Use Cancellation Flows where you haven't passed a customer to Paddle Retain.
+
+Apr 24, 2024
+
+SDK
+
+Use our Python SDK to streamline integrating with Paddle Billing. Fully-featured from webhook verification to every API operation. Available now on GitHub.
+
+Apr 15, 2024
+
+API
+
+Notifications
+
+The list notification settings operation is now paginated, making it easier work with a large number of notification settings.
+
+Apr 10, 2024
+
+Retain
+
+Subscriptions
+
+Transactions
+
+Gather insights into why a customer wants to cancel and present them with dynamic salvage attempts while remaining fully compliant in regions with one-click cancellation legislation.
+
+Apr 3, 2024
+
+Paddle.js
+
+Transactions
+
+Build advanced, cart-style pricing pages or other pages that present overall totals using a new method in Paddle.js. No need to make server-side calls to the Paddle API.
+
+Apr 1, 2024
+
+Transactions
+
+Subscriptions
+
+Platform
+
+Manually-collected subscriptions now become
+
+past_due
+
+when payment terms against invoices for subscription renewals elapse.
+
+March 2024
+
+Mar 25, 2024
+
+Platform
+
+Checkout
+
+API
+
+Turn on Bancontact as payment option, the most popular payment method in Belgium.
+
+bancontact
+
+is a new allowed value for
+
+method_details.type
+
+for payments against a transaction.
+
+Mar 22, 2024
+
+Platform
+
+Email
+
+Emails for sandbox accounts are only sent to your registered email domain. Where email addresses with other domains are used for testing, they'll be forwarded to the main email address for your account.
+
+Mar 18, 2024
+
+API
+
+Customers
+
+Notifications
+
+Distinguish between declined payments that should not be retried, and declined payments with no further information.
+
+Mar 12, 2024
+
+API
+
+Customers
+
+Notifications
+
+Use the
+
+customer_id
+
+returned in address and business notifications to more easily work with addresses and businesses for a customer in the API.
+
+Mar 11, 2024
+
+Platform
+
+Email
+
+Sandbox emails now come from the
+
+withpaddle.com
+
+domain, so it's easier to filter them when testing.
+
+Mar 11, 2024
+
+API
+
+Transactions
+
+Subscriptions
+
+Prorated changes to a subscription are now reflected on a transaction, rather than using separate adjustments. Item quantities, item amounts, and totals against a transaction may be negative, and there's a new
+
+credit_to_balance
+
+field in transaction totals.
+
+Mar 6, 2024
+
+API
+
+Reporting
+
+Export information about products, prices, and discounts as a spreadsheet to better understand your data using two new reports.
+
+Mar 1, 2024
+
+Paddle.js
+
+Checkout
+
+Action Required
+
+Use the new
+
+Paddle.Update()
+
+method to update
+
+pwCustomer
+
+and
+
+eventCallback
+
+after you've initialized Paddle.js. Plus,
+
+Paddle.Initialize()
+
+replaces
+
+Paddle.Setup()
+
+.
+
+February 2024
+
+Feb 20, 2024
+
+SDK
+
+Action Required
+
+You can use our PHP or Node.js SDKs to streamline integrating with Paddle Billing. We released
+
+1.0.0
+
+, which means breaking changes result in a new version.
+
+Feb 15, 2024
+
+API
+
+SDK
+
+Download an OpenAPI spec file for our API or fork our Postman collection to better work with the Paddle API programmatically.
+
+Feb 14, 2024
+
+Paddle.js
+
+Retain
+
+Platform
+
+Paddle Retain now supports using the same client-side tokens as Paddle Billing for authentication. There's no need to pass
+
+pwAuth
+
+and a Retain API key to
+
+Paddle.Initialize()
+
+anymore.
+
+Feb 12, 2024
+
+API
+
+Catalog
+
+Products and prices now return created and updated dates, making them consistent with other entities in the Paddle API.
+
+Feb 7, 2024
+
+API
+
+Subscriptions
+
+subscription.items[].price
+
+now returns all fields against the price entity, rather than a subset of fields. The fields returned are a snapshot of the price at the time it was added to the subscription.
+
+January 2024
+
+Jan 24, 2024
+
+Paddle.js
+
+Checkout
+
+Platform
+
+Paddle Checkout now shows preferred local currencies in some regions, instead of US Dollars. Existing subscriptions are not impacted.
+
+Jan 18, 2024
+
+API
+
+Transactions
+
+More easily work with payment methods against a transaction payment attempt using the new
+
+payment_method_id
+
+field.
+
+stored_payment_method_id
+
+is now considered deprecated.
+
+Jan 15, 2024
+
+API
+
+Customers
+
+Use the new
+
+email
+
+query parameter when listing customers to filter by email address.
+
+Jan 12, 2023
+
+Platform
+
+Retain
+
+Subscriptions
+
+Term Optimization is now available for Paddle Billing! Intelligently identify customers on a monthly plan who are likely to upgrade to a plan with a longer term length.
+
+Jan 11, 2024
+
+SDK
+
+Use our PHP or Node.js SDKs to streamline integrating with Paddle Billing. Fully-featured from webhook verification to every API operation. Available now on GitHub.
+
+December 2023
+
+Dec 21, 2023
+
+Paddle.js
+
+Platform
+
+Pass a new
+
+allowedPaymentMethods
+
+parameter when opening a checkout using Paddle.js to choose which payment methods are presented to customers.
+
+Dec 21, 2023
+
+API
+
+Transactions
+
+See which payment methods are valid for the prices and location passed to a price preview or a transaction preview using the new
+
+available_payment_methods
+
+field in the API.
+
+Dec 20, 2023
+
+Platform
+
+Subscriptions
+
+Bill a one-time item to a subscription without having to add it to your product catalog by passing price or product attributes.
+
+Dec 19, 2023
+
+Platform
+
+Transactions
+
+Charge for an item without having to add it to your product catalog by passing price or product attributes when working with a transaction.
+
+Dec 18, 2023
+
+API
+
+Platform
+
+Subscriptions
+
+Upgrade a subscription, add items, bill for one-time changes, and change billing dates for a subscription even when payment fails by including the new
+
+on_payment_failure
+
+property when updating a subscription.
+
+Dec 13, 2023
+
+API
+
+Reporting
+
+Export data from your Paddle system using the API as well as the Paddle dashboard. Create reports using the
+
+/reports
+
+endpoint, then download them using
+
+/reports/{report_id}/download-url
+
+endpoint.
+
+Dec 12, 2023
+
+Platform
+
+Import
+
+Get information about how an entity was imported with the new
+
+import_meta
+
+object against products, prices, discounts, customers, addresses, businesses, and subscriptions.
+
+Dec 11, 2023
+
+API
+
+Platform
+
+Reporting
+
+Export information about transaction line items and adjustment line items as a spreadsheet to better understand your data and reconcile account activity.
+
+Dec 5, 2023
+
+Paddle.js
+
+Retain
+
+Check you've installed Paddle.js with Retain correctly and see for yourself what Retain looks like using the new
+
+Paddle.Retain.demo()
+
+method.
+
+Dec 1, 2023
+
+Paddle.js
+
+Checkout
+
+customer.business.name
+
+no longer requires
+
+customer.address
+
+, so you can prefill a business name at checkout even if you haven't captured address information yet.
+
+November 2023
+
+Nov 30, 2023
+
+API
+
+Transactions
+
+Use the new
+
+origin
+
+query parameter when listing transactions to filter by how they were created.
+
+Nov 28, 2023
+
+Platform
+
+Email
+
+Checkout
+
+Merhaba! Paddle now supports the Turkish locale for Paddle Checkout and subscription emails.
+
+tr
+
+is now an allowed value for the
+
+locale
+
+parameter when passing settings to a checkout.
+
+Nov 23, 2023
+
+Platform
+
+Checkout
+
+Email
+
+More easily distinguish emails sent from your sandbox account and your live account. Sandbox emails now include a
+
+[TEST]
+
+prefix in the subject.
+
+Nov 22, 2023
+
+Paddle.js
+
+Retain
+
+Subscriptions
+
+Cancellation Flows are now available for Paddle Billing! Use the new
+
+Paddle.Retain.initCancellationFlow()
+
+method in Paddle.js to start a cancellation flow for a subscription.
+
+Nov 14, 2023
+
+API
+
+Email
+
+Checkout
+
+Set names for prices and show them on checkouts, invoices, and emails from Paddle using the new
+
+name
+
+field against price entities.
+
+Nov 8, 2023
+
+API
+
+Catalog
+
+Include an object of
+
+custom_data
+
+with requests when creating or updating discounts to store your own arbitrary key-value data.
+
+Nov 3, 2023
+
+Platform
+
+Subscriptions
+
+Email
+
+Emails from Paddle when customers start a zero value subscription make it clear that they've saved a payment method. No receipt is sent. We also changed the wording when customers cancel these kinds of subscriptions.
+
+October 2023
+
+Oct 28, 2023
+
+Paddle.js
+
+Catalog
+
+Use the
+
+Paddle.PricePreview()
+
+method in Paddle.js to build pricing pages without making server-side calls to the Paddle API.
+
+Oct 27, 2023
+
+Paddle.js
+
+Checkout
+
+Platform
+
+Pass a client-side token to
+
+Paddle.Initialize()
+
+to authenticate with Paddle.js. There's no need to pass your seller ID anymore.
+
+Oct 24, 2023
+
+API
+
+Transactions
+
+Cardholder name is now returned in
+
+transaction.payments[].method_details.card
+
+, so you can build billing information pages or integrations that show the name on the card used for a payment attempt.
+
+Oct 13, 2023
+
+API
+
+Subscriptions
+
+Filter to see subscriptions with a scheduled change to pause, cancel, or resume using the
+
+scheduled_change_action
+
+query parameter.
+
+Oct 6, 2023
+
+API
+
+Transactions
+
+Pass an approved domain to
+
+checkout.url
+
+when creating a transaction to specify an approved domain for the returned checkout link rather than using your default payment link.
+
+Oct 6, 2023
+
+API
+
+Subscriptions
+
+Pass a list of subscription IDs when listing subscriptions using the
+
+id
+
+query parameter to return subscriptions that match.
+
+Oct 5, 2023
+
+Platform
+
+Subscriptions
+
+Pause or cancel a subscription right away, rather than at the end of the billing period.
+
+immediately
+
+is now an accepted allowed value for
+
+effective_from
+
+when sending a request to pause or cancel a subscription.
+
+Oct 4, 2023
+
+Paddle.js
+
+Checkout
+
+Customers
+
+Use the new
+
+showAddTaxId
+
+parameter or
+
+show-add-tax-id
+
+HTML data attribute when working with Paddle.js to hide the option to add tax and business information at checkout.
+
+Oct 3, 2023
+
+API
+
+Transactions
+
+Get a list of transactions that aren't related to a subscription by passing
+
+null
+
+as a value for the
+
+subscription_id
+
+query parameter when listing transactions. Use this to see transactions for single purchases.
+
+Oct 3, 2023
+
+API
+
+Subscriptions
+
+List only automatically-collected or manually-collected subscriptions using the new
+
+collection_mode
+
+query parameter.
+
+Oct 2, 2023
+
+Paddle.js
+
+SDK
+
+Load Paddle.js as a module and use TypeScript definitions when working with its methods.
+
+September 2023
+
+Sep 29, 2023
+
+Paddle.js
+
+Checkout
+
+Pass items, discount, and customer information to the new
+
+Paddle.Checkout.updateCheckout()
+
+method to update an open checkout.
+
+Sep 28, 2023
+
+Paddle.js
+
+Catalog
+
+Checkout
+
+Use the new
+
+showAddDiscounts
 
 parameter or
 
@@ -22,7 +1462,11 @@ Platform
 
 Subscriptions
 
-Let customers pay for subscriptions using Apple Pay and Google Pay, with no engineering effort required on your part. You may see
+Transactions
+
+Checkout
+
+Turn on Apple Pay and Google Pay as payment options for subscriptions, with no engineering effort required on your part. You may see
 
 apple_pay
 

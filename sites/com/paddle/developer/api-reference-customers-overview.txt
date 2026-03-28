@@ -142,10 +142,6 @@ string
 
 Name of the platform or provider where this entity was imported from.
 
-Show
-
-allowed values
-
 external_id
 
 string or null

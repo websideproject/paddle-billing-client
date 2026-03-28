@@ -34,7 +34,9 @@ notification_id
 
 .
 
-Create notification destination to get notifications for events. See:
+Create or update a notification destination
+
+Simulate webhooks
 
 id
 
@@ -55,6 +57,10 @@ Type of event sent by Paddle, in the format
 entity.event_type
 
 .
+
+Show
+
+allowed values
 
 status
 
@@ -92,6 +98,10 @@ entity.event_type
 
 .
 
+Show
+
+allowed values
+
 occurred_at
 
 string
@@ -122,15 +132,25 @@ RFC 3339 datetime string of when this notification occurred.
 
 delivered_at
 
-null or string
+string
+or null
 
 RFC 3339 datetime string of when this notification was delivered.
 
+null
+
+if not yet delivered successfully.
+
 replayed_at
 
-null or string
+string
+or null
 
 RFC 3339 datetime string of when this notification was replayed.
+
+null
+
+if not replayed.
 
 origin
 
@@ -144,13 +164,15 @@ allowed values
 
 last_attempt_at
 
-null or string
+string
+or null
 
 RFC 3339 datetime string of when this notification was last attempted.
 
 retry_at
 
-null or string
+string
+or null
 
 RFC 3339 datetime string of when this notification is scheduled to be retried.
 

@@ -42,6 +42,10 @@ Paddle automatically creates subscriptions for you when customers pay for recurr
 
 using a manually-collected transaction.
 
+Subscriptions describe an ongoing financial relationship with a customer, so they can't be deleted. Use the
+
+to cancel a subscription.
+
 Billing for subscriptions is powered by
 
 . When a subscription bills, Paddle creates a related transaction to calculate totals and collect for payment.
@@ -70,9 +74,25 @@ proration_billing_mode
 
 field to tell Paddle how to handle proration for the items you're adding or removing.
 
-Subscriptions describe an ongoing financial relationship with a customer, so they can't be deleted. Use the
+Subscriptions return authenticated links to the
 
-to cancel a subscription.
+in the
+
+management_urls
+
+object. You can use these links to redirect customers to the portal to manage their subscriptions.
+
+Authenticated links are only returned when your API key has a Customer portal session (Write)
+
+.
+
+The
+
+token
+
+appended to authenticated links is the token for the
+
+. It is temporary and shouldn't be cached or stored.
 
 Add or remove items
 
@@ -434,11 +454,13 @@ management_urls
 
 object
 
-Authenticated customer portal deep links for this subscription. For security, the
+Customer portal deep links for this subscription.
+
+Authenticated links are only returned when your API key has Customer portal session (Write) permission. For security, the
 
 token
 
-appended to each link is temporary. You shouldn't store these links.
+appended to authenticated links is temporary. You shouldn't store them.
 
 update_payment_method
 
@@ -555,10 +577,6 @@ string
 
 Name of the platform or provider where this entity was imported from.
 
-Show
-
-allowed values
-
 external_id
 
 string or null
@@ -652,3 +670,11 @@ post
 https://api.paddle.com
 
 /subscriptions/{subscription_id}/cancel
+
+Retry payment for a subscription transaction
+
+post
+
+https://api.paddle.com
+
+/subscriptions/{subscription_id}/transactions/{transaction_id}/retry
